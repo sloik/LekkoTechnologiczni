@@ -125,8 +125,9 @@ class KikBaseViewController: UIViewController {
             self.setupGame()
         }
 
-        let alert = UIAlertController(title: "🤩" ,
-                          message: "Game won by \(currentSymbol.rawValue)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "🤩 Game won by \(currentSymbol.rawValue)" ,
+                          message: grid,
+                          preferredStyle: .alert)
 
         alert.addAction(ok)
 
@@ -139,12 +140,21 @@ class KikBaseViewController: UIViewController {
             self.setupGame()
         }
 
-        let alert = UIAlertController(title: "🤔" ,
-                          message: "No one won!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "🤔 No one won!" ,
+                          message: grid,
+                          preferredStyle: .alert)
 
         alert.addAction(ok)
 
         present(alert, animated: true, completion: nil)
+    }
+
+    var grid: String {
+        """
+        \(model[0].rawValue)  \(model[1].rawValue)  \(model[2].rawValue)
+        \(model[3].rawValue)  \(model[4].rawValue)  \(model[5].rawValue)
+        \(model[6].rawValue)  \(model[7].rawValue)  \(model[8].rawValue)
+        """
     }
 }
 
