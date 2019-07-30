@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
+		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
+		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
+		EF16ACB622F0C4090000A7AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */; };
+		EF16ACB922F0C4090000A7AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */; };
+		EF16ACC422F0C4090000A7AD /* KikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACC322F0C4090000A7AD /* KikTests.swift */; };
+		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
+		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
+		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF16ACC022F0C4090000A7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF16ACA122F0C4060000A7AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF16ACA822F0C4060000A7AD;
+			remoteInfo = Kik;
+		};
+		EF16ACCB22F0C4090000A7AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF16ACA122F0C4060000A7AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF16ACA822F0C4060000A7AD;
+			remoteInfo = Kik;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EF16ACB222F0C4080000A7AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF16ACB822F0C4090000A7AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF16ACBA22F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF16ACBF22F0C4090000A7AD /* KikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF16ACC322F0C4090000A7AD /* KikTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikTests.swift; sourceTree = "<group>"; };
+		EF16ACC522F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF16ACCE22F0C4090000A7AD /* KikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikUITests.swift; sourceTree = "<group>"; };
+		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF16ACA622F0C4060000A7AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACBC22F0C4090000A7AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACC722F0C4090000A7AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF16ACA022F0C4060000A7AD = {
+			isa = PBXGroup;
+			children = (
+				EF16ACAB22F0C4060000A7AD /* Kik */,
+				EF16ACC222F0C4090000A7AD /* KikTests */,
+				EF16ACCD22F0C4090000A7AD /* KikUITests */,
+				EF16ACAA22F0C4060000A7AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF16ACAA22F0C4060000A7AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACA922F0C4060000A7AD /* Kik.app */,
+				EF16ACBF22F0C4090000A7AD /* KikTests.xctest */,
+				EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF16ACAB22F0C4060000A7AD /* Kik */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACBA22F0C4090000A7AD /* Info.plist */,
+				EF16ACDC22F0C45B0000A7AD /* Main.storyboard */,
+				EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */,
+				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
+				EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */,
+				EF16ACB222F0C4080000A7AD /* Assets.xcassets */,
+				EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */,
+				EF16ACB422F0C4090000A7AD /* Preview Content */,
+			);
+			path = Kik;
+			sourceTree = "<group>";
+		};
+		EF16ACB422F0C4090000A7AD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF16ACC222F0C4090000A7AD /* KikTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACC322F0C4090000A7AD /* KikTests.swift */,
+				EF16ACC522F0C4090000A7AD /* Info.plist */,
+			);
+			path = KikTests;
+			sourceTree = "<group>";
+		};
+		EF16ACCD22F0C4090000A7AD /* KikUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACCE22F0C4090000A7AD /* KikUITests.swift */,
+				EF16ACD022F0C4090000A7AD /* Info.plist */,
+			);
+			path = KikUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF16ACA822F0C4060000A7AD /* Kik */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF16ACD322F0C4090000A7AD /* Build configuration list for PBXNativeTarget "Kik" */;
+			buildPhases = (
+				EF16ACA522F0C4060000A7AD /* Sources */,
+				EF16ACA622F0C4060000A7AD /* Frameworks */,
+				EF16ACA722F0C4060000A7AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kik;
+			productName = Kik;
+			productReference = EF16ACA922F0C4060000A7AD /* Kik.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF16ACBE22F0C4090000A7AD /* KikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF16ACD622F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikTests" */;
+			buildPhases = (
+				EF16ACBB22F0C4090000A7AD /* Sources */,
+				EF16ACBC22F0C4090000A7AD /* Frameworks */,
+				EF16ACBD22F0C4090000A7AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF16ACC122F0C4090000A7AD /* PBXTargetDependency */,
+			);
+			name = KikTests;
+			productName = KikTests;
+			productReference = EF16ACBF22F0C4090000A7AD /* KikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF16ACC922F0C4090000A7AD /* KikUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF16ACD922F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikUITests" */;
+			buildPhases = (
+				EF16ACC622F0C4090000A7AD /* Sources */,
+				EF16ACC722F0C4090000A7AD /* Frameworks */,
+				EF16ACC822F0C4090000A7AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF16ACCC22F0C4090000A7AD /* PBXTargetDependency */,
+			);
+			name = KikUITests;
+			productName = KikUITests;
+			productReference = EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF16ACA122F0C4060000A7AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = A.C.M.E.;
+				TargetAttributes = {
+					EF16ACA822F0C4060000A7AD = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					EF16ACBE22F0C4090000A7AD = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = EF16ACA822F0C4060000A7AD;
+					};
+					EF16ACC922F0C4090000A7AD = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = EF16ACA822F0C4060000A7AD;
+					};
+				};
+			};
+			buildConfigurationList = EF16ACA422F0C4060000A7AD /* Build configuration list for PBXProject "Kik" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF16ACA022F0C4060000A7AD;
+			productRefGroup = EF16ACAA22F0C4060000A7AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF16ACA822F0C4060000A7AD /* Kik */,
+				EF16ACBE22F0C4090000A7AD /* KikTests */,
+				EF16ACC922F0C4090000A7AD /* KikUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF16ACA722F0C4060000A7AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF16ACB922F0C4090000A7AD /* LaunchScreen.storyboard in Resources */,
+				EF16ACB622F0C4090000A7AD /* Preview Assets.xcassets in Resources */,
+				EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */,
+				EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACBD22F0C4090000A7AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACC822F0C4090000A7AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF16ACA522F0C4060000A7AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
+				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
+				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACBB22F0C4090000A7AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF16ACC422F0C4090000A7AD /* KikTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF16ACC622F0C4090000A7AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF16ACC122F0C4090000A7AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF16ACA822F0C4060000A7AD /* Kik */;
+			targetProxy = EF16ACC022F0C4090000A7AD /* PBXContainerItemProxy */;
+		};
+		EF16ACCC22F0C4090000A7AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF16ACA822F0C4060000A7AD /* Kik */;
+			targetProxy = EF16ACCB22F0C4090000A7AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF16ACB822F0C4090000A7AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF16ACD122F0C4090000A7AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF16ACD222F0C4090000A7AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF16ACD422F0C4090000A7AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "Kik/Preview\\ Content";
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Kik/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF16ACD522F0C4090000A7AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "Kik/Preview\\ Content";
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Kik/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EF16ACD722F0C4090000A7AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				INFOPLIST_FILE = KikTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kik.app/Kik";
+			};
+			name = Debug;
+		};
+		EF16ACD822F0C4090000A7AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				INFOPLIST_FILE = KikTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kik.app/Kik";
+			};
+			name = Release;
+		};
+		EF16ACDA22F0C4090000A7AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				INFOPLIST_FILE = KikUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kik;
+			};
+			name = Debug;
+		};
+		EF16ACDB22F0C4090000A7AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				INFOPLIST_FILE = KikUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kik;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF16ACA422F0C4060000A7AD /* Build configuration list for PBXProject "Kik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF16ACD122F0C4090000A7AD /* Debug */,
+				EF16ACD222F0C4090000A7AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF16ACD322F0C4090000A7AD /* Build configuration list for PBXNativeTarget "Kik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF16ACD422F0C4090000A7AD /* Debug */,
+				EF16ACD522F0C4090000A7AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF16ACD622F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF16ACD722F0C4090000A7AD /* Debug */,
+				EF16ACD822F0C4090000A7AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF16ACD922F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF16ACDA22F0C4090000A7AD /* Debug */,
+				EF16ACDB22F0C4090000A7AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF16ACA122F0C4060000A7AD /* Project object */;
+}
