@@ -32,6 +32,6 @@ class KikTests: XCTestCase {
     
     func test_checkIfSymbolsAreTheSame() {
         let symbols = generateLine()
-        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: generateLine()), "Sybols was: \(symbols)")
+        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Sybols was: \(symbols)")
     }
 }
