@@ -20,15 +20,18 @@ class KikTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func test_checkIfSymbolsAreTheSame() {
-        //arrange
+    
+    private func generateLine() -> [Symbol] {
         var symbols: [Symbol] = []
         
         for _ in 0...2 {
-            symbols.append(Symbol.allCases.randomElement()!)
-        }
-        //assert
-        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Symbols are the same")
+                   symbols.append(Symbol.allCases.randomElement()!)
+               }
+        return symbols
+    }
+    
+    func test_checkIfSymbolsAreTheSame() {
+        let symbols = generateLine()
+        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: generateLine()), "Sybols was: \(symbols)")
     }
 }
