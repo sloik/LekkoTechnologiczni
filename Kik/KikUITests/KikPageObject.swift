@@ -4,14 +4,14 @@ import XCTest
 public struct KikPageObject {
     
     public static let button1 = XCUIApplication().buttons["0"]
-    public static let button2 = XCUIApplication().buttons.matching(identifier: "1").firstMatch
-    public static let button3 = XCUIApplication().buttons.matching(identifier: "2").firstMatch
-    public static let button4 = XCUIApplication().buttons.matching(identifier: "3").firstMatch
-    public static let button5 = XCUIApplication().buttons.matching(identifier: "4").firstMatch
-    public static let button6 = XCUIApplication().buttons.matching(identifier: "5").firstMatch
-    public static let button7 = XCUIApplication().buttons.matching(identifier: "6").firstMatch
-    public static let button8 = XCUIApplication().buttons.matching(identifier: "7").firstMatch
-    public static let button9 = XCUIApplication().buttons.matching(identifier: "8").firstMatch
+    public static let button2 = XCUIApplication().buttons["1"]
+    public static let button3 = XCUIApplication().buttons["2"]
+    public static let button4 = XCUIApplication().buttons["3"]
+    public static let button5 = XCUIApplication().buttons["4"]
+    public static let button6 = XCUIApplication().buttons["5"]
+    public static let button7 = XCUIApplication().buttons["6"]
+    public static let button8 = XCUIApplication().buttons["7"]
+    public static let button9 = XCUIApplication().buttons["8"]
     
     public static func winningGame() {
         KikPageObject.button1.tap()

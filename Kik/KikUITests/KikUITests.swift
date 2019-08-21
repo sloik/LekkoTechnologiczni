@@ -3,15 +3,13 @@ import SnapshotTesting
 
 class KikUITests: XCTestCase {
 
-    let application = XCUIApplication()
-
     override func setUp() {
-        application.launch()
+        XCUIApplication().launch()
         continueAfterFailure = false
     }
 
     override func tearDown() {
-        application.terminate()
+        XCUIApplication().terminate()
     }
 
     func test_checkIfButtonIsTappable() {
