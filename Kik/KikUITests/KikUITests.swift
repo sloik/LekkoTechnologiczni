@@ -1,43 +1,45 @@
-//
-//  KikUITests.swift
-//  KikUITests
-//
-//  Created by Edward Maliniak on 30/07/2019.
-//  Copyright © 2019 A.C.M.E. All rights reserved.
-//
-
 import XCTest
+import SnapshotTesting
 
 class KikUITests: XCTestCase {
 
+    let application = XCUIApplication()
+    
+       
+        
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        application.launch()
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        application.terminate()
     }
 
-    func testExample() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_checkIfButtonIsTappable() {
+        KikPageObject.button1.tap()
+        XCTAssert(KikPageObject.button1.label == "O", "Button was not tapped")
+        
+        KikPageObject.button2.tap()
+        XCTAssert(KikPageObject.button2.label == "X", "Wrong symbol appeared")
     }
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func test_chceckIfUserCannotTapOneButtonTwice() {
+        KikPageObject.button1.tap()
+        KikPageObject.button1.tap()
+        assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
+    }
+    
+    func test_chcekIfUserCanWin() {
+        KikPageObject.winningGame()
+        assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
+    }
+    
+    func test_checkIfUsersCanTie() {
+        KikPageObject.drawGame()
+        assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
 }
+
+
