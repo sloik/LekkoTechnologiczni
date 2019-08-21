@@ -37,7 +37,6 @@ public struct KikPageObject {
         guard let screenshot = XCUIApplication().windows.firstMatch.screenshot().image.removingStatusBar else { return UIImage() }
         return screenshot
     }
-    
 }
 
 extension UIImage {

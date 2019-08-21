@@ -159,7 +159,6 @@ class KikBaseViewController: UIViewController {
     }
 }
 
-
 extension KikBaseViewController {
     
     func addAccesibilityIdentifiers() {

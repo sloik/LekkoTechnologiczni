@@ -4,13 +4,10 @@ import SnapshotTesting
 class KikUITests: XCTestCase {
 
     let application = XCUIApplication()
-    
-       
-        
+
     override func setUp() {
         application.launch()
         continueAfterFailure = false
-
     }
 
     override func tearDown() {
@@ -41,5 +38,3 @@ class KikUITests: XCTestCase {
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
 }
-
-
