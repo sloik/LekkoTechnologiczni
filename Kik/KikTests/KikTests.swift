@@ -21,7 +21,6 @@ class KikTests: XCTestCase {
         sut.model = Array(repeating: .none, count: 9)
     }
     
-
     func test_checkIfSymbolsAreTheSame() {
         let symbols = Array(repeating: Symbol.X, count: 3)
         XCTAssert(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Error: symbols are not the same, symbols was \(symbols)")
@@ -29,24 +28,22 @@ class KikTests: XCTestCase {
     
     func test_checkIfGameEndedReturnWin() {
         sut.model = Array(repeating: .X, count: 9)
-        XCTAssert(sut.gameEnded() == GameStateResult.winner, "Error: game state is not valid")
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.winner)
     }
     
     func test_checkIfGameEndedReturnPlaying() {
         sut.model = Array(repeating: .none, count: 9)
-        XCTAssert(sut.gameEnded() == GameStateResult.playing, "Error: game state is not valid")
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.playing)
     }
     
     func test_checkIfGameEndedReturnTie() {
         sut.model = [.O, .X, .X, .X, .O, .O, .O, .O, .X,]
-        XCTAssert(sut.gameEnded() == GameStateResult.tie, "Error: game state is not valid")
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.tie)
     }
     func test_checIfLinesAreConvertedToSymbols() {
         sut.model = [.O]
         let converted = sut.convertLinesToSymbols(line: [0])
         XCTAssert(converted.contains(.O), "Error: sybmbol is not .O, symbol was converted to \(converted)")
-        XCTAssert(converted == sut.model, "Error: symbol is not not converted, symbols are: \(converted)" )
+        XCTAssertEqual(converted, sut.model)
     }
-    
-    
 }
