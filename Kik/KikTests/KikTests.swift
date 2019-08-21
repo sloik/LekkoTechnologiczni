@@ -18,20 +18,35 @@ class KikTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut.model = Array(repeating: .none, count: 9)
     }
     
-    private func generateLine() -> [Symbol] {
-        var symbols: [Symbol] = []
-        
-        for _ in 0...2 {
-                   symbols.append(Symbol.allCases.randomElement()!)
-               }
-        return symbols
-    }
-    
+
     func test_checkIfSymbolsAreTheSame() {
-        let symbols = generateLine()
-        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Sybols was: \(symbols)")
+        let symbols = Array(repeating: Symbol.X, count: 3)
+        XCTAssert(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Error: symbols are not the same, symbols was \(symbols)")
     }
+    
+    func test_checkIfGameEndedReturnWin() {
+        sut.model = Array(repeating: .X, count: 9)
+        XCTAssert(sut.gameEnded() == GameStateResult.winner, "Error: game state is not valid")
+    }
+    
+    func test_checkIfGameEndedReturnPlaying() {
+        sut.model = Array(repeating: .none, count: 9)
+        XCTAssert(sut.gameEnded() == GameStateResult.playing, "Error: game state is not valid")
+    }
+    
+    func test_checkIfGameEndedReturnTie() {
+        sut.model = [.O, .X, .X, .X, .O, .O, .O, .O, .X,]
+        XCTAssert(sut.gameEnded() == GameStateResult.tie, "Error: game state is not valid")
+    }
+    func test_checIfLinesAreConvertedToSymbols() {
+        sut.model = [.O]
+        let converted = sut.convertLinesToSymbols(line: [0])
+        XCTAssert(converted.contains(.O), "Error: sybmbol is not .O, symbol was converted to \(converted)")
+        XCTAssert(converted == sut.model, "Error: symbol is not not converted, symbols are: \(converted)" )
+    }
+    
+    
 }
