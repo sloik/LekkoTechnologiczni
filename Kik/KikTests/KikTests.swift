@@ -1,10 +1,3 @@
-//
-//  KikTests.swift
-//  KikTests
-//
-//  Created by Edward Maliniak on 30/07/2019.
-//  Copyright © 2019 A.C.M.E. All rights reserved.
-//
 
 import XCTest
 @testable import Kik
