@@ -41,9 +41,29 @@ class KikTests: XCTestCase {
         XCTAssertEqual(sut.gameEnded(), GameStateResult.tie)
     }
     func test_checIfLinesAreConvertedToSymbols() {
-        sut.model = [.O]
-        let converted = sut.convertLinesToSymbols(line: [0])
-        XCTAssert(converted.contains(.O), "Error: sybmbol is not .O, symbol was converted to \(converted)")
-        XCTAssertEqual(converted, sut.model)
+        sut.model = [   .X,    .X,   .X,
+                        .O,    .O,   .O,
+                     .none, .none, .none]
+
+
+        XCTAssertEqual(
+            sut.convertLinesToSymbols(line: [0, 1, 2]),
+                       [.X, .X, .X]
+        )
+
+        XCTAssertEqual(
+            sut.convertLinesToSymbols(line: [3, 4, 5]),
+                       [.O, .O, .O]
+        )
+
+        XCTAssertEqual(
+            sut.convertLinesToSymbols(line: [6, 7, 8]),
+                       [.none, .none, .none]
+        )
+
+        XCTAssertEqual(
+            sut.convertLinesToSymbols(line: [1, 3, 6]),
+                       [.X, .O, .none]
+        )
     }
 }
