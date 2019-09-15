@@ -19,6 +19,11 @@ class KikTests: XCTestCase {
         XCTAssert(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols), "Error: symbols are not the same, symbols was \(symbols)")
     }
     
+    func test_checkIfSymbolsAreTheSame_shouldReturnFalseIfLineContainsNone() {
+        let symbols: [Symbol] = [.none, .X, .X]
+        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: symbols))
+    }
+    
     func test_checkIfGameEndedReturnWin() {
         sut.model = Array(repeating: .X, count: 9)
         XCTAssertEqual(sut.gameEnded(), GameStateResult.winner)
@@ -30,7 +35,9 @@ class KikTests: XCTestCase {
     }
     
     func test_checkIfGameEndedReturnTie() {
-        sut.model = [.O, .X, .X, .X, .O, .O, .O, .O, .X,]
+        sut.model = [.O, .X, .X,
+                     .X, .O, .O,
+                     .O, .O, .X,]
         XCTAssertEqual(sut.gameEnded(), GameStateResult.tie)
     }
     func test_checIfLinesAreConvertedToSymbols() {

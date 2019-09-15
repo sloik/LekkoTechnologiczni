@@ -107,7 +107,7 @@ class KikBaseViewController: UIViewController {
         }
 
         let symbolSet: Set<Symbol> = Set(symbolLine)
-        return symbolSet.count == 1
+        return symbolSet.count == 1 
     }
 
     func convertLinesToSymbols(line: [Int]) -> [Symbol] {

@@ -35,4 +35,6 @@ class KikUITests: XCTestCase {
         KikPageObject.drawGame()
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
+    
+    
 }
