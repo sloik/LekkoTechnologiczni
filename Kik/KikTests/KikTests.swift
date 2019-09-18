@@ -10,25 +10,62 @@ import XCTest
 @testable import Kik
 
 class KikTests: XCTestCase {
+    
+    var sut: KikBaseViewController!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = KikBaseViewController()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut.model = Array(repeating: .none, count: 9)
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_checkIfAllSymbolsAreTheSame() {
+        
+        let symobols:[Symbol]  = Array(repeating:.X , count: 3)
+        XCTAssert(sut.checkIfAllSymbolsAreTheSame(symbolLine: symobols))
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_checkIfAllSymbolsAreTheSame_ShoudReturnFalseIfContainsNone() {
+        let symobols:[Symbol]  = [.X, .O, .none]
+        XCTAssertFalse(sut.checkIfAllSymbolsAreTheSame(symbolLine: symobols))
     }
-
+    
+    func test_checkIfEndGameReturnWin() {
+        sut.model = Array(repeating: .X, count: 9)
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.winner)
+    }
+    
+    func test_checkIfEndGameReturnTie() {
+        sut.model = [.O, .X, .X,
+                     .X, .O, .O,
+                     .O, .O, .X]
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.tie)
+    }
+    
+    func test_checkIfEndGameReturnPlaying() {
+        sut.model = Array(repeating: .none, count: 9)
+        XCTAssertEqual(sut.gameEnded(), GameStateResult.playing)
+    }
+    
+    func test_checkIfLinesAreConvertedToSymbols() {
+        sut.model = [.O, .O, .O,
+                     .X, .X, .X,
+                     .none, .none, .none]
+        
+        XCTAssertEqual(sut.convertLinesToSymbols(line: [0, 1, 2]),
+                       [.O, .O, .O])
+        
+        XCTAssertEqual(sut.convertLinesToSymbols(line: [3, 4, 5]),
+                       [.X, .X, .X])
+        
+        XCTAssertEqual(sut.convertLinesToSymbols(line: [6, 7, 8]),
+                       [.none, .none, .none])
+        
+        XCTAssertEqual(sut.convertLinesToSymbols(line: [1, 3, 6]),
+                       [.O, .X, .none])
+        
+    }
 }

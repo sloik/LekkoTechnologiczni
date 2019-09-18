@@ -51,6 +51,7 @@ class KikBaseViewController: UIViewController {
         super.viewDidLoad()
 
         setupGame()
+        addAccessibilityIdentifiers()
     }
 
     func setupGame() {
@@ -158,3 +159,12 @@ class KikBaseViewController: UIViewController {
     }
 }
 
+extension KikBaseViewController {
+    
+    func addAccessibilityIdentifiers() {
+        for button in buttons {
+            button.isAccessibilityElement = true
+            button.accessibilityIdentifier = String(button.tag)
+        }
+    }
+}
