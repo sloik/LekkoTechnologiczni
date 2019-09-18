@@ -7,11 +7,13 @@ class KikTests: XCTestCase {
     var sut: KikBaseViewController!
     
     override func setUp() {
+        super.setUp()
         sut = KikBaseViewController()
     }
 
     override func tearDown() {
         sut.model = Array(repeating: .none, count: 9)
+        super.tearDown()
     }
     
     func test_checkIfSymbolsAreTheSame() {
@@ -40,7 +42,7 @@ class KikTests: XCTestCase {
                      .O, .O, .X,]
         XCTAssertEqual(sut.gameEnded(), GameStateResult.tie)
     }
-    func test_checIfLinesAreConvertedToSymbols() {
+    func test_checkIfLinesAreConvertedToSymbols() {
         sut.model = [   .X,    .X,   .X,
                         .O,    .O,   .O,
                      .none, .none, .none]
