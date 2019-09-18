@@ -12,28 +12,29 @@ class KikUITests: XCTestCase {
         XCUIApplication().terminate()
     }
 
-    func test_IfButtonsAreTappable() {
-        
+    func test_checkIfButtonIsTappable() {
         KikPageObject.button1.tap()
-        XCTAssert(KikPageObject.button1.label == "O")
+        XCTAssert(KikPageObject.button1.label == "O", "Button was not tapped")
         
         KikPageObject.button2.tap()
-        XCTAssert(KikPageObject.button2.label == "X")
+        XCTAssert(KikPageObject.button2.label == "X", "Wrong symbol appeared")
     }
     
-    func test_CheckIfUserCannotTapButtonTwice() {
+    func test_chceckIfUserCannotTapOneButtonTwice() {
         KikPageObject.button1.tap()
         KikPageObject.button1.tap()
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
     
-    func test_IfUserCanWin() {
+    func test_chcekIfUserCanWin() {
         KikPageObject.winningGame()
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
     
-    func test_CheckIfUserCanTie() {
-        KikPageObject.tieGame()
+    func test_checkIfUsersCanTie() {
+        KikPageObject.drawGame()
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
+    
+    
 }

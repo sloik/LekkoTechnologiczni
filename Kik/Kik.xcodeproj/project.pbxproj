@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11733777BF8D9B3680B0FC9C /* Pods_Kik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0037B0A966C1BF953A10BF1F /* Pods_Kik.framework */; };
-		19D6927C232E9D4F00019553 /* KikPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6927B232E9D4F00019553 /* KikPageObject.swift */; };
-		4D8CDC76260E2A7E59033D08 /* Pods_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39B5BD6E6172A6B49AC74C3 /* Pods_KikUITests.framework */; };
-		7BAB92E74F9EE0E6B7763831 /* Pods_KikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E391DE3A67DD170CD379719 /* Pods_KikTests.framework */; };
+		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
+		19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A696C0230DC5C600F7CDEF /* KikPageObject.swift */; };
+		3E73C5F89B9B703C4CFC28D6 /* Pods_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */; };
+		A5C9E52A192B75333BDA45CC /* Pods_Kik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115AAB6494FF74687DEF182E /* Pods_Kik.framework */; };
+		B65E52CBC7E84E5589A46E09 /* Pods_KikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
 		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
@@ -40,15 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0037B0A966C1BF953A10BF1F /* Pods_Kik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19D6927B232E9D4F00019553 /* KikPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikPageObject.swift; sourceTree = "<group>"; };
-		2D9D58DD00833F2DBD84524D /* Pods-Kik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.debug.xcconfig"; sourceTree = "<group>"; };
-		5E391DE3A67DD170CD379719 /* Pods_KikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		621B5C4370AC90C17E3E4266 /* Pods-KikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A39B5BD6E6172A6B49AC74C3 /* Pods_KikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA4544CB2F7818A71ABC96A /* Pods-KikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CAA539DF82ABA2257E40518C /* Pods-Kik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.release.xcconfig"; sourceTree = "<group>"; };
-		E1D89EF8A88586F5AEC7F568 /* Pods-KikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.release.xcconfig"; sourceTree = "<group>"; };
+		07660F3EDE3348D25098D1C7 /* Pods-KikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		115AAB6494FF74687DEF182E /* Pods_Kik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
+		19A696C0230DC5C600F7CDEF /* KikPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikPageObject.swift; sourceTree = "<group>"; };
+		279C13AAB4EA2EF75344D56E /* Pods-KikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.debug.xcconfig"; sourceTree = "<group>"; };
+		55FDF30F0A7BFBB44E3952E8 /* Pods-KikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.release.xcconfig"; sourceTree = "<group>"; };
+		61F2856D92D172BCCECAB28C /* Pods-Kik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.debug.xcconfig"; sourceTree = "<group>"; };
+		858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9486EB96E79E61D365AE16B7 /* Pods-KikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5FA0EF162775228049A2EA5 /* Pods-Kik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.release.xcconfig"; sourceTree = "<group>"; };
 		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
-		FCFCE6F97A2F9E4BA53DD5B5 /* Pods-KikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11733777BF8D9B3680B0FC9C /* Pods_Kik.framework in Frameworks */,
+				A5C9E52A192B75333BDA45CC /* Pods_Kik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BAB92E74F9EE0E6B7763831 /* Pods_KikTests.framework in Frameworks */,
+				B65E52CBC7E84E5589A46E09 /* Pods_KikTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,21 +90,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8CDC76260E2A7E59033D08 /* Pods_KikUITests.framework in Frameworks */,
+				3E73C5F89B9B703C4CFC28D6 /* Pods_KikUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2632FB09C79C06CB9107D1EF /* Frameworks */ = {
+		0D040CC481C81D273D5396D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0037B0A966C1BF953A10BF1F /* Pods_Kik.framework */,
-				5E391DE3A67DD170CD379719 /* Pods_KikTests.framework */,
-				A39B5BD6E6172A6B49AC74C3 /* Pods_KikUITests.framework */,
+				115AAB6494FF74687DEF182E /* Pods_Kik.framework */,
+				858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */,
+				0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9089F990E76DA6B3FAEAF1F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61F2856D92D172BCCECAB28C /* Pods-Kik.debug.xcconfig */,
+				E5FA0EF162775228049A2EA5 /* Pods-Kik.release.xcconfig */,
+				279C13AAB4EA2EF75344D56E /* Pods-KikTests.debug.xcconfig */,
+				9486EB96E79E61D365AE16B7 /* Pods-KikTests.release.xcconfig */,
+				07660F3EDE3348D25098D1C7 /* Pods-KikUITests.debug.xcconfig */,
+				55FDF30F0A7BFBB44E3952E8 /* Pods-KikUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EF16ACA022F0C4060000A7AD = {
@@ -112,8 +127,8 @@
 				EF16ACC222F0C4090000A7AD /* KikTests */,
 				EF16ACCD22F0C4090000A7AD /* KikUITests */,
 				EF16ACAA22F0C4060000A7AD /* Products */,
-				F452E80F73FBBD80F400086B /* Pods */,
-				2632FB09C79C06CB9107D1EF /* Frameworks */,
+				9089F990E76DA6B3FAEAF1F6 /* Pods */,
+				0D040CC481C81D273D5396D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				EF16ACC322F0C4090000A7AD /* KikTests.swift */,
+				19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */,
 				EF16ACC522F0C4090000A7AD /* Info.plist */,
 			);
 			path = KikTests;
@@ -162,24 +178,11 @@
 		EF16ACCD22F0C4090000A7AD /* KikUITests */ = {
 			isa = PBXGroup;
 			children = (
+				19A696C0230DC5C600F7CDEF /* KikPageObject.swift */,
 				EF16ACCE22F0C4090000A7AD /* KikUITests.swift */,
 				EF16ACD022F0C4090000A7AD /* Info.plist */,
-				19D6927B232E9D4F00019553 /* KikPageObject.swift */,
 			);
 			path = KikUITests;
-			sourceTree = "<group>";
-		};
-		F452E80F73FBBD80F400086B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2D9D58DD00833F2DBD84524D /* Pods-Kik.debug.xcconfig */,
-				CAA539DF82ABA2257E40518C /* Pods-Kik.release.xcconfig */,
-				621B5C4370AC90C17E3E4266 /* Pods-KikTests.debug.xcconfig */,
-				FCFCE6F97A2F9E4BA53DD5B5 /* Pods-KikTests.release.xcconfig */,
-				BEA4544CB2F7818A71ABC96A /* Pods-KikUITests.debug.xcconfig */,
-				E1D89EF8A88586F5AEC7F568 /* Pods-KikUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF16ACD322F0C4090000A7AD /* Build configuration list for PBXNativeTarget "Kik" */;
 			buildPhases = (
-				F808D79AA7EC5971CE562D48 /* [CP] Check Pods Manifest.lock */,
+				A5F8E05C8DEBF0FE37AA6C1B /* [CP] Check Pods Manifest.lock */,
 				EF16ACA522F0C4060000A7AD /* Sources */,
 				EF16ACA622F0C4060000A7AD /* Frameworks */,
 				EF16ACA722F0C4060000A7AD /* Resources */,
@@ -207,7 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF16ACD622F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikTests" */;
 			buildPhases = (
-				A5A8FA18706578CC504B2787 /* [CP] Check Pods Manifest.lock */,
+				E5C0F5FB540821CF99DF609A /* [CP] Check Pods Manifest.lock */,
 				EF16ACBB22F0C4090000A7AD /* Sources */,
 				EF16ACBC22F0C4090000A7AD /* Frameworks */,
 				EF16ACBD22F0C4090000A7AD /* Resources */,
@@ -226,11 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF16ACD922F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikUITests" */;
 			buildPhases = (
-				1DD1417C18B19DEED4CD6028 /* [CP] Check Pods Manifest.lock */,
+				0186E22AEBF411ADACBB32C4 /* [CP] Check Pods Manifest.lock */,
 				EF16ACC622F0C4090000A7AD /* Sources */,
 				EF16ACC722F0C4090000A7AD /* Frameworks */,
 				EF16ACC822F0C4090000A7AD /* Resources */,
-				9847D2DB74E08794C388E45B /* [CP] Embed Pods Frameworks */,
+				9F98FC3EBAF3DF5D232450CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,7 +317,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1DD1417C18B19DEED4CD6028 /* [CP] Check Pods Manifest.lock */ = {
+		0186E22AEBF411ADACBB32C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,7 +339,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9847D2DB74E08794C388E45B /* [CP] Embed Pods Frameworks */ = {
+		9F98FC3EBAF3DF5D232450CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,29 +361,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5A8FA18706578CC504B2787 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KikTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F808D79AA7EC5971CE562D48 /* [CP] Check Pods Manifest.lock */ = {
+		A5F8E05C8DEBF0FE37AA6C1B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,6 +377,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Kik-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C0F5FB540821CF99DF609A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KikTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */,
 				EF16ACC422F0C4090000A7AD /* KikTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */,
-				19D6927C232E9D4F00019553 /* KikPageObject.swift in Sources */,
+				19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,12 +579,12 @@
 		};
 		EF16ACD422F0C4090000A7AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D9D58DD00833F2DBD84524D /* Pods-Kik.debug.xcconfig */;
+			baseConfigurationReference = 61F2856D92D172BCCECAB28C /* Pods-Kik.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Kik/Preview\\ Content";
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,12 +600,12 @@
 		};
 		EF16ACD522F0C4090000A7AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAA539DF82ABA2257E40518C /* Pods-Kik.release.xcconfig */;
+			baseConfigurationReference = E5FA0EF162775228049A2EA5 /* Pods-Kik.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Kik/Preview\\ Content";
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -617,12 +621,12 @@
 		};
 		EF16ACD722F0C4090000A7AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 621B5C4370AC90C17E3E4266 /* Pods-KikTests.debug.xcconfig */;
+			baseConfigurationReference = 279C13AAB4EA2EF75344D56E /* Pods-KikTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				INFOPLIST_FILE = KikTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,12 +643,12 @@
 		};
 		EF16ACD822F0C4090000A7AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCFCE6F97A2F9E4BA53DD5B5 /* Pods-KikTests.release.xcconfig */;
+			baseConfigurationReference = 9486EB96E79E61D365AE16B7 /* Pods-KikTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				INFOPLIST_FILE = KikTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -661,11 +665,11 @@
 		};
 		EF16ACDA22F0C4090000A7AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEA4544CB2F7818A71ABC96A /* Pods-KikUITests.debug.xcconfig */;
+			baseConfigurationReference = 07660F3EDE3348D25098D1C7 /* Pods-KikUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				INFOPLIST_FILE = KikUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -682,11 +686,11 @@
 		};
 		EF16ACDB22F0C4090000A7AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1D89EF8A88586F5AEC7F568 /* Pods-KikUITests.release.xcconfig */;
+			baseConfigurationReference = 55FDF30F0A7BFBB44E3952E8 /* Pods-KikUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				DEVELOPMENT_TEAM = KF62RW5R42;
 				INFOPLIST_FILE = KikUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

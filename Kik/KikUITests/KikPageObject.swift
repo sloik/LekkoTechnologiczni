@@ -21,7 +21,7 @@ public struct KikPageObject {
         KikPageObject.button9.tap()
     }
     
-    public static func tieGame() {
+    public static func drawGame() {
         KikPageObject.button1.tap()
         KikPageObject.button2.tap()
         KikPageObject.button4.tap()
@@ -34,12 +34,9 @@ public struct KikPageObject {
     }
     
     public static func takeScreenShot() -> UIImage {
-        
-        guard let screenShot =  XCUIApplication().windows.firstMatch.screenshot().image.removingStatusBar
-            else { return UIImage() }
-        return screenShot
+        guard let screenshot = XCUIApplication().windows.firstMatch.screenshot().image.removingStatusBar else { return UIImage() }
+        return screenshot
     }
-   
 }
 
 extension UIImage {

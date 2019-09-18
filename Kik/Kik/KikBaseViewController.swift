@@ -1,7 +1,7 @@
 
 import UIKit
 
-enum Symbol: String {
+enum Symbol: String, CaseIterable {
     case X    = "X"
     case O    = "O"
     case none = "-"
@@ -49,9 +49,9 @@ class KikBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupGame()
-        addAccessibilityIdentifiers()
+        addAccesibilityIdentifiers()
     }
 
     func setupGame() {
@@ -107,7 +107,7 @@ class KikBaseViewController: UIViewController {
         }
 
         let symbolSet: Set<Symbol> = Set(symbolLine)
-        return symbolSet.count == 1
+        return symbolSet.count == 1 
     }
 
     func convertLinesToSymbols(line: [Int]) -> [Symbol] {
@@ -161,7 +161,7 @@ class KikBaseViewController: UIViewController {
 
 extension KikBaseViewController {
     
-    func addAccessibilityIdentifiers() {
+    func addAccesibilityIdentifiers() {
         for button in buttons {
             button.isAccessibilityElement = true
             button.accessibilityIdentifier = String(button.tag)
