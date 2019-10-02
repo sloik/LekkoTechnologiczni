@@ -21,6 +21,8 @@
 		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
 		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
 		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
+		EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7627902345240F00A5CDAF /* KikViewModel.swift */; };
+		EFABC3082345130300F8673A /* KikModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABC3072345130300F8673A /* KikModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
+		EF7627902345240F00A5CDAF /* KikViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModel.swift; sourceTree = "<group>"; };
+		EFABC3072345130300F8673A /* KikModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,9 +149,10 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
+				EFABC306234512C800F8673A /* View */,
+				EFABC305234512C000F8673A /* ViewModel */,
+				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
-				EF16ACDC22F0C45B0000A7AD /* Main.storyboard */,
-				EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */,
 				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
 				EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */,
 				EF16ACB222F0C4080000A7AD /* Assets.xcassets */,
@@ -183,6 +188,31 @@
 				EF16ACD022F0C4090000A7AD /* Info.plist */,
 			);
 			path = KikUITests;
+			sourceTree = "<group>";
+		};
+		EFABC304234512B300F8673A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFABC3072345130300F8673A /* KikModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EFABC305234512C000F8673A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF7627902345240F00A5CDAF /* KikViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EFABC306234512C800F8673A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */,
+				EF16ACDC22F0C45B0000A7AD /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,20 +375,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SnapshotTesting/SnapshotTesting.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapshotTesting.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A5F8E05C8DEBF0FE37AA6C1B /* [CP] Check Pods Manifest.lock */ = {
@@ -413,8 +438,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
+				EFABC3082345130300F8673A /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
+				EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
