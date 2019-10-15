@@ -35,7 +35,7 @@ struct Line {
 extension Line {
     static var   topRow: Line { Line(x: 0, y: 1, z: 2) }
     static var   midRow: Line { Line(x: 3, y: 4, z: 5) }
-    static var rightRow: Line { Line(x: 6, y: 7, z: 8) }
+    static var bottomRow: Line { Line(x: 6, y: 7, z: 8) }
 
     static var  leftColumn: Line { Line(x: 0, y: 3, z: 6) }
     static var   midColumn: Line { Line(x: 1, y: 4, z: 7) }
@@ -53,7 +53,7 @@ struct KikModel {
     private(set) var currentSymbol: Symbol = .O
 
     let lines: [Line] = [
-        .topRow,.midRow, .rightRow,
+        .topRow,.midRow, .bottomRow,
         .leftColumn, .midColumn, .rightColumn,
         .diagonal1, .diagonal2
     ]
@@ -65,7 +65,7 @@ struct KikModel {
     var grid: [Line] {
         [.topRow,
          .midRow,
-         .rightRow]
+         .bottomRow]
     }
 
     mutating func resetGame() {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,7 @@
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
 		EF16ACB622F0C4090000A7AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */; };
 		EF16ACB922F0C4090000A7AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */; };
-		EF16ACC422F0C4090000A7AD /* KikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACC322F0C4090000A7AD /* KikTests.swift */; };
+		EF16ACC422F0C4090000A7AD /* KikModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACC322F0C4090000A7AD /* KikModelTests.swift */; };
 		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
 		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
 		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
@@ -62,7 +62,7 @@
 		EF16ACB822F0C4090000A7AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF16ACBA22F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACBF22F0C4090000A7AD /* KikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF16ACC322F0C4090000A7AD /* KikTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikTests.swift; sourceTree = "<group>"; };
+		EF16ACC322F0C4090000A7AD /* KikModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikModelTests.swift; sourceTree = "<group>"; };
 		EF16ACC522F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF16ACCE22F0C4090000A7AD /* KikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikUITests.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		EF16ACC222F0C4090000A7AD /* KikTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF16ACC322F0C4090000A7AD /* KikTests.swift */,
+				EF16ACC322F0C4090000A7AD /* KikModelTests.swift */,
 				19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */,
 				EF16ACC522F0C4090000A7AD /* Info.plist */,
 			);
@@ -450,7 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */,
-				EF16ACC422F0C4090000A7AD /* KikTests.swift in Sources */,
+				EF16ACC422F0C4090000A7AD /* KikModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
