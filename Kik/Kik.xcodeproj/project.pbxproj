@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
+		197F99DD235652B700AB3470 /* KikViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F99DC235652B700AB3470 /* KikViewModelTests.swift */; };
 		19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A696C0230DC5C600F7CDEF /* KikPageObject.swift */; };
 		3E73C5F89B9B703C4CFC28D6 /* Pods_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */; };
 		A5C9E52A192B75333BDA45CC /* Pods_Kik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115AAB6494FF74687DEF182E /* Pods_Kik.framework */; };
@@ -47,6 +48,7 @@
 		0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		115AAB6494FF74687DEF182E /* Pods_Kik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
+		197F99DC235652B700AB3470 /* KikViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModelTests.swift; sourceTree = "<group>"; };
 		19A696C0230DC5C600F7CDEF /* KikPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikPageObject.swift; sourceTree = "<group>"; };
 		279C13AAB4EA2EF75344D56E /* Pods-KikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55FDF30F0A7BFBB44E3952E8 /* Pods-KikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				EF16ACC322F0C4090000A7AD /* KikModelTests.swift */,
+				197F99DC235652B700AB3470 /* KikViewModelTests.swift */,
 				19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */,
 				EF16ACC522F0C4090000A7AD /* Info.plist */,
 			);
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */,
+				197F99DD235652B700AB3470 /* KikViewModelTests.swift in Sources */,
 				EF16ACC422F0C4090000A7AD /* KikModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

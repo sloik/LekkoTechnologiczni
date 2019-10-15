@@ -2,10 +2,16 @@ import XCTest
 import SnapshotTesting
 
 class KikUITests: XCTestCase {
+    
+    //Test recorded on iphone 8+
+    
+    var app: XCUIApplication!
 
     override func setUp() {
         super.setUp()
-        XCUIApplication().launch()
+        app = XCUIApplication()
+        app.launchArguments = ["--DisableAnimations"]
+        app.launch()
         continueAfterFailure = false
     }
 
@@ -37,6 +43,4 @@ class KikUITests: XCTestCase {
         KikPageObject.drawGame()
         assertSnapshot(matching: KikPageObject.takeScreenShot(), as: .image)
     }
-    
-    
 }

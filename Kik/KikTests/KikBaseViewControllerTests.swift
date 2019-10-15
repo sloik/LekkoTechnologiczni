@@ -27,6 +27,4 @@ class KikBaseViewControllerTests: XCTest {
         window.addSubview(sut.view)
         RunLoop.current.run(until: Date())
     }
-    
-
 }
