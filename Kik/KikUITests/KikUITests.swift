@@ -7,6 +7,8 @@ class KikUITests: XCTestCase {
         super.setUp()
         XCUIApplication().launch()
         continueAfterFailure = false
+
+//        record = true
     }
 
     override func tearDown() {
