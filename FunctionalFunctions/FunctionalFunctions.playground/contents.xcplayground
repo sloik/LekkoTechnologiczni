@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='Funkcje'/>
-        <page name='Dominek_Funkcje'/>
+        <page name='Funkcje_101_PS'/>
+        <page name='HigherOrderFunctions_102'/>
     </pages>
 </playground>
