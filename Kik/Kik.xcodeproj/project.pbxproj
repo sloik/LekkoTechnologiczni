@@ -375,20 +375,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SnapshotTesting/SnapshotTesting.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapshotTesting.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KikUITests/Pods-KikUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A5F8E05C8DEBF0FE37AA6C1B /* [CP] Check Pods Manifest.lock */ = {

@@ -35,29 +35,14 @@ class KikBaseViewController: UIViewController {
 }
 
 extension KikBaseViewController: KikViewModelDelegate {
-    func showWinner(grid: String) {
+    func showAlert(title: String, message: String) {
         let ok = UIAlertAction(title: "New Game",
         style: UIAlertAction.Style.default) { _ in
             self.setupGame()
         }
 
-        let alert = UIAlertController(title: "🤩 Game won by" ,
-                          message: grid,
-                          preferredStyle: .alert)
-
-        alert.addAction(ok)
-
-        present(alert, animated: true, completion: nil)
-    }
-
-    func showTie(grid: String) {
-        let ok = UIAlertAction(title: "New Game",
-        style: UIAlertAction.Style.default) { _ in
-            self.setupGame()
-        }
-
-        let alert = UIAlertController(title: "🤔 No one won!" ,
-                          message: grid,
+        let alert = UIAlertController(title: title ,
+                          message: message,
                           preferredStyle: .alert)
 
         alert.addAction(ok)

@@ -2,14 +2,14 @@
 import Foundation
 
 
-enum Symbol: String, CaseIterable {
-    case X    = "X"
-    case O    = "O"
-    case none = "-"
+enum Symbol: CaseIterable {
+    case X
+    case O
+    case none
 }
 
 enum GameStateResult {
-    case winner
+    case winner(Symbol)
     case tie
     case playing
 }
@@ -56,23 +56,23 @@ struct KikModel {
         .diagonal1, .diagonal2
     ]
 
-    private(set) var model: [Symbol] = Array(repeating: .none, count: 9)
+    private(set) var gameState: [Symbol] = Array(repeating: .none, count: 9)
 
-    var hasEmptyElement: Bool { model.contains(.none) }
+    var hasEmptyElement: Bool { gameState.contains(.none) }
 
     var grid: [Line] {
         [.topRow, .midRow, .bottomRow]
     }
 
     mutating func resetGame() {
-        model = Array(repeating: .none, count: 9)
+        gameState = Array(repeating: .none, count: 9)
     }
 
     mutating func didTapElement(_ index: Int) -> GameStateResult {
-        let tappedSymbol = model[index]
+        let tappedSymbol = gameState[index]
         guard tappedSymbol.isNone else { return .playing }
 
-        model[index] = currentSymbol
+        gameState[index] = currentSymbol
 
         defer { currentSymbol = currentSymbol.oposite }
 
@@ -83,7 +83,7 @@ struct KikModel {
         let hasSameSymbolInLine = lines.first(where: allSymbolsAreTheSame(line:)).isSome
 
         switch (hasSameSymbolInLine, hasEmptyElement) {
-        case (true, _)  : return .winner
+        case (true, _)  : return .winner(currentSymbol)
         case (_ , false): return .tie
         default         : return .playing
         }
@@ -101,11 +101,11 @@ struct KikModel {
     }
 
     func lineToSymbols(_ line: Line) -> [Symbol] {
-        [ model[line.x], model[line.y], model[line.z] ]
+        [ gameState[line.x], gameState[line.y], gameState[line.z] ]
     }
 
-    func title(for index: Int) -> String {
-        model[index].rawValue
+    func symbol(at index: Int) -> Symbol {
+        gameState[index]
     }
 }
 
