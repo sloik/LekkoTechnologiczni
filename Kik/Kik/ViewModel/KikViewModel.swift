@@ -5,7 +5,7 @@ protocol KikViewModelDelegate {
 }
 
 struct KikViewModel {
-    private var model = KikModel()
+    private var model: KikModel
     var delegate: KikViewModelDelegate?
 
     var grid: String {
@@ -17,6 +17,10 @@ struct KikViewModel {
                     .map(string(for:)) // ["X", "O", "-"]
                     .joined(separator: " ") } // "X O -"
             .joined(separator: "\n")
+    }
+
+    internal init(model: KikModel = KikModel()) {
+        self.model = model
     }
 
     func string(for symbol: Symbol) -> String {
