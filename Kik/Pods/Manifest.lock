@@ -1,5 +1,5 @@
 PODS:
-  - SnapshotTesting (1.1.0)
+  - SnapshotTesting (1.6.0)
 
 DEPENDENCIES:
   - SnapshotTesting
@@ -9,8 +9,8 @@ SPEC REPOS:
     - SnapshotTesting
 
 SPEC CHECKSUMS:
-  SnapshotTesting: 8ed6a4dceee63f59a60e1bc86f9adbba54eb9287
+  SnapshotTesting: 9f478335073a830eafb7dc1fcd526c5e90143991
 
 PODFILE CHECKSUM: c2cb56db4065e94bfe4ba89bbea4aa5acca954ad
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
