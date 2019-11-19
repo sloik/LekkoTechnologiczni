@@ -2,13 +2,13 @@
 import Foundation
 
 
-enum Symbol: CaseIterable {
+enum Symbol: CaseIterable, Equatable {
     case X
     case O
     case none
 }
 
-enum GameStateResult {
+enum GameStateResult: Equatable {
     case winner(Symbol)
     case tie
     case playing
@@ -79,7 +79,7 @@ struct KikModel {
         return gameEnded()
     }
 
-    func gameEnded() -> GameStateResult {
+    private func gameEnded() -> GameStateResult {
         let hasSameSymbolInLine = lines.first(where: allSymbolsAreTheSame(line:)).isSome
 
         switch (hasSameSymbolInLine, hasEmptyElement) {
