@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11352A73DECF83C4683F60CD /* Pods_Redux101.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA194825AA21427CBD78EC5 /* Pods_Redux101.framework */; };
+		EFA2C1D623997EED00FE9B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C1D523997EED00FE9B94 /* AppDelegate.swift */; };
+		EFA2C1D823997EED00FE9B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C1D723997EED00FE9B94 /* SceneDelegate.swift */; };
+		EFA2C1DA23997EED00FE9B94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C1D923997EED00FE9B94 /* ContentView.swift */; };
+		EFA2C1DC23997EF500FE9B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C1DB23997EF500FE9B94 /* Assets.xcassets */; };
+		EFA2C1DF23997EF500FE9B94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C1DE23997EF500FE9B94 /* Preview Assets.xcassets */; };
+		EFA2C1E223997EF500FE9B94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C1E023997EF500FE9B94 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D3BE8161094FE6D572008CD /* Pods-Redux101.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux101.release.xcconfig"; path = "Target Support Files/Pods-Redux101/Pods-Redux101.release.xcconfig"; sourceTree = "<group>"; };
+		0E256625E8327ED2E820C21E /* Pods-Redux101.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux101.debug.xcconfig"; path = "Target Support Files/Pods-Redux101/Pods-Redux101.debug.xcconfig"; sourceTree = "<group>"; };
+		BFA194825AA21427CBD78EC5 /* Pods_Redux101.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redux101.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFA2C1D223997EED00FE9B94 /* Redux101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Redux101.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFA2C1D523997EED00FE9B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFA2C1D723997EED00FE9B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EFA2C1D923997EED00FE9B94 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EFA2C1DB23997EF500FE9B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFA2C1DE23997EF500FE9B94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EFA2C1E123997EF500FE9B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFA2C1E323997EF500FE9B94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFA2C1CF23997EED00FE9B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11352A73DECF83C4683F60CD /* Pods_Redux101.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B867F9827A1994C3D4F070D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFA194825AA21427CBD78EC5 /* Pods_Redux101.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		528D74C1721A3472222CCEDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E256625E8327ED2E820C21E /* Pods-Redux101.debug.xcconfig */,
+				0D3BE8161094FE6D572008CD /* Pods-Redux101.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EFA2C1C923997EED00FE9B94 = {
+			isa = PBXGroup;
+			children = (
+				EFA2C1D423997EED00FE9B94 /* Redux101 */,
+				EFA2C1D323997EED00FE9B94 /* Products */,
+				528D74C1721A3472222CCEDD /* Pods */,
+				3B867F9827A1994C3D4F070D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EFA2C1D323997EED00FE9B94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2C1D223997EED00FE9B94 /* Redux101.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFA2C1D423997EED00FE9B94 /* Redux101 */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2C1D523997EED00FE9B94 /* AppDelegate.swift */,
+				EFA2C1D723997EED00FE9B94 /* SceneDelegate.swift */,
+				EFA2C1D923997EED00FE9B94 /* ContentView.swift */,
+				EFA2C1DB23997EF500FE9B94 /* Assets.xcassets */,
+				EFA2C1E023997EF500FE9B94 /* LaunchScreen.storyboard */,
+				EFA2C1E323997EF500FE9B94 /* Info.plist */,
+				EFA2C1DD23997EF500FE9B94 /* Preview Content */,
+			);
+			path = Redux101;
+			sourceTree = "<group>";
+		};
+		EFA2C1DD23997EF500FE9B94 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2C1DE23997EF500FE9B94 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFA2C1D123997EED00FE9B94 /* Redux101 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFA2C1E623997EF500FE9B94 /* Build configuration list for PBXNativeTarget "Redux101" */;
+			buildPhases = (
+				F0D7EACE191074CBC898D34A /* [CP] Check Pods Manifest.lock */,
+				EFA2C1CE23997EED00FE9B94 /* Sources */,
+				EFA2C1CF23997EED00FE9B94 /* Frameworks */,
+				EFA2C1D023997EED00FE9B94 /* Resources */,
+				47CE425473743A34E8818B59 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Redux101;
+			productName = Redux101;
+			productReference = EFA2C1D223997EED00FE9B94 /* Redux101.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFA2C1CA23997EED00FE9B94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = A.C.M.E.;
+				TargetAttributes = {
+					EFA2C1D123997EED00FE9B94 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = EFA2C1CD23997EED00FE9B94 /* Build configuration list for PBXProject "Redux101" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFA2C1C923997EED00FE9B94;
+			productRefGroup = EFA2C1D323997EED00FE9B94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFA2C1D123997EED00FE9B94 /* Redux101 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFA2C1D023997EED00FE9B94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFA2C1E223997EF500FE9B94 /* LaunchScreen.storyboard in Resources */,
+				EFA2C1DF23997EF500FE9B94 /* Preview Assets.xcassets in Resources */,
+				EFA2C1DC23997EF500FE9B94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47CE425473743A34E8818B59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Redux101/Pods-Redux101-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Redux101/Pods-Redux101-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Redux101/Pods-Redux101-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0D7EACE191074CBC898D34A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Redux101-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFA2C1CE23997EED00FE9B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFA2C1D623997EED00FE9B94 /* AppDelegate.swift in Sources */,
+				EFA2C1D823997EED00FE9B94 /* SceneDelegate.swift in Sources */,
+				EFA2C1DA23997EED00FE9B94 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EFA2C1E023997EF500FE9B94 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFA2C1E123997EF500FE9B94 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFA2C1E423997EF500FE9B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFA2C1E523997EF500FE9B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFA2C1E723997EF500FE9B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E256625E8327ED2E820C21E /* Pods-Redux101.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Redux101/Preview Content\"";
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Redux101/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Redux101;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFA2C1E823997EF500FE9B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D3BE8161094FE6D572008CD /* Pods-Redux101.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Redux101/Preview Content\"";
+				DEVELOPMENT_TEAM = Q79FTA4VEX;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Redux101/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Redux101;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFA2C1CD23997EED00FE9B94 /* Build configuration list for PBXProject "Redux101" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFA2C1E423997EF500FE9B94 /* Debug */,
+				EFA2C1E523997EF500FE9B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFA2C1E623997EF500FE9B94 /* Build configuration list for PBXNativeTarget "Redux101" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFA2C1E723997EF500FE9B94 /* Debug */,
+				EFA2C1E823997EF500FE9B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFA2C1CA23997EED00FE9B94 /* Project object */;
+}
