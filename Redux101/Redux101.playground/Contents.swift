@@ -4,8 +4,11 @@ import ReSwift
 
 NSSetUncaughtExceptionHandler{print("💥 Exception thrown: \($0)")}
 
+/*:
+# State
 
-
+Modelowy obiek, który przetrzymuje najprostrze wartości związane z aplikacją. Jeżeli jest `Equatable` to ReSwift informuje subkrybenta tylko jezeli cos się zmieniło. W przeciwnym wypadku robi to za każdym razem.
+*/
 
 struct State: StateType, Equatable {
     let counter: Int
@@ -16,6 +19,12 @@ extension State {
 }
 
 
+/*:
+# Action
+
+Akcja może nam mówić o wszystkim. Użytkownik coś tapną, ekran się pojawił, wrócił response z serwera.
+*/
+
 enum Actions: Action {
     case increment
     case decrement
@@ -24,6 +33,13 @@ enum Actions: Action {
         case incr(by: UInt)
     }
 }
+
+
+/*:
+# Reducer
+
+Funkcja, która z akcji i obecnego stanu zwraca stan zaktualizowany w oparciu o akcje jaka została przesłana.
+*/
 
 func reduceActions(_ actions: Actions, _ state: State) -> State {
     switch actions {
@@ -60,9 +76,20 @@ func mainReducer(_ action: Action, _ state: State?) -> State {
 }
 
 
+/*:
+# Store
+
+Synchronizuje dostęp do stanu i służy do notyfikowania o akcjach.
+*/
+
 let PlayState = Store<State>(reducer: mainReducer,
                              state: nil,
                              middleware: [])
+
+
+/*:
+Zobaczmy to w akcji 🍞
+ */
 
 PlayState.state.counter
 
@@ -101,7 +128,9 @@ PlayState.dispatch(Actions.decrement)
 PlayState.state.counter
 
 
-
+/*:
+W momencie gdy zmienia się stan wszyscy zarejestrowani subkrybenci zostają o tym poinformowani.
+ */
 
 class StoreSub: StoreSubscriber {
 
