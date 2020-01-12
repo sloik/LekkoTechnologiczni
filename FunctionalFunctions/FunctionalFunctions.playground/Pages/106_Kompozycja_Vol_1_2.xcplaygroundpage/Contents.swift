@@ -399,7 +399,10 @@ users
 
  Usłyszeliśmy też kilka trudnych i strasznych wyrazów. One są tu po to nie żeby pokazać, że o ja pierdole jacy jesteśmy mądrzy ;) ale po to aby było wiadomo czego szukać w sieci jak kogoś temat zainteresuje ;) No jeszcze można użyć na rozmowie o pracę i dostać łatkę kosmity ;)
 
- # 🛸
+ # Linki
+ 
+ Implementacja operatorów w większości jest inspirowana z:
+ [pointfreeco](https://github.com/pointfreeco)
 
  */
 

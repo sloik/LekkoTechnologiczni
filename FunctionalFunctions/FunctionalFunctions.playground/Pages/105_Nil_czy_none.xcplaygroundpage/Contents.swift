@@ -220,7 +220,7 @@ Tym razem `%1` ma definicję: `enum $Optional<Int>, #Optional.none!...`.
 
  # Podsumowanie
 
- Łyżka... nil nie istnieje. Jest to tylko cukier składniowy aby przesiadka z ObjC na Swift była mniej bolesna(?). Moim osobistym zdaniem zwracanie `.none` jest czytelniejsze od `nil`. Nil niesie ze sobą cały bagaż doświadczeń i skojarzeń (nie wierzycie to porozmawiajcie z innymi developerami, oni są jeszcze w ObjC). Gdzie `.none` takich nie posiada. Z drugiej strony bardzo doceniam to, że dla Optionali nie muszę opakowywać wszystkiego w `.some` gdy zwracana jest jakaś wartośc lub przypisywana do zmiennej.
+ Łyżka... nil nie istnieje. Jest to tylko cukier składniowy aby przesiadka z ObjC na Swift była mniej bolesna(?). Moim osobistym zdaniem zwracanie `.none` jest czytelniejsze od `nil`. Nil niesie ze sobą cały bagaż doświadczeń i skojarzeń (nie wierzycie to porozmawiajcie z innymi developerami, oni są jeszcze w ObjC). Gdzie `.none` takich nie posiada. Z drugiej strony bardzo doceniam to, że dla Optionali nie muszę opakowywać wszystkiego w `.some` gdy zwracana jest jakaś wartość lub przypisywana do zmiennej.
 
  ## Dlaczego uważam, że jest to mało _fortunne_?
 
