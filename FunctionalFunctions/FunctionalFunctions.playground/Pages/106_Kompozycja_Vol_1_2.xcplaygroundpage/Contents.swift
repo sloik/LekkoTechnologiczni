@@ -401,9 +401,15 @@ users
 
  # Linki
  
- Implementacja operatorów w większości jest inspirowana z:
- [pointfreeco](https://github.com/pointfreeco)
-
+  Implementacja operatorów w większości jest inspirowana z:
+  pointfreeco (https://github.com/pointfreeco):
+ 
+  * pipe forward i forward composition np. tu: https://github.com/pointfreeco/episode-code-samples/blob/8e882949b9/0002-side-effects/Side%20Effects.playground/Sources/Util.swift#L32
+ * https://github.com/vincent-pradeilles/KeyPathKit
+ * https://github.com/thoughtbot/Runes
+ 
+ Warto poszukać innych :)
+ 
  */
 
 
