@@ -98,21 +98,20 @@ assertEqual(84, final(1)) // 3^4 + 3 => 9*9 + 3 => 81 + 3 => 84
  */
 
 // (x + 2)^4 + 3
-// >>> Pluming, że kapanie czy plumbing jako wodociąg/hydraulike? >>>
 let composed =
-compose(           // <-- pluming🚰 (x + 2)^4 + 3
-    compose(       // <-- pluming🚰 (x + 2)^4
-        compose(   // <-- pluming🚰  x + 2
+compose(           // <-- plumbing🚰 (x + 2)^4 + 3
+    compose(       // <-- plumbing🚰 (x + 2)^4
+        compose(   // <-- plumbing🚰  x + 2
             incr,  // <-- basic block 🧱 +1
             incr   // <-- basic block 🧱 +1
         ),
-        compose(   // <-- pluming🚰 ^4
+        compose(   // <-- plumbing🚰 ^4
             multi, // <-- basic block 🧱 ^2
             multi  // <-- basic block 🧱 ^2
         )
     ),
-    compose(      // <-- pluming🚰 +3
-        compose(  // <-- pluming🚰 +2
+    compose(      // <-- plumbing🚰 +3
+        compose(  // <-- plumbing🚰 +2
             incr, // <-- basic block 🧱 +1
             incr  // <-- basic block 🧱 +1
         ),
