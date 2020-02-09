@@ -34,7 +34,7 @@ func kikReducer(action: Action, state:KikState?) -> KikState {
         
         state.grid = grid.compactMap {
             lineToSymbols($0, symbols: state.model)
-        }.compactMap { $0.map{ $0.rawValue}.joined(separator: " ")
+        }.compactMap { $0.map{ $0.rawValue}.joined(separator:"")
         }.joined(separator: "\n")
     }
     
@@ -53,7 +53,6 @@ private func gameEnded(symbols: [Symbol]) -> GameStateResult {
     case (_, false): return .tie
     default        : return .playing
     }
-    
 }
 
 private func allSymbolsAreTheSame(line: Line, symbols: [Symbol]) -> Bool {
