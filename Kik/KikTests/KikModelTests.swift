@@ -36,9 +36,17 @@ class KikModelTests: XCTestCase {
              .none,.none,.none]
         sut = KikMock.kikFactory(model: almostWinningModel)
         
-        //assert
-        XCTAssertEqual(sut.didTapElement(8),GameStateResult.winner )
         
+        let result = sut.didTapElement(8)
+        //assert
+        XCTAssertEqual(result,GameStateResult.winner )
+        
+        switch result {
+        case .winner:
+            XCTAssertEqual(palyer, .O)
+        default:
+            XCTFail("dsfsfs")
+        }
     }
     
     func test_DidTapElement_ShouldReturnTierState() {

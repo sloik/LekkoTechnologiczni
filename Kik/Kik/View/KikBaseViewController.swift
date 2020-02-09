@@ -1,65 +1,83 @@
 import UIKit
+import ReSwift
 
-class KikBaseViewController: UIViewController {
-
+class KikBaseViewController: UIViewController, StoreSubscriber {
+    
+    typealias StoreSubscriberStateType = KikState
+    
     @IBOutlet var buttons: [UIButton]!
-    var viewModel = KikViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // REDUX
+        mainStore.subscribe(self)
+        
         setupGame()
         addAccesibilityIdentifiers()
     }
-
+    //REDUX
+    func newState(state: KikState) {
+        
+        
+    }
+    
     func setupGame() {
-        viewModel.resetGame()
+        mainStore.dispatch(KikActions.resetGame)
         refreshButtons()
-
-        viewModel.delegate = self
     }
-
-
+    
+    
     @IBAction func didTapButton(_ sender: UIButton) {
-        viewModel.didTapElement(sender.tag)
+        mainStore.dispatch(KikActions.tapAction(sender.tag))
+        switch mainStore.state.gameState {
+        case .winner:
+            showWinner()
+        case .tie:
+            showTie()
+        case .playing:
+            break
+        }
         refreshButtons()
+        
     }
-
+    
     func refreshButtons() {
-        buttons
-            .forEach { button in
-                button.setTitle(viewModel.title(for: button.tag), for: .normal) }
+        buttons.forEach {
+            button in
+            button.setTitle(mainStore.state.model[button.tag].rawValue, for: .normal)
+        }
     }
 }
 
-extension KikBaseViewController: KikViewModelDelegate {
-    func showWinner(grid: String) {
+extension KikBaseViewController {
+    
+    func showWinner() {
         let ok = UIAlertAction(title: "New Game",
-        style: UIAlertAction.Style.default) { _ in
-            self.setupGame()
+                               style: UIAlertAction.Style.default) { _ in
+                                self.setupGame()
         }
-
+        
         let alert = UIAlertController(title: "🤩 Game won by" ,
-                          message: grid,
-                          preferredStyle: .alert)
-
+                                      message: "DUPAKI TO IMPLEMENT",
+                                      preferredStyle: .alert)
+        
         alert.addAction(ok)
-
+        
         present(alert, animated: true, completion: nil)
     }
-
-    func showTie(grid: String) {
+    
+    func showTie() {
         let ok = UIAlertAction(title: "New Game",
-        style: UIAlertAction.Style.default) { _ in
-            self.setupGame()
+                               style: UIAlertAction.Style.default) { _ in
+                                self.setupGame()
         }
-
+        
         let alert = UIAlertController(title: "🤔 No one won!" ,
-                          message: grid,
-                          preferredStyle: .alert)
-
+                                      message: "DUPAKI TO IMPLEMENT",
+                                      preferredStyle: .alert)
+        
         alert.addAction(ok)
-
+        
         present(alert, animated: true, completion: nil)
     }
 }
