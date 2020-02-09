@@ -10,7 +10,7 @@
 		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
 		1942FADA23F0566E0021914E /* KikState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942FAD923F0566E0021914E /* KikState.swift */; };
 		1942FADC23F058520021914E /* KikActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942FADB23F058520021914E /* KikActions.swift */; };
-		1942FADE23F0585E0021914E /* KikReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942FADD23F0585E0021914E /* KikReducers.swift */; };
+		1942FADE23F0585E0021914E /* KikReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942FADD23F0585E0021914E /* KikReducer.swift */; };
 		196B421823F0829500AB3A12 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B421723F0829500AB3A12 /* Line.swift */; };
 		196B421A23F082CB00AB3A12 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B421923F082CB00AB3A12 /* Symbol.swift */; };
 		196B421C23F0830900AB3A12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B421B23F0830900AB3A12 /* Extensions.swift */; };
@@ -29,8 +29,6 @@
 		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
 		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
 		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
-		EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7627902345240F00A5CDAF /* KikViewModel.swift */; };
-		EFABC3082345130300F8673A /* KikModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABC3072345130300F8673A /* KikModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +55,7 @@
 		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
 		1942FAD923F0566E0021914E /* KikState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikState.swift; sourceTree = "<group>"; };
 		1942FADB23F058520021914E /* KikActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikActions.swift; sourceTree = "<group>"; };
-		1942FADD23F0585E0021914E /* KikReducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikReducers.swift; sourceTree = "<group>"; };
+		1942FADD23F0585E0021914E /* KikReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikReducer.swift; sourceTree = "<group>"; };
 		196B421723F0829500AB3A12 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		196B421923F082CB00AB3A12 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		196B421B23F0830900AB3A12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -85,8 +83,6 @@
 		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
-		EF7627902345240F00A5CDAF /* KikViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModel.swift; sourceTree = "<group>"; };
-		EFABC3072345130300F8673A /* KikModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +141,30 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		196B422123F0B48000AB3A12 /* KikState */ = {
+			isa = PBXGroup;
+			children = (
+				1942FAD923F0566E0021914E /* KikState.swift */,
+			);
+			path = KikState;
+			sourceTree = "<group>";
+		};
+		196B422223F0B48C00AB3A12 /* KikActions */ = {
+			isa = PBXGroup;
+			children = (
+				1942FADB23F058520021914E /* KikActions.swift */,
+			);
+			path = KikActions;
+			sourceTree = "<group>";
+		};
+		196B422323F0B49400AB3A12 /* KikReducer */ = {
+			isa = PBXGroup;
+			children = (
+				1942FADD23F0585E0021914E /* KikReducer.swift */,
+			);
+			path = KikReducer;
+			sourceTree = "<group>";
+		};
 		9089F990E76DA6B3FAEAF1F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,20 +203,18 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
+				196B422323F0B49400AB3A12 /* KikReducer */,
+				196B422223F0B48C00AB3A12 /* KikActions */,
+				196B422123F0B48000AB3A12 /* KikState */,
 				196B422023F084F000AB3A12 /* Helpers */,
 				196B421D23F084C400AB3A12 /* Definitions */,
 				EFABC306234512C800F8673A /* View */,
-				EFABC305234512C000F8673A /* ViewModel */,
-				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
 				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
 				EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */,
 				EF16ACB222F0C4080000A7AD /* Assets.xcassets */,
 				EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */,
 				EF16ACB422F0C4090000A7AD /* Preview Content */,
-				1942FAD923F0566E0021914E /* KikState.swift */,
-				1942FADB23F058520021914E /* KikActions.swift */,
-				1942FADD23F0585E0021914E /* KikReducers.swift */,
 			);
 			path = Kik;
 			sourceTree = "<group>";
@@ -228,22 +246,6 @@
 				EF16ACD022F0C4090000A7AD /* Info.plist */,
 			);
 			path = KikUITests;
-			sourceTree = "<group>";
-		};
-		EFABC304234512B300F8673A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EFABC3072345130300F8673A /* KikModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EFABC305234512C000F8673A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EF7627902345240F00A5CDAF /* KikViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EFABC306234512C800F8673A /* View */ = {
@@ -495,14 +497,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1942FADE23F0585E0021914E /* KikReducers.swift in Sources */,
+				1942FADE23F0585E0021914E /* KikReducer.swift in Sources */,
 				196B421A23F082CB00AB3A12 /* Symbol.swift in Sources */,
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
-				EFABC3082345130300F8673A /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
 				196B421F23F084D800AB3A12 /* GameStateResult.swift in Sources */,
-				EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */,
 				196B421823F0829500AB3A12 /* Line.swift in Sources */,
 				1942FADC23F058520021914E /* KikActions.swift in Sources */,
 				196B421C23F0830900AB3A12 /* Extensions.swift in Sources */,

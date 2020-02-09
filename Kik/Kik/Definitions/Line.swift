@@ -3,6 +3,12 @@ struct Line {
     let x: Int
     let y: Int
     let z: Int
+    
+    static let lines: [Line] = [
+        .topRow,.midRow, .bottomRow,
+        .leftColumn, .midColumn, .rightColumn,
+        .diagonal1, .diagonal2
+    ]
 }
     
 extension Line {

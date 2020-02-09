@@ -9,56 +9,43 @@ class KikBaseViewController: UIViewController, StoreSubscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // REDUX
         mainStore.subscribe(self)
-        
-        setupGame()
+        mainStore.dispatch(KikActions.resetGame)
         addAccesibilityIdentifiers()
     }
-    //REDUX
     func newState(state: KikState) {
-        
-        
+        buttons.forEach {
+                 button in
+                 button.setTitle(mainStore.state.model[button.tag].rawValue, for: .normal)
+             }
+       
     }
-    
-    func setupGame() {
-        mainStore.dispatch(KikActions.resetGame)
-        refreshButtons()
-    }
-    
-    
+
     @IBAction func didTapButton(_ sender: UIButton) {
         mainStore.dispatch(KikActions.tapAction(sender.tag))
+        mainStore.dispatch(KikActions.setupGrid)
         switch mainStore.state.gameState {
-        case .winner:
+        case .winner:            
             showWinner()
         case .tie:
             showTie()
         case .playing:
             break
         }
-        refreshButtons()
-        
-    }
-    
-    func refreshButtons() {
-        buttons.forEach {
-            button in
-            button.setTitle(mainStore.state.model[button.tag].rawValue, for: .normal)
-        }
     }
 }
 
 extension KikBaseViewController {
     
-    func showWinner() {
+    private func showWinner() {
         let ok = UIAlertAction(title: "New Game",
                                style: UIAlertAction.Style.default) { _ in
-                                self.setupGame()
+                                mainStore.dispatch(KikActions.resetGame)
+                                
         }
         
         let alert = UIAlertController(title: "🤩 Game won by" ,
-                                      message: "DUPAKI TO IMPLEMENT",
+                                      message: mainStore.state.grid,
                                       preferredStyle: .alert)
         
         alert.addAction(ok)
@@ -66,18 +53,17 @@ extension KikBaseViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showTie() {
+   private func showTie() {
         let ok = UIAlertAction(title: "New Game",
                                style: UIAlertAction.Style.default) { _ in
-                                self.setupGame()
+                               mainStore.dispatch(KikActions.resetGame)
         }
         
         let alert = UIAlertController(title: "🤔 No one won!" ,
-                                      message: "DUPAKI TO IMPLEMENT",
+                                      message: mainStore.state.grid,
                                       preferredStyle: .alert)
         
         alert.addAction(ok)
-        
         present(alert, animated: true, completion: nil)
     }
 }
