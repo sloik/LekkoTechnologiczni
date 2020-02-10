@@ -283,7 +283,7 @@ public func <^> <A, B>(
     _ f: @escaping (A) -> B
     )
     -> B {
-        f(a) // dokładnie to samo co operator `|>
+        f(a) // dokładnie to samo co operator |>
 }
 
 1 <^> incr <^> incr <^> incr
