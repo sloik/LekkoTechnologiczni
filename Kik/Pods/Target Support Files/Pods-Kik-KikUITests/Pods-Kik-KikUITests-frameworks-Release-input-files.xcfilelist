@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Kik-KikUITests/Pods-Kik-KikUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework
+${BUILT_PRODUCTS_DIR}/SnapshotTesting/SnapshotTesting.framework

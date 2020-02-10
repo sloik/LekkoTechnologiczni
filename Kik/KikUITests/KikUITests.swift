@@ -13,6 +13,8 @@ class KikUITests: XCTestCase {
         app.launchArguments = ["--DisableAnimations"]
         app.launch()
         continueAfterFailure = false
+        
+        record = false
     }
 
     override func tearDown() {

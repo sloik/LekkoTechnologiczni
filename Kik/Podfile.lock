@@ -1,6 +1,6 @@
 PODS:
   - ReSwift (5.0.0)
-  - SnapshotTesting (1.6.0)
+  - SnapshotTesting (1.7.2)
 
 DEPENDENCIES:
   - ReSwift
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
-  SnapshotTesting: 9f478335073a830eafb7dc1fcd526c5e90143991
+  SnapshotTesting: 8caa6661fea7c8019d5b46de77c16bab99c36c5c
 
-PODFILE CHECKSUM: 9a974f213a0640c284c8798e62391c635bd02504
+PODFILE CHECKSUM: dc2e4ac048ac327f8a7a33011c51f14b664f1200
 
 COCOAPODS: 1.8.4

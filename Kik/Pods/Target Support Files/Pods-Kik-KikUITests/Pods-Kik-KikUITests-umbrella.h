@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_KikUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_KikUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_Kik_KikUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Kik_KikUITestsVersionString[];
 

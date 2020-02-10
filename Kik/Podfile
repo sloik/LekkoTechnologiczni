@@ -14,7 +14,7 @@ target 'Kik' do
   end
 
   target 'KikUITests' do
-    inherit! :search_paths
+    inherit! :complete
     pod 'SnapshotTesting'
   end
 
