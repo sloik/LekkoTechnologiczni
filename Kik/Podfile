@@ -6,6 +6,7 @@ target 'Kik' do
   use_frameworks!
 
   # Pods for Kik
+  pod 'ReSwift'
 
   target 'KikTests' do
     inherit! :search_paths

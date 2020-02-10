@@ -1,45 +1,38 @@
 import UIKit
+import ReSwift
 
 class KikBaseViewController: UIViewController {
 
     @IBOutlet var buttons: [UIButton]!
-    var viewModel = KikViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        MainStore.subscribe(self)
 
-        setupGame()
         addAccesibilityIdentifiers()
     }
 
-    func setupGame() {
-        viewModel.resetGame()
-        refreshButtons()
-
-        viewModel.delegate = self
-    }
-
-
     @IBAction func didTapButton(_ sender: UIButton) {
-        viewModel.didTapElement(sender.tag)
-        refreshButtons()
+        MainStore
+            .dispatch(
+                UserActions.didTap(sender.tag)
+        )
     }
 
-    func refreshButtons() {
-        buttons
-            .forEach { button in
-                button.setTitle(viewModel.title(for: button.tag), for: .normal) }
-    }
 }
 
-extension KikBaseViewController: KikViewModelDelegate {
-    func showWinner(grid: String) {
+extension KikBaseViewController {
+    func show(winner: String, grid: String) {
         let ok = UIAlertAction(title: "New Game",
-        style: UIAlertAction.Style.default) { _ in
-            self.setupGame()
+                               style: UIAlertAction.Style.default) { _ in
+                                MainStore
+                                    .dispatch(
+                                        UserActions.resetGame
+                                )
         }
 
-        let alert = UIAlertController(title: "🤩 Game won by" ,
+        let alert = UIAlertController(title: "🤩 Game won by \(winner)" ,
                           message: grid,
                           preferredStyle: .alert)
 
@@ -50,8 +43,11 @@ extension KikBaseViewController: KikViewModelDelegate {
 
     func showTie(grid: String) {
         let ok = UIAlertAction(title: "New Game",
-        style: UIAlertAction.Style.default) { _ in
-            self.setupGame()
+                               style: UIAlertAction.Style.default) { _ in
+                                MainStore
+                                    .dispatch(
+                                        UserActions.resetGame
+                                )
         }
 
         let alert = UIAlertController(title: "🤔 No one won!" ,
@@ -72,4 +68,29 @@ extension KikBaseViewController {
             button.accessibilityIdentifier = String(button.tag)
         }
     }
+}
+
+extension KikBaseViewController: StoreSubscriber {
+    
+    func newState(state: KikState) {
+        
+        switch state.viewState {
+
+        case .show(let winner, let grid):
+            show(winner: winner, grid: grid)
+            
+        case .showTie(let grid):
+            showTie(grid: grid)
+            
+        case .showBoard:
+            presentingViewController
+                .map({ vc in vc.dismiss(animated: true, completion: nil) })
+        }
+        
+        // reset button
+        buttons.forEach { button in
+            button.setTitle(state.game.model[button.tag].rawValue, for: .normal)
+        }
+    }
+    
 }

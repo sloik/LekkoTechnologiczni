@@ -69,6 +69,8 @@ struct KikModel {
     }
 
     mutating func resetGame() {
+        currentSymbol = currentSymbol.oposite
+        
         model = Array(repeating: .none, count: 9)
     }
 
@@ -78,8 +80,13 @@ struct KikModel {
 
         model[index] = currentSymbol
 
-        defer { currentSymbol = currentSymbol.oposite }
-        return gameEnded()
+        let gameResult =  gameEnded()
+        
+        if case .playing = gameResult {
+            currentSymbol = currentSymbol.oposite
+        }
+        
+        return gameResult
     }
 
     func lineToSymbols(_ line: Line) -> [Symbol] {

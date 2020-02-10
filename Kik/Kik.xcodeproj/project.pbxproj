@@ -13,6 +13,7 @@
 		3E73C5F89B9B703C4CFC28D6 /* Pods_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */; };
 		A5C9E52A192B75333BDA45CC /* Pods_Kik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115AAB6494FF74687DEF182E /* Pods_Kik.framework */; };
 		B65E52CBC7E84E5589A46E09 /* Pods_KikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */; };
+		CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC375CAA23F1E82F00483086 /* ReduxStack.swift */; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
 		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
 		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
 		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
-		EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7627902345240F00A5CDAF /* KikViewModel.swift */; };
 		EFABC3082345130300F8673A /* KikModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABC3072345130300F8673A /* KikModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +55,7 @@
 		61F2856D92D172BCCECAB28C /* Pods-Kik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.debug.xcconfig"; sourceTree = "<group>"; };
 		858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9486EB96E79E61D365AE16B7 /* Pods-KikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC375CAA23F1E82F00483086 /* ReduxStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxStack.swift; sourceTree = "<group>"; };
 		E5FA0EF162775228049A2EA5 /* Pods-Kik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.release.xcconfig"; sourceTree = "<group>"; };
 		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
-		EF7627902345240F00A5CDAF /* KikViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModel.swift; sourceTree = "<group>"; };
 		EFABC3072345130300F8673A /* KikModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,8 +151,8 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
+				CC375CAA23F1E82F00483086 /* ReduxStack.swift */,
 				EFABC306234512C800F8673A /* View */,
-				EFABC305234512C000F8673A /* ViewModel */,
 				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
 				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
@@ -201,14 +201,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EFABC305234512C000F8673A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EF7627902345240F00A5CDAF /* KikViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		EFABC306234512C800F8673A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +221,7 @@
 				EF16ACA522F0C4060000A7AD /* Sources */,
 				EF16ACA622F0C4060000A7AD /* Frameworks */,
 				EF16ACA722F0C4060000A7AD /* Resources */,
+				4B6A3F9043C06F106EF46AEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,6 +365,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4B6A3F9043C06F106EF46AEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9F98FC3EBAF3DF5D232450CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,7 +454,7 @@
 				EFABC3082345130300F8673A /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
-				EF7627912345240F00A5CDAF /* KikViewModel.swift in Sources */,
+				CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
