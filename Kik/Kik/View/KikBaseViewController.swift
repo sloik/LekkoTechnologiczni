@@ -4,7 +4,12 @@ import ReSwift
 class KikBaseViewController: UIViewController {
 
     @IBOutlet var buttons: [UIButton]!
-
+    @IBOutlet weak var slider: UISlider! {
+        didSet {
+            slider.isHidden = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +25,7 @@ class KikBaseViewController: UIViewController {
         )
     }
 
+    
 }
 
 extension KikBaseViewController {
@@ -73,6 +79,8 @@ extension KikBaseViewController {
 extension KikBaseViewController: StoreSubscriber {
     
     func newState(state: KikState) {
+        presentedViewController
+            .map({ vc in vc.dismiss(animated: true, completion: nil) })
         
         switch state.viewState {
 
@@ -83,7 +91,7 @@ extension KikBaseViewController: StoreSubscriber {
             showTie(grid: grid)
             
         case .showBoard:
-            presentingViewController
+            presentedViewController
                 .map({ vc in vc.dismiss(animated: true, completion: nil) })
         }
         
@@ -93,4 +101,22 @@ extension KikBaseViewController: StoreSubscriber {
         }
     }
     
+}
+
+// MARK: - Slider
+
+extension KikBaseViewController {
+    @IBAction func didSlide(_ sender: UISlider) {
+        MainStore
+            .dispatch(
+                HistoryActions
+                    .restore(index: Int(sender.value))
+        )
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
+        if motion == .motionShake {
+            slider.isHidden.toggle()
+        }
+    }
 }

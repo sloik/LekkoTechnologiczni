@@ -14,7 +14,7 @@ class KikUITests: XCTestCase {
         app.launch()
         continueAfterFailure = false
         
-        record = false
+        record = true
     }
 
     override func tearDown() {

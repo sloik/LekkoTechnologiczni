@@ -5,7 +5,9 @@ let MainStore = Store<KikState>(
     reducer: mainReducer,
     state: nil,
     middleware: [
-        logActionsMiddleware,
+//        logActionsMiddleware,
+        historyMiddleware,
+        userActionsMiddleware,
         gameMiddleware]
 )
 
@@ -74,10 +76,9 @@ let logActionsMiddleware: Middleware<KikState> =
         return { action in // DispatchFunction => (Action) -> Void
             print("🎬 Action:", action)
             
-            print("🍏", getState() as Any)
+            print("🍏", getState()?.game.model as Any)
             next(action)
-            print("🍎", getState() as Any)
-
+            print("🍎", getState()?.game.model as Any)
         }
     }
 }
@@ -118,8 +119,6 @@ let gameMiddleware: Middleware<KikState> =
                     )
                     
                 case .tie:
-
-                    
                     dispatch(
                         StateActions.setState(copy, .showTie(grid: gridFrom(copy)))
                     )
@@ -157,5 +156,77 @@ let gridFrom: (KikModel) -> String = { model in
                 .map { $0.rawValue }      // "X", "O", "-"
                 .joined(separator: " ") } // "X O -"
         .joined(separator: "\n")
+}
+
+// MARK: - History
+
+let userActionsMiddleware: Middleware<KikState> =
+{ dispatch, getState in    // (@escaping DispatchFunction, @escaping () -> State?)
+    
+    return { next in       // (@escaping DispatchFunction)
+        
+        return { action in // DispatchFunction => (Action) -> Void
+            guard
+                action is UserActions
+                else { next(action)
+                    return }
+
+            
+            next(action)
+
+            getState()
+                .map({ state in
+                    dispatch(HistoryActions.save(state: state))
+                })
+            
+        }
+    }
+}
+
+
+enum HistoryActions: Action {
+    case save(state: KikState)
+    case restore(index: Int)
+}
+
+var hisoryRepository: [KikState] = []
+
+let historyMiddleware: Middleware<KikState> =
+{ dispatch, getState in    // (@escaping DispatchFunction, @escaping () -> State?)
+    
+    return { next in       // (@escaping DispatchFunction)
+        
+        return { action in // DispatchFunction => (Action) -> Void
+            
+            guard
+                let hAction = action as? HistoryActions
+            else {
+                next(action)
+                return
+            }
+            
+            switch hAction {
+            case .save(let state):
+                hisoryRepository.append(state)
+                hisoryRepository = hisoryRepository.suffix(10)
+                    
+                
+            case .restore(let index):
+                guard
+                    hisoryRepository.indices.contains(index)
+                    else { return }
+                
+                let state = hisoryRepository[index]
+                dispatch(
+                    StateActions
+                        .setState(state.game,
+                                  state.viewState)
+                )
+
+            }
+            
+    
+        }
+    }
 }
 
