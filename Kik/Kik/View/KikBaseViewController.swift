@@ -79,16 +79,17 @@ extension KikBaseViewController {
 extension KikBaseViewController: StoreSubscriber {
     
     func newState(state: KikState) {
-        presentedViewController
-            .map({ vc in vc.dismiss(animated: true, completion: nil) })
-        
         switch state.viewState {
 
         case .show(let winner, let grid):
-            show(winner: winner, grid: grid)
+            if presentedViewController.isNone {
+                show(winner: winner, grid: grid)
+            }
             
         case .showTie(let grid):
-            showTie(grid: grid)
+            if presentedViewController.isNone {
+                showTie(grid: grid)
+            }
             
         case .showBoard:
             presentedViewController
