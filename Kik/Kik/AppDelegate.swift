@@ -1,5 +1,10 @@
-
 import UIKit
+import ReSwift
+
+let mainStore = Store<KikState>(
+    reducer: kikReducer,
+    state: nil
+)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

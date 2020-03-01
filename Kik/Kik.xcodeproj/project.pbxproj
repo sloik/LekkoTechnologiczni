@@ -22,8 +22,10 @@
 		EF16ACDD22F0C45B0000A7AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACDC22F0C45B0000A7AD /* Main.storyboard */; };
 		EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */; };
 		EF93077D2383322A0044D863 /* KikViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF93077C2383322A0044D863 /* KikViewModelTests.swift */; };
+		EFA1EA3C240C00740084E923 /* KikState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EA3B240C00740084E923 /* KikState.swift */; };
+		EFA1EA3F240C00BF0084E923 /* KikReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EA3E240C00BF0084E923 /* KikReducer.swift */; };
+		EFA1EA42240C014B0084E923 /* KikActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1EA41240C014B0084E923 /* KikActions.swift */; };
 		EFEDA5D22362135400E84ECE /* KikModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEDA5D12362135400E84ECE /* KikModel.swift */; };
-		EFEDA5D423621F7800E84ECE /* KikViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEDA5D323621F7800E84ECE /* KikViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +73,10 @@
 		EF16ACDC22F0C45B0000A7AD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewController.swift; sourceTree = "<group>"; };
 		EF93077C2383322A0044D863 /* KikViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModelTests.swift; sourceTree = "<group>"; };
+		EFA1EA3B240C00740084E923 /* KikState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikState.swift; sourceTree = "<group>"; };
+		EFA1EA3E240C00BF0084E923 /* KikReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikReducer.swift; sourceTree = "<group>"; };
+		EFA1EA41240C014B0084E923 /* KikActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikActions.swift; sourceTree = "<group>"; };
 		EFEDA5D12362135400E84ECE /* KikModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikModel.swift; sourceTree = "<group>"; };
-		EFEDA5D323621F7800E84ECE /* KikViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +155,10 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
+				EFA1EA40240C013D0084E923 /* KikActions */,
+				EFA1EA3D240C00B00084E923 /* KikReducer */,
+				EFA1EA3A240C00570084E923 /* KikState */,
 				EFEDA5D02362132900E84ECE /* View */,
-				EFEDA5CF2362131B00E84ECE /* ViewModel */,
 				EFEDA5CE2362130D00E84ECE /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
 				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
@@ -193,20 +199,36 @@
 			path = KikUITests;
 			sourceTree = "<group>";
 		};
+		EFA1EA3A240C00570084E923 /* KikState */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EA3B240C00740084E923 /* KikState.swift */,
+			);
+			path = KikState;
+			sourceTree = "<group>";
+		};
+		EFA1EA3D240C00B00084E923 /* KikReducer */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EA3E240C00BF0084E923 /* KikReducer.swift */,
+			);
+			path = KikReducer;
+			sourceTree = "<group>";
+		};
+		EFA1EA40240C013D0084E923 /* KikActions */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1EA41240C014B0084E923 /* KikActions.swift */,
+			);
+			path = KikActions;
+			sourceTree = "<group>";
+		};
 		EFEDA5CE2362130D00E84ECE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				EFEDA5D12362135400E84ECE /* KikModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		EFEDA5CF2362131B00E84ECE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EFEDA5D323621F7800E84ECE /* KikViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EFEDA5D02362132900E84ECE /* View */ = {
@@ -229,6 +251,7 @@
 				EF16ACA522F0C4060000A7AD /* Sources */,
 				EF16ACA622F0C4060000A7AD /* Frameworks */,
 				EF16ACA722F0C4060000A7AD /* Resources */,
+				D264C15B9C538EE082AAB1B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,6 +434,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D264C15B9C538EE082AAB1B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E5C0F5FB540821CF99DF609A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,8 +483,10 @@
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
 				EFEDA5D22362135400E84ECE /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
+				EFA1EA42240C014B0084E923 /* KikActions.swift in Sources */,
+				EFA1EA3F240C00BF0084E923 /* KikReducer.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
-				EFEDA5D423621F7800E84ECE /* KikViewModel.swift in Sources */,
+				EFA1EA3C240C00740084E923 /* KikState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

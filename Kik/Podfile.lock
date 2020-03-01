@@ -1,16 +1,20 @@
 PODS:
+  - ReSwift (5.0.0)
   - SnapshotTesting (1.6.0)
 
 DEPENDENCIES:
+  - ReSwift
   - SnapshotTesting
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ReSwift
     - SnapshotTesting
 
 SPEC CHECKSUMS:
+  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
   SnapshotTesting: 9f478335073a830eafb7dc1fcd526c5e90143991
 
-PODFILE CHECKSUM: c2cb56db4065e94bfe4ba89bbea4aa5acca954ad
+PODFILE CHECKSUM: 75507e14011fb53cea0b0d37f68110d3bff713a4
 
 COCOAPODS: 1.7.5
