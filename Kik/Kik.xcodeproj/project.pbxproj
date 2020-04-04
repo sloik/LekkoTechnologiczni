@@ -13,6 +13,8 @@
 		AA70CEC414BC0FC79B6B24B2 /* Pods_Kik_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09EC027082625727673C0E1 /* Pods_Kik_KikUITests.framework */; };
 		B65E52CBC7E84E5589A46E09 /* Pods_KikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A2EEC502F2A91D1024510 /* Pods_KikTests.framework */; };
 		CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC375CAA23F1E82F00483086 /* ReduxStack.swift */; };
+		CC94B6A72438AF9D00533BBC /* Middlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC94B6A62438AF9D00533BBC /* Middlewares.swift */; };
+		CC94B6A92438B50C00533BBC /* ReduxHistoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
 		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		9486EB96E79E61D365AE16B7 /* Pods-KikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.release.xcconfig"; sourceTree = "<group>"; };
 		A09EC027082625727673C0E1 /* Pods_Kik_KikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kik_KikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC375CAA23F1E82F00483086 /* ReduxStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxStack.swift; sourceTree = "<group>"; };
+		CC94B6A62438AF9D00533BBC /* Middlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlewares.swift; sourceTree = "<group>"; };
+		CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxHistoryStack.swift; sourceTree = "<group>"; };
 		E20CF36E44A9C4439E9CDEE9 /* Pods-Kik-KikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik-KikUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kik-KikUITests/Pods-Kik-KikUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5FA0EF162775228049A2EA5 /* Pods-Kik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kik/Pods-Kik.release.xcconfig"; sourceTree = "<group>"; };
 		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				CC375CAA23F1E82F00483086 /* ReduxStack.swift */,
+				CC94B6A62438AF9D00533BBC /* Middlewares.swift */,
+				CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */,
 				EFABC306234512C800F8673A /* View */,
 				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
@@ -454,8 +460,10 @@
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
 				EFABC3082345130300F8673A /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
+				CC94B6A92438B50C00533BBC /* ReduxHistoryStack.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
 				CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */,
+				CC94B6A72438AF9D00533BBC /* Middlewares.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
