@@ -492,6 +492,15 @@ Małe kroczki:
  
  Powodzenia i do zobaczenia później!
  
+ # Inspiracje
+ 
+ * [pointfree.co - there I saw a lot of operators that I show here](https://www.pointfree.co)
+ * [Runes - frameworks with more operators](https://github.com/thoughtbot/Runes)
+ * [Overture - library for composing functions with ease](https://github.com/pointfreeco/swift-overture)
+ * [F# for fun and profit  -- tons of ideas how to apply this concepts in real life](https://fsharpforfunandprofit.com/video/)
+ 
+
+ 
  #### PS
   > - _A jak zabić różowego słonia?_
   > - _Trzeba go mocno złapać za jaja i ścisnąć. Zaczekać aż zrobi się niebieski i rozwalić ze strzelby na niebieskie słonie._
