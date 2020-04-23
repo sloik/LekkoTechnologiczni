@@ -20,7 +20,7 @@ public func rotate(_ deg: CGFloat) -> (CGSize) -> CGSize {
     return { size in
         return
             CGRect(origin: .zero,size: size)
-                .applying(CGAffineTransform(rotationAngle: deg |> toRadians))
+                .applying( CGAffineTransform(rotationAngle: toRadians(deg)) )
                 .integral
                 .size
     }
@@ -29,7 +29,7 @@ public func rotate(_ deg: CGFloat) -> (CGSize) -> CGSize {
 public func rotated(_ oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
 
     //Calculate the size of the rotated view's containing box for our drawing space
-    let rotatedSize = oldImage.size |> rotate(degrees)
+    let rotatedSize =   rotate(degrees)(oldImage.size)
 
 
     //Create the bitmap context
@@ -42,7 +42,7 @@ public func rotated(_ oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
                        y: rotatedSize.height / 2)
 
     //Rotate the image context
-    bitmap.rotate(by: degrees |> toRadians)
+    bitmap.rotate(by:  toRadians(degrees) )
 
     //Now, draw the rotated/scaled image into the context
     bitmap.scaleBy(x: 1.0, y: -1.0)
