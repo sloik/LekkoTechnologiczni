@@ -12,30 +12,21 @@ class KikBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        MainStore.subscribe(self)
 
-        addAccesibilityIdentifiers()
+        addAccessibilityIdentifiers()
     }
 
     @IBAction func didTapButton(_ sender: UIButton) {
-        MainStore
-            .dispatch(
-                UserActions.didTap(sender.tag)
-        )
+        print("🛤", #function, #line)
     }
-
-    
 }
 
 extension KikBaseViewController {
     func show(winner: String, grid: String) {
         let ok = UIAlertAction(title: "New Game",
-                               style: UIAlertAction.Style.default) { _ in
-                                MainStore
-                                    .dispatch(
-                                        UserActions.resetGame
-                                )
+                               style: UIAlertAction.Style.default)
+        { _ in
+            print("🛤", #function, #line)
         }
 
         let alert = UIAlertController(title: "🤩 Game won by \(winner)" ,
@@ -49,11 +40,9 @@ extension KikBaseViewController {
 
     func showTie(grid: String) {
         let ok = UIAlertAction(title: "New Game",
-                               style: UIAlertAction.Style.default) { _ in
-                                MainStore
-                                    .dispatch(
-                                        UserActions.resetGame
-                                )
+                               style: UIAlertAction.Style.default)
+        { _ in
+            print("🛤", #function, #line)
         }
 
         let alert = UIAlertController(title: "🤔 No one won!" ,
@@ -68,7 +57,7 @@ extension KikBaseViewController {
 
 extension KikBaseViewController {
     
-    func addAccesibilityIdentifiers() {
+    func addAccessibilityIdentifiers() {
         for button in buttons {
             button.isAccessibilityElement = true
             button.accessibilityIdentifier = String(button.tag)
@@ -76,43 +65,11 @@ extension KikBaseViewController {
     }
 }
 
-extension KikBaseViewController: StoreSubscriber {
-    
-    func newState(state: KikState) {
-        switch state.viewState {
-
-        case .show(let winner, let grid):
-            if presentedViewController.isNone {
-                show(winner: winner, grid: grid)
-            }
-            
-        case .showTie(let grid):
-            if presentedViewController.isNone {
-                showTie(grid: grid)
-            }
-            
-        case .showBoard:
-            presentedViewController
-                .map({ vc in vc.dismiss(animated: true, completion: nil) })
-        }
-        
-        // reset button
-        buttons.forEach { button in
-            button.setTitle(state.game.model[button.tag].rawValue, for: .normal)
-        }
-    }
-    
-}
-
 // MARK: - Slider
 
 extension KikBaseViewController {
     @IBAction func didSlide(_ sender: UISlider) {
-        MainStore
-            .dispatch(
-                HistoryActions
-                    .restore(index: Int(sender.value))
-        )
+        print("🛤", #function, #line, "Slider value:", Int(sender.value))
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){

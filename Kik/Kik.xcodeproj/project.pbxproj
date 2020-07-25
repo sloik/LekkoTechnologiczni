@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
-		19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A696C0230DC5C600F7CDEF /* KikPageObject.swift */; };
-		CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC375CAA23F1E82F00483086 /* ReduxStack.swift */; };
 		CC8AF30924CC4FB700F29AA5 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = CC8AF30824CC4FB700F29AA5 /* SnapshotTesting */; };
-		CC8AF30C24CC507A00F29AA5 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC8AF30B24CC507A00F29AA5 /* ReSwift */; };
-		CC94B6A72438AF9D00533BBC /* Middlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC94B6A62438AF9D00533BBC /* Middlewares.swift */; };
-		CC94B6A92438B50C00533BBC /* ReduxHistoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */; };
+		CC8AF31324CC533200F29AA5 /* Prelude in Frameworks */ = {isa = PBXBuildFile; productRef = CC8AF31224CC533200F29AA5 /* Prelude */; };
+		CC8AF31624CC536100F29AA5 /* Overture in Frameworks */ = {isa = PBXBuildFile; productRef = CC8AF31524CC536100F29AA5 /* Overture */; };
+		CC8AF31824CC55A300F29AA5 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = CC8AF31724CC55A300F29AA5 /* SnapshotTesting */; };
+		CC8AF31A24CC56B000F29AA5 /* __Snapshots__ in Resources */ = {isa = PBXBuildFile; fileRef = CC8AF31924CC56B000F29AA5 /* __Snapshots__ */; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
 		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
@@ -45,10 +44,7 @@
 
 /* Begin PBXFileReference section */
 		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
-		19A696C0230DC5C600F7CDEF /* KikPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikPageObject.swift; sourceTree = "<group>"; };
-		CC375CAA23F1E82F00483086 /* ReduxStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxStack.swift; sourceTree = "<group>"; };
-		CC94B6A62438AF9D00533BBC /* Middlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middlewares.swift; sourceTree = "<group>"; };
-		CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxHistoryStack.swift; sourceTree = "<group>"; };
+		CC8AF31924CC56B000F29AA5 /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
 		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC8AF30C24CC507A00F29AA5 /* ReSwift in Frameworks */,
+				CC8AF31624CC536100F29AA5 /* Overture in Frameworks */,
+				CC8AF31324CC533200F29AA5 /* Prelude in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8AF31824CC55A300F29AA5 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,9 +123,6 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
-				CC375CAA23F1E82F00483086 /* ReduxStack.swift */,
-				CC94B6A62438AF9D00533BBC /* Middlewares.swift */,
-				CC94B6A82438B50C00533BBC /* ReduxHistoryStack.swift */,
 				EFABC306234512C800F8673A /* View */,
 				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
@@ -161,7 +156,7 @@
 		EF16ACCD22F0C4090000A7AD /* KikUITests */ = {
 			isa = PBXGroup;
 			children = (
-				19A696C0230DC5C600F7CDEF /* KikPageObject.swift */,
+				CC8AF31924CC56B000F29AA5 /* __Snapshots__ */,
 				EF16ACCE22F0C4090000A7AD /* KikUITests.swift */,
 				EF16ACD022F0C4090000A7AD /* Info.plist */,
 			);
@@ -202,7 +197,8 @@
 			);
 			name = Kik;
 			packageProductDependencies = (
-				CC8AF30B24CC507A00F29AA5 /* ReSwift */,
+				CC8AF31224CC533200F29AA5 /* Prelude */,
+				CC8AF31524CC536100F29AA5 /* Overture */,
 			);
 			productName = Kik;
 			productReference = EF16ACA922F0C4060000A7AD /* Kik.app */;
@@ -219,7 +215,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CC8AF30E24CC50A700F29AA5 /* PBXTargetDependency */,
 				EF16ACC122F0C4090000A7AD /* PBXTargetDependency */,
 			);
 			name = KikTests;
@@ -245,6 +240,9 @@
 				EF16ACCC22F0C4090000A7AD /* PBXTargetDependency */,
 			);
 			name = KikUITests;
+			packageProductDependencies = (
+				CC8AF31724CC55A300F29AA5 /* SnapshotTesting */,
+			);
 			productName = KikUITests;
 			productReference = EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -283,7 +281,8 @@
 			mainGroup = EF16ACA022F0C4060000A7AD;
 			packageReferences = (
 				CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
-				CC8AF30A24CC507A00F29AA5 /* XCRemoteSwiftPackageReference "ReSwift" */,
+				CC8AF31124CC533200F29AA5 /* XCRemoteSwiftPackageReference "swift-prelude" */,
+				CC8AF31424CC536100F29AA5 /* XCRemoteSwiftPackageReference "swift-overture" */,
 			);
 			productRefGroup = EF16ACAA22F0C4060000A7AD /* Products */;
 			projectDirPath = "";
@@ -319,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8AF31A24CC56B000F29AA5 /* __Snapshots__ in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +332,7 @@
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
 				EFABC3082345130300F8673A /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
-				CC94B6A92438B50C00533BBC /* ReduxHistoryStack.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
-				CC375CAB23F1E82F00483086 /* ReduxStack.swift in Sources */,
-				CC94B6A72438AF9D00533BBC /* Middlewares.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,17 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */,
-				19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CC8AF30E24CC50A700F29AA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = CC8AF30D24CC50A700F29AA5 /* SnapshotTesting */;
-		};
 		CC8AF31024CC50AE00F29AA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = CC8AF30F24CC50AE00F29AA5 /* SnapshotTesting */;
@@ -442,13 +434,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -496,12 +489,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -678,12 +672,20 @@
 				minimumVersion = 1.8.1;
 			};
 		};
-		CC8AF30A24CC507A00F29AA5 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+		CC8AF31124CC533200F29AA5 /* XCRemoteSwiftPackageReference "swift-prelude" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			repositoryURL = "https://github.com/pointfreeco/swift-prelude.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		CC8AF31424CC536100F29AA5 /* XCRemoteSwiftPackageReference "swift-overture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-overture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 0.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -694,17 +696,22 @@
 			package = CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
 		};
-		CC8AF30B24CC507A00F29AA5 /* ReSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CC8AF30A24CC507A00F29AA5 /* XCRemoteSwiftPackageReference "ReSwift" */;
-			productName = ReSwift;
-		};
-		CC8AF30D24CC50A700F29AA5 /* SnapshotTesting */ = {
+		CC8AF30F24CC50AE00F29AA5 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
 		};
-		CC8AF30F24CC50AE00F29AA5 /* SnapshotTesting */ = {
+		CC8AF31224CC533200F29AA5 /* Prelude */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC8AF31124CC533200F29AA5 /* XCRemoteSwiftPackageReference "swift-prelude" */;
+			productName = Prelude;
+		};
+		CC8AF31524CC536100F29AA5 /* Overture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC8AF31424CC536100F29AA5 /* XCRemoteSwiftPackageReference "swift-overture" */;
+			productName = Overture;
+		};
+		CC8AF31724CC55A300F29AA5 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;

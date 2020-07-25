@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Kik.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Kik.xctestplan">
+   </FileRef>
 </Workspace>
