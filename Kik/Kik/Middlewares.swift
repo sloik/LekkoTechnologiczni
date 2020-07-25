@@ -1,5 +1,6 @@
 
 import ReSwift
+import Foundation
 
 /*:
  # Middleware
