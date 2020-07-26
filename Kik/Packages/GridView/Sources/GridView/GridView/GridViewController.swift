@@ -3,16 +3,11 @@ import Prelude
 import OptionalAPI
 
 public func gridViewController(_ viewModel: GridViewModel) -> GridViewController {
-    let storyboard = UIStoryboard(name: "Grid", bundle: .module)
-
-    let gridVC =
-        storyboard
+    UIStoryboard(name: "Grid", bundle: .module)
         .instantiateInitialViewController()
-        .cast(GridViewController.self)!
-
-    gridVC.bind <| viewModel
-
-    return gridVC
+        .cast(GridViewController.self)
+        .chain { gridVC in gridVC.bind <| viewModel }
+        .andThen(id)!
 }
 
 public final class GridViewController: UIViewController {
