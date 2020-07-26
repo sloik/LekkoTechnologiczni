@@ -1,5 +1,4 @@
 import UIKit
-import ReSwift
 
 class KikBaseViewController: UIViewController {
 
