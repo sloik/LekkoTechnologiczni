@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "OptionalAPI",
+        "repositoryURL": "https://github.com/sloik/OptionalAPI.git",
+        "state": {
+          "branch": "master",
+          "revision": "49d93407cfdc925dbbe788fa79ad4f947961dc9f",
+          "version": null
+        }
+      },
+      {
         "package": "Prelude",
         "repositoryURL": "https://github.com/pointfreeco/swift-prelude.git",
         "state": {

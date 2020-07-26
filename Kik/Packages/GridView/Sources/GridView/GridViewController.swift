@@ -1,25 +1,39 @@
 import UIKit
+import Prelude
+import OptionalAPI
 
 public func gridViewController(_ viewModel: GridViewModel) -> GridViewController {
     let storyboard = UIStoryboard(name: "Grid", bundle: .module)
 
-    let gridVC = storyboard.instantiateInitialViewController() as! GridViewController
+    let gridVC =
+        storyboard
+        .instantiateInitialViewController()
+        .cast(GridViewController.self)!
+
+    gridVC.bind <| viewModel
 
     return gridVC
 }
 
 public final class GridViewController: UIViewController {
 
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var buttons: [UIButton]?
     @IBOutlet weak var slider: UISlider! {
         didSet {
             slider.isHidden = true
+        }
+    }
+
+    private(set) var viewModel: GridViewModel? {
+        didSet {
+            refreshTitles()
         }
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        refreshTitles()
         addAccessibilityIdentifiers()
     }
 
@@ -32,13 +46,26 @@ public final class GridViewController: UIViewController {
 
 public extension GridViewController {
     func bind(_ vm: GridViewModel) {
-        
+        viewModel = vm
     }
 }
 
 // MARK: - Internal
 
 extension GridViewController {
+    func refreshTitles() {
+        buttons?
+            .forEach { (button: UIButton) in
+                let buttonIndex: ButtonIndex? = button.tag |> ButtonIndex.init(rawValue:)
+                let customTitle: String? = viewModel?.titleForElement <*> buttonIndex
+
+                button.setTitle(
+                    customTitle.or( "\(button.tag)" ),
+                    for: .normal
+                )
+            }
+    }
+
     func show(winner: String, grid: String) {
         let ok = UIAlertAction(title: "New Game",
                                style: UIAlertAction.Style.default)
@@ -75,10 +102,11 @@ extension GridViewController {
 extension GridViewController {
     
     func addAccessibilityIdentifiers() {
-        for button in buttons {
-            button.isAccessibilityElement = true
-            button.accessibilityIdentifier = String(button.tag)
-        }
+        buttons?
+            .forEach{ (button: UIButton) in
+                button.isAccessibilityElement = true
+                button.accessibilityIdentifier = button.tag |> String.init
+            }
     }
 }
 

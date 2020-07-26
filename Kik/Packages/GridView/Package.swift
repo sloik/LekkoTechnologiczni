@@ -7,8 +7,8 @@ let package = Package(
     name: "GridView",
     platforms: [
 //         .macOS(.v10_10),
-        .iOS(.v11),
-        .tvOS(.v11),
+        .iOS(.v12),
+        .tvOS(.v12),
         .watchOS(.v3)
     ],
 
@@ -31,6 +31,12 @@ let package = Package(
             url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
             from: "1.8.1"
         ),
+
+        .package(
+            name: "OptionalAPI",
+            url:  "https://github.com/sloik/OptionalAPI.git",
+            .branch("master")
+        ),
     ],
 
     targets: [
@@ -38,6 +44,7 @@ let package = Package(
             name: "GridView",
             dependencies: [
                 .product(name: "Either", package: "Prelude"),
+                "OptionalAPI",
             ]
         ),
         .testTarget(

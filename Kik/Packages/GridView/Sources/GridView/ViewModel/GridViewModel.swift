@@ -3,27 +3,27 @@ import Foundation
 import Either
 import Prelude
 
-enum ButtonIndex: Int {
-    case bi0
-    case bi1
-    case bi2
-    case bi3
-    case bi4
-    case bi5
-    case bi6
-    case bi7
-    case bi8
-}
+// MARK: - PUBLIC
 
 public struct GridViewModel {
     let actions: GridActions
+    let titleForElement: (ButtonIndex) -> String
 }
 
-public func gridViewModel(_ elements: ButtonAction...) -> Either<ErrorMessage, GridViewModel> {
-    gridViewModel(elements)
+
+// MARK: - PUBLIC
+// MARK: -- Functions
+public func gridViewModel(
+    _ elements: ButtonAction...,
+    titleProducer: @escaping (ButtonIndex) -> String
+) -> Either<ErrorMessage, GridViewModel> {
+    gridViewModel(elements, titleProducer)
 }
 
-public func gridViewModel(_ elements: [ButtonAction]) -> Either<ErrorMessage, GridViewModel> {
+public func gridViewModel(
+    _ elements: [ButtonAction],
+    _ titleProducer: @escaping (ButtonIndex) -> String
+) -> Either<ErrorMessage, GridViewModel> {
     guard
         elements.count == 9
     else {
@@ -43,17 +43,8 @@ public func gridViewModel(_ elements: [ButtonAction]) -> Either<ErrorMessage, Gr
                     action6: elements[ .bi6 ],
                     action7: elements[ .bi7 ],
                     action8: elements[ .bi8 ]
-                )
+                ),
+                titleForElement: titleProducer
             )
         )
-}
-
-func arrayIndex(_ buttonIndex: ButtonIndex) -> Int {
-    buttonIndex.rawValue
-}
-
-extension Array where Element == ButtonAction {
-    subscript(index: ButtonIndex) -> ButtonAction {
-        self[index |> arrayIndex]
-    }
 }
