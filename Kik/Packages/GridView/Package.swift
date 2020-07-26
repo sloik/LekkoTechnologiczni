@@ -15,7 +15,7 @@ let package = Package(
     products: [
         .library(
             name: "GridView",
-            type: .static,
+            type: .dynamic,
             targets: ["GridView"]),
     ],
 
@@ -45,6 +45,10 @@ let package = Package(
             dependencies: [
                 "GridView",
                 "SnapshotTesting",
-            ]),
+            ],
+            exclude: [
+                "__Snapshots__",
+            ]
+        )
     ]
 )
