@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
 		CC8AF31A24CC56B000F29AA5 /* __Snapshots__ in Resources */ = {isa = PBXBuildFile; fileRef = CC8AF31924CC56B000F29AA5 /* __Snapshots__ */; };
+		CCF080FB24CE0D2A0087C909 /* GridView in Frameworks */ = {isa = PBXBuildFile; productRef = CCF080FA24CE0D2A0087C909 /* GridView */; };
+		CCF080FC24CE0D2A0087C909 /* GridView in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CCF080FA24CE0D2A0087C909 /* GridView */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
 		EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */; };
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
@@ -38,6 +40,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CCF080FD24CE0D2A0087C909 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CCF080FC24CE0D2A0087C909 /* GridView in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
 		CC8AF31924CC56B000F29AA5 /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
@@ -64,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF080FB24CE0D2A0087C909 /* GridView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +199,7 @@
 				EF16ACA522F0C4060000A7AD /* Sources */,
 				EF16ACA622F0C4060000A7AD /* Frameworks */,
 				EF16ACA722F0C4060000A7AD /* Resources */,
+				CCF080FD24CE0D2A0087C909 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +207,7 @@
 			);
 			name = Kik;
 			packageProductDependencies = (
+				CCF080FA24CE0D2A0087C909 /* GridView */,
 			);
 			productName = Kik;
 			productReference = EF16ACA922F0C4060000A7AD /* Kik.app */;
@@ -242,7 +261,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = A.C.M.E.;
 				TargetAttributes = {
 					EF16ACA822F0C4060000A7AD = {
@@ -395,6 +414,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -456,6 +476,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -664,6 +685,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
+		};
+		CCF080FA24CE0D2A0087C909 /* GridView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GridView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

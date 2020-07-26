@@ -13,4 +13,4 @@ public enum ButtonIndex: Int, CaseIterable {
     case bi8
 }
 
-let toIntIndex: (ButtonIndex) -> Int = \ButtonIndex.rawValue
+public let toIntIndex: (ButtonIndex) -> Int = \ButtonIndex.rawValue

@@ -1,6 +1,8 @@
 
 import UIKit
 import SwiftUI
+import GridView
+import Prelude
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,7 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        window?.rootViewController =
+            gridViewController(
+                gridViewModel(
+                    Array(repeating: nop, count: 9),
+                    \.rawValue >>> String.init // //toIntIndex >>> String.init
+                ).right!
+            )
 
         window?.makeKeyAndVisible()
     }

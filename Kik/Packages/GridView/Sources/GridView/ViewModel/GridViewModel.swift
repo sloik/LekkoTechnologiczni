@@ -2,6 +2,7 @@
 import Foundation
 import Either
 import Prelude
+import OptionalAPI
 
 // MARK: - PUBLIC
 
@@ -51,7 +52,8 @@ public func gridViewModel(
 // MARK: - Internal
 
 extension GridViewModel {
-    func runAction(_ buttonIndex: Int) {
-        
+    func runAction(_ viewButtonIndex: Int) {
+        ButtonIndex(rawValue: viewButtonIndex)
+            .andThen( actions.actionFor(index:) >>> run )
     }
 }

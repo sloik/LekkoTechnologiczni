@@ -1,12 +1,11 @@
-
 import Foundation
 
 import XCTest
 @testable import GridView
 
-final class GridActionsTests: XCTestCase {
+final class GridViewModelTests: XCTestCase {
 
-    func test_actionForIndex_shouldCall_correctAction() {
+    func test_runAction_shouldCall_correctAction() {
         // Arrange
         let action0WasCalled = expectationForAction(0)
         let action1WasCalled = expectationForAction(1)
@@ -18,7 +17,7 @@ final class GridActionsTests: XCTestCase {
         let action7WasCalled = expectationForAction(7)
         let action8WasCalled = expectationForAction(8)
 
-        let sut = GridActions(
+        let actions = GridActions(
             action0: action0WasCalled.fulfill,
             action1: action1WasCalled.fulfill,
             action2: action2WasCalled.fulfill,
@@ -30,42 +29,39 @@ final class GridActionsTests: XCTestCase {
             action8: action8WasCalled.fulfill
         )
 
+        let sut = GridViewModel(
+            actions: actions,
+            titleForElement: { _ in "No title" }
+        )
+
         // Act & Assert
-        sut.actionFor(index: .bi0)()
+        sut.runAction(0)
         wait(for: [action0WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi1)()
+        sut.runAction(1)
         wait(for: [action1WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi2)()
+        sut.runAction(2)
         wait(for: [action2WasCalled], timeout: 0.1)
 
 
-        sut.actionFor(index: .bi3)()
+        sut.runAction(3)
         wait(for: [action3WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi4)()
+        sut.runAction(4)
         wait(for: [action4WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi5)()
+        sut.runAction(5)
         wait(for: [action5WasCalled], timeout: 0.1)
 
 
-        sut.actionFor(index: .bi6)()
+        sut.runAction(6)
         wait(for: [action6WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi7)()
+        sut.runAction(7)
         wait(for: [action7WasCalled], timeout: 0.1)
 
-        sut.actionFor(index: .bi8)()
+        sut.runAction(8)
         wait(for: [action8WasCalled], timeout: 0.1)
     }
-}
-
-func expectationForAction(_ index: Int) -> XCTestExpectation {
-    let exp: XCTestExpectation = XCTestExpectation(description: "Action \(index) was called")
-    exp.expectedFulfillmentCount = 1
-    exp.assertForOverFulfill = true
-
-    return exp
 }

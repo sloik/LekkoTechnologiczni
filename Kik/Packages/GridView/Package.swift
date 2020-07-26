@@ -20,10 +20,11 @@ let package = Package(
     ],
 
     dependencies: [
+
         .package(
             name: "Prelude",
             url:  "https://github.com/pointfreeco/swift-prelude.git",
-            .branch("main")
+           .branch("main")
         ),
 
         .package(
@@ -37,6 +38,12 @@ let package = Package(
             url:  "https://github.com/sloik/OptionalAPI.git",
             .branch("master")
         ),
+
+//      .package(
+//        name: "Runes",
+//        url: "https://github.com/thoughtbot/Runes",
+//        from: "5.0.0"
+//        ),
     ],
 
     targets: [
@@ -45,6 +52,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Either", package: "Prelude"),
                 "OptionalAPI",
+//                "Runes"
             ]
         ),
         .testTarget(
