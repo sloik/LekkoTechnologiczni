@@ -38,7 +38,7 @@ public final class GridViewController: UIViewController {
     }
 
     @IBAction func didTapButton(_ sender: UIButton) {
-        print("🛤", #function, #line)
+        viewModel?.runAction <*> sender.tag
     }
 }
 

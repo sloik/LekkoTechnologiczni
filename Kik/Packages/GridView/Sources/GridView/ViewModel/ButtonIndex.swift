@@ -1,7 +1,7 @@
 
 import Foundation
 
-public enum ButtonIndex: Int {
+public enum ButtonIndex: Int, CaseIterable {
     case bi0
     case bi1
     case bi2
@@ -13,6 +13,4 @@ public enum ButtonIndex: Int {
     case bi8
 }
 
-func toIntIndex(_ buttonIndex: ButtonIndex) -> Int {
-    buttonIndex.rawValue
-}
+let toIntIndex: (ButtonIndex) -> Int = \ButtonIndex.rawValue

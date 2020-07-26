@@ -10,7 +10,6 @@ public struct GridViewModel {
     let titleForElement: (ButtonIndex) -> String
 }
 
-
 // MARK: - PUBLIC
 // MARK: -- Functions
 public func gridViewModel(
@@ -47,4 +46,12 @@ public func gridViewModel(
                 titleForElement: titleProducer
             )
         )
+}
+
+// MARK: - Internal
+
+extension GridViewModel {
+    func runAction(_ buttonIndex: Int) {
+        
+    }
 }
