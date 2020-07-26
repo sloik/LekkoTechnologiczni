@@ -59,10 +59,11 @@ extension GridViewController {
                 let buttonIndex: ButtonIndex? = button.tag |> ButtonIndex.init(rawValue:)
                 let customTitle: String? = viewModel?.titleForElement <*> buttonIndex
 
-                button.setTitle(
-                    customTitle.or( "\(button.tag)" ),
-                    for: .normal
-                )
+                button
+                    .setTitle(
+                        customTitle.or( "\(button.tag)" ),
+                        for: .normal
+                    )
             }
     }
 
