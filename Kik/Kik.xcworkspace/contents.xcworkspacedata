@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Packages/KikPackage">
+   </FileRef>
+   <FileRef
       location = "group:Packages/GridView">
    </FileRef>
    <FileRef
