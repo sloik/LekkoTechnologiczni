@@ -23,6 +23,11 @@ let package = Package(
             name: "KikDomain",
             type: .dynamic,
             targets: ["KikDomain"]),
+
+        .library(
+            name: "KikImplementation",
+            type: .dynamic,
+            targets: ["KikImplementation"]),
     ],
 
     dependencies: [
@@ -40,8 +45,13 @@ let package = Package(
         .target(
             name: "KikDomain",
             dependencies: []),
-        .testTarget(
-            name: "KikDomainTests",
-            dependencies: ["KikDomain"]),
+//        .testTarget(
+//            name: "KikDomainTests",
+//            dependencies: ["KikDomain"]),
+
+        .target(
+            name: "KikImplementation",
+            dependencies: []),
+
     ]
 )
