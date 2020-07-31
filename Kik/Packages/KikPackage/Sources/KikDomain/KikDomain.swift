@@ -4,31 +4,36 @@
 
 import Foundation
 
-enum HorizPosition {
+public enum HorizPosition: CaseIterable, Equatable {
     case left, hCenter, right
 }
 
-enum VertPosition {
+public enum VertPosition: CaseIterable, Equatable {
     case top, vCenter, bottom
 }
 
-struct CellPosition {
+public struct CellPosition: Equatable {
     let hp: HorizPosition
     let vp: VertPosition
+
+    public init(hp: HorizPosition, vp: VertPosition) {
+        self.hp = hp
+        self.vp = vp
+    }
 }
 
-enum Player {
+public enum Player: Equatable {
     case x, o
 }
 
-enum CellState {
+public enum CellState: Equatable {
     case played(Player)
     case empty
 }
 
-struct Cell {
-    let pos: CellPosition
-    let state: CellState
+public struct Cell: Equatable {
+    public let pos: CellPosition
+    public let state: CellState
 }
 
 
@@ -37,8 +42,12 @@ struct Cell {
 //        cells : Cell list
 //        }
 
-struct DisplayInfo {
+public struct DisplayInfo {
     let cells: [Cell]
+
+    public init(cells: [Cell]) {
+        self.cells = cells
+    }
 }
 
 

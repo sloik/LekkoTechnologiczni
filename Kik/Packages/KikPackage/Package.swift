@@ -32,6 +32,11 @@ let package = Package(
 
     dependencies: [
 
+        .package(
+            name: "Prelude",
+            url: "https://github.com/pointfreeco/swift-prelude.git", .branch("main")
+        )
+
     ],
     
     targets: [
@@ -51,7 +56,10 @@ let package = Package(
 
         .target(
             name: "KikImplementation",
-            dependencies: []),
+            dependencies: [
+                "KikDomain",
+                "Prelude"
+            ]),
 
     ]
 )
