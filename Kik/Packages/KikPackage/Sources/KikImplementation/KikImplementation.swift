@@ -107,15 +107,17 @@ let getCell: (GameState) -> (CellPosition) -> Cell =
 
 /// This function given current game state and a cell will return a new game state with
 /// the cell "inserted" in the correct place.
-private let updateCell = {  (newCell: Cell , gameState: GameState ) -> GameState in
-    gameState
-        .cells
-        .map { (cell: Cell) -> Cell in
-            cell.pos == newCell.pos // if the current cell is in place of the new one
-                ? newCell           // return the new one
-                : cell              // return original one
-        }
-        |> GameState.init(cells:)
+private let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
+    { (gameState: GameState) in
+        gameState
+            .cells
+            .map { (cell: Cell) -> Cell in
+                cell.pos == newCell.pos // if the current cell is in place of the new one
+                    ? newCell           // return the new one
+                    : cell              // return original one
+            }
+            |> GameState.init(cells:)
+    }
 }
 
 
@@ -169,4 +171,72 @@ let isGameTied = { (gameState: GameState) -> Bool in
     }
 
     return gameState.cells.allSatisfy( cellWasPlayed )
+}
+
+
+/// determine the remaining moves
+//    let private remainingMoves gameState =
+
+private let remainingMoves = { (gameState: GameState) -> [CellPosition] in
+
+    let playableCell = { (cell: Cell) -> CellPosition? in
+        switch cell.state {
+        case .played: return .none
+        case .empty: return cell.pos
+        }
+    }
+
+    return gameState.cells.compactMap(playableCell)
+}
+
+
+// return the other player
+//    let otherPlayer player =
+
+let otherPlayer = { (player: Player) -> Player in
+    switch player {
+    case .x: return .o
+    case .o: return .x
+    }
+}
+
+
+// return the move result case for a player
+//    let moveResultFor player displayInfo nextMoves =
+
+let moveResultFor = { (player: Player, displayInfo: DisplayInfo, nextMoves: [NextMoveInfo]) -> MoveResult in
+
+    switch player {
+    case .x: return .playerXMove(displayInfo, nextMoves)
+    case .o: return .playerOMove(displayInfo, nextMoves)
+    }
+
+}
+
+
+// given a function, a player & a gameState & a position,
+// create a NextMoveInfo with the capability to call the function
+//let makeNextMoveInfo f player gameState cellPos =
+
+let makeNextMoveInfo = { (player: Player, gameState: GameState, cellPos: CellPosition) -> NextMoveInfo in
+
+    let capability: MoveCapability = { () -> MoveResult in
+        fatalError("Not implemented")
+    }
+
+    return NextMoveInfo(posToPlay: cellPos, capability: capability)
+}
+
+
+
+// player X or O makes a move
+//    let rec playerMove player cellPos gameState  =
+
+let playerMove = { (player: Player, cellPos: CellPosition, gameState: GameState) in
+    let newCell = Cell(
+        pos: cellPos,
+        state: .played(player)
+    )
+
+    let newGameState = gameState |> updateCell(newCell)
 }

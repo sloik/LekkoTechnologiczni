@@ -34,6 +34,11 @@ public enum CellState: Equatable {
 public struct Cell: Equatable {
     public let pos: CellPosition
     public let state: CellState
+
+    public init(pos: CellPosition, state: CellState) {
+        self.pos = pos
+        self.state = state
+    }
 }
 
 
@@ -56,7 +61,7 @@ public struct DisplayInfo {
 //type MoveCapability =
 //    unit -> MoveResult
 
-typealias MoveCapability = () -> MoveResult
+public typealias MoveCapability = () -> MoveResult
 
 
 /// A capability along with the position the capability is associated with.
@@ -68,9 +73,14 @@ typealias MoveCapability = () -> MoveResult
 //    posToPlay : CellPosition
 //    capability : MoveCapability }
 
-struct NextMoveInfo {
+public struct NextMoveInfo {
     let posToPlay: CellPosition
     let capability: MoveCapability
+
+    public init(posToPlay: CellPosition, capability: @escaping MoveCapability) {
+        self.posToPlay = posToPlay
+        self.capability = capability
+    }
 }
 
 
@@ -83,7 +93,7 @@ struct NextMoveInfo {
 //    | GameWon of DisplayInfo * Player
 //    | GameTied of DisplayInfo
 
-enum MoveResult {
+public enum MoveResult {
     case playerXMove(DisplayInfo, [NextMoveInfo])
     case playerOMove(DisplayInfo, [NextMoveInfo])
     case gameWon(DisplayInfo, Player)
