@@ -4,16 +4,26 @@
 
 import Foundation
 
+
+/// Defines what is a horizontal position.
 public enum HorizPosition: CaseIterable, Equatable {
     case left, hCenter, right
 }
 
+
+/// Defines what is a vertical position.
 public enum VertPosition: CaseIterable, Equatable {
     case top, vCenter, bottom
 }
 
+
+/// Cell Position consists of a Horizontal and Vertical Position.
 public struct CellPosition: Equatable {
+
+    /// Horizontal component of the position.
     let hp: HorizPosition
+
+    /// Vertical component of the position
     let vp: VertPosition
 
     public init(hp: HorizPosition, vp: VertPosition) {
@@ -22,17 +32,27 @@ public struct CellPosition: Equatable {
     }
 }
 
+
+/// Defines posible players.
 public enum Player: Equatable {
     case x, o
 }
 
+
+/// Cell can be in two possible states. Either it was played by a `Player` or it's `empty`.
 public enum CellState: Equatable {
     case played(Player)
     case empty
 }
 
+
+/// Definition of a `Cell` in a game.
 public struct Cell: Equatable {
+
+    /// Position of the cell.
     public let pos: CellPosition
+
+    /// Was the cell already played by `Player` or is `empty`.
     public let state: CellState
 
     public init(pos: CellPosition, state: CellState) {
@@ -42,12 +62,10 @@ public struct Cell: Equatable {
 }
 
 
-///// Everything the UI needs to know to display the board
-//    type DisplayInfo = {
-//        cells : Cell list
-//        }
-
+/// Everything the UI needs to know to display the board
 public struct DisplayInfo {
+
+    // List of `Cell`s. Each one has the position and state information.
     let cells: [Cell]
 
     public init(cells: [Cell]) {
@@ -57,22 +75,13 @@ public struct DisplayInfo {
 
 
 /// The capability to make a move at a particular location.
-/// The gamestate, player and position are already "baked" into the function.
-//type MoveCapability =
-//    unit -> MoveResult
-
+/// The game state, player and position are already "baked" into the function.
 public typealias MoveCapability = () -> MoveResult
 
 
 /// A capability along with the position the capability is associated with.
 /// This allows the UI to show information so that the user
 /// can pick a particular capability to exercise.
-//and NextMoveInfo = {
-//    // the pos is for UI information only
-//    // the actual pos is baked into the cap.
-//    posToPlay : CellPosition
-//    capability : MoveCapability }
-
 public struct NextMoveInfo {
     let posToPlay: CellPosition
     let capability: MoveCapability
@@ -83,30 +92,14 @@ public struct NextMoveInfo {
     }
 }
 
-
-/// The result of a move. It includes:
+/// The result of a move.
+///
+/// It includes:
 /// * The information on the current board state.
 /// * The capabilities for the next move, if any.
-//and MoveResult =
-//    | PlayerXToMove of DisplayInfo * NextMoveInfo list
-//    | PlayerOToMove of DisplayInfo * NextMoveInfo list
-//    | GameWon of DisplayInfo * Player
-//    | GameTied of DisplayInfo
-
 public enum MoveResult {
     case playerXMove(DisplayInfo, [NextMoveInfo])
     case playerOMove(DisplayInfo, [NextMoveInfo])
     case gameWon(DisplayInfo, Player)
     case gameTie(DisplayInfo)
-}
-
-// Only the newGame function is exported from the implementation
-   // all other functions come from the results of the previous move
-//   type TicTacToeAPI  =
-//       {
-//       newGame : MoveCapability
-//       }
-
-struct KikAPI {
-    let newGame: MoveCapability
 }

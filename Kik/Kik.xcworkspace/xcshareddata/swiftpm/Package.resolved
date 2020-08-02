@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Overture",
+        "repositoryURL": "https://github.com/pointfreeco/swift-overture.git",
+        "state": {
+          "branch": "main",
+          "revision": "21f0e4d8cfffc124052a4922975ad6336f4c7c31",
+          "version": null
+        }
+      },
+      {
         "package": "Prelude",
         "repositoryURL": "https://github.com/pointfreeco/swift-prelude.git",
         "state": {

@@ -34,7 +34,14 @@ let package = Package(
 
         .package(
             name: "Prelude",
-            url: "https://github.com/pointfreeco/swift-prelude.git", .branch("main")
+            url: "https://github.com/pointfreeco/swift-prelude.git",
+            .branch("main")
+        ),
+
+        .package(
+            name: "Overture",
+            url: "https://github.com/pointfreeco/swift-overture.git",
+            .branch("main")
         ),
 
         .package(
@@ -66,6 +73,7 @@ let package = Package(
                 "KikDomain",
                 "Prelude",
                 "OptionalAPI",
+                "Overture",
             ]),
 
     ]

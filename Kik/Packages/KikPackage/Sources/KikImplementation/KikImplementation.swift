@@ -6,6 +6,7 @@ import Foundation
 import KikDomain
 import Prelude
 import OptionalAPI
+import Overture
 
 // private implementation of game state
 struct GameState {
@@ -244,15 +245,13 @@ let makeNextMoveInfo = { (playerMove: @escaping PlayerMoveCapabilityProducer, pl
 // create a list of NextMoveInfos wrapped in a MoveResult
 // val makeMoveResultWithCapabilities : f:(Player -> CellPosition -> GameState -> MoveResult) -> player:Player -> gameState:GameState -> cellPosList:CellPosition list -> MoveResult
 let makeMoveResultWithCapabilities = { (playerMove: @escaping PlayerMoveCapabilityProducer, player: Player, gameState: GameState, cellPosList: [CellPosition]) -> MoveResult in
-    let displayInfo = gameState |> getDisplayInfo
 
-    let t =
-        cellPosList
-        .map{ cp in makeNextMoveInfo(playerMove, player, gameState)(cp) }
-
-    |> moveResultFor(player, displayInfo)
-
-        return .gameTie(displayInfo)
+    cellPosList
+        .map( makeNextMoveInfo(playerMove, player, gameState) ) //{ cp in makeNextMoveInfo(playerMove, player, gameState)(cp) }
+        |> moveResultFor(
+            player,
+            gameState |> getDisplayInfo
+        )
 }
 
 
@@ -288,3 +287,44 @@ func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> 
             freeCells
         )
 }
+
+let newGame: MoveCapability = {
+    let allPositions: [CellPosition] = {
+        allHorizPositions
+            .flatMap { (h: HorizPosition) in
+                allVertPositions
+                    .map { (v: VertPosition) -> (HorizPosition, VertPosition) in
+                        (h,v)
+                    }
+            }
+            .map(CellPosition.init(hp:vp:))
+    }()
+
+
+    let allEmptyCells: [Cell] =
+        allPositions
+        .map(  Cell.init(pos:state:) |> Overture.curry >>> Overture.flip
+                <| CellState.empty )
+
+
+    let gameState = allEmptyCells |> GameState.init(cells:)
+
+    let moveResult: MoveResult = makeMoveResultWithCapabilities(
+        playerMove(player:cellPos:gameState:),
+        .x,
+        gameState,
+        allPositions
+    )
+
+    return moveResult
+}
+
+// MARK: - PUBLIC
+
+// Only the newGame function is exported from the implementation
+// all other functions come from the results of the previous move.
+public struct KikAPI {
+    let newGame: MoveCapability
+}
+
+public let kikAPI: KikAPI = KikAPI(newGame: KikImplementation.newGame)
