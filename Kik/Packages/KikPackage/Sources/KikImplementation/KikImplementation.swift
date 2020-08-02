@@ -124,36 +124,38 @@ private let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
 /// Return true if the game was won by the specified player
 //   let private isGameWonBy player gameState =
 
-private let isGameWonBy = { (player: Player, gameState: GameState) -> Bool in
+private let isGameWonBy = { (player: Player) -> (GameState) -> Bool in
+    { (gameState: GameState) in
 
-    func cellWasPlayed(by playerToCheck: Player) -> (Cell) -> Bool {
-        { (cell: Cell) -> Bool in
+        func cellWasPlayed(by playerToCheck: Player) -> (Cell) -> Bool {
+            { (cell: Cell) -> Bool in
 
-            switch cell.state {
-            case .played(let player):
-                return playerToCheck == player
+                switch cell.state {
+                case .played(let player):
+                    return playerToCheck == player
 
-            case .empty:
-                return false
+                case .empty:
+                    return false
+                }
             }
         }
-    }
 
-    func lineIsAllSame(_ player: Player) -> (Line) -> Bool {
-        { (line: Line) in
-            line
-                .cellsPositions
-                // getCell(gameState) return a function "waiting" for cell position.
-                .map( getCell(gameState) )
-                // Here we have the cells from that line as they are currently played.
-                .allSatisfy( cellWasPlayed(by: player) )
+        func lineIsAllSame(_ player: Player) -> (Line) -> Bool {
+            { (line: Line) in
+                line
+                    .cellsPositions
+                    // getCell(gameState) return a function "waiting" for cell position.
+                    .map( getCell(gameState) )
+                    // Here we have the cells from that line as they are currently played.
+                    .allSatisfy( cellWasPlayed(by: player) )
+            }
         }
-    }
 
-    return
-        linesToCheck
+        return
+            linesToCheck
             .first(where: lineIsAllSame(player) )
             .isSome
+    }
 }
 
 
@@ -193,7 +195,7 @@ private let remainingMoves = { (gameState: GameState) -> [CellPosition] in
 // return the other player
 //    let otherPlayer player =
 
-let otherPlayer = { (player: Player) -> Player in
+func other(player: Player) -> Player {
     switch player {
     case .x: return .o
     case .o: return .x
@@ -204,39 +206,85 @@ let otherPlayer = { (player: Player) -> Player in
 // return the move result case for a player
 //    let moveResultFor player displayInfo nextMoves =
 
-let moveResultFor = { (player: Player, displayInfo: DisplayInfo, nextMoves: [NextMoveInfo]) -> MoveResult in
-
-    switch player {
-    case .x: return .playerXMove(displayInfo, nextMoves)
-    case .o: return .playerOMove(displayInfo, nextMoves)
+let moveResultFor = { (player: Player, displayInfo: DisplayInfo) ->  ([NextMoveInfo]) -> MoveResult in
+    { (nextMoves: [NextMoveInfo]) in
+        switch player {
+        case .x: return .playerXMove(displayInfo, nextMoves)
+        case .o: return .playerOMove(displayInfo, nextMoves)
+        }
     }
-
 }
 
 
 // given a function, a player & a gameState & a position,
 // create a NextMoveInfo with the capability to call the function
 //let makeNextMoveInfo f player gameState cellPos =
+// val makeNextMoveInfo : f:('a -> CellPosition -> 'b -> MoveCapability) -> player:'a -> gameState:'b -> HorizPosition * VertPosition -> NextMoveInfo
+//                        f:val ke : ('a -> CellPosition -> 'b -> MoveCapability)
 
-let makeNextMoveInfo = { (player: Player, gameState: GameState, cellPos: CellPosition) -> NextMoveInfo in
+// Given a player, cell position and a game state will produce a function that will create a move capability for it.
+typealias PlayerMoveCapabilityProducer = (Player, CellPosition, GameState) -> MoveResult
 
-    let capability: MoveCapability = { () -> MoveResult in
-        fatalError("Not implemented")
+let makeNextMoveInfo = { (playerMove: @escaping PlayerMoveCapabilityProducer, player: Player, gameState: GameState) -> (CellPosition) -> NextMoveInfo in
+    { (cellPos: CellPosition) in
+
+        // This `thunk` just waits to be executed with the the values
+        // closed over in a closure.
+        let capability: MoveCapability = { () -> MoveResult in
+            playerMove(player, cellPos, gameState)
+        }
+
+        return NextMoveInfo(posToPlay: cellPos, capability: capability)
     }
+}
 
-    return NextMoveInfo(posToPlay: cellPos, capability: capability)
+
+
+// given a function (player move???), a player & a gameState & a list of positions,
+// create a list of NextMoveInfos wrapped in a MoveResult
+// val makeMoveResultWithCapabilities : f:(Player -> CellPosition -> GameState -> MoveResult) -> player:Player -> gameState:GameState -> cellPosList:CellPosition list -> MoveResult
+let makeMoveResultWithCapabilities = { (playerMove: @escaping PlayerMoveCapabilityProducer, player: Player, gameState: GameState, cellPosList: [CellPosition]) -> MoveResult in
+    let displayInfo = gameState |> getDisplayInfo
+
+    let t =
+        cellPosList
+        .map{ cp in makeNextMoveInfo(playerMove, player, gameState)(cp) }
+
+    |> moveResultFor(player, displayInfo)
+
+        return .gameTie(displayInfo)
 }
 
 
 
 // player X or O makes a move
 //    let rec playerMove player cellPos gameState  =
+//val playerMove : player:Player -> HorizPosition * VertPosition -> gameState:GameState -> MoveResult
 
-let playerMove = { (player: Player, cellPos: CellPosition, gameState: GameState) in
-    let newCell = Cell(
-        pos: cellPos,
-        state: .played(player)
-    )
 
+func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> MoveResult {
+
+    let newCell      = Cell(pos: cellPos, state: .played(player))
     let newGameState = gameState |> updateCell(newCell)
+    let displayInfo  = newGameState |> getDisplayInfo
+
+    if newGameState |> isGameWonBy(player) {
+        return .gameWon(displayInfo, player)
+    }
+
+    if newGameState |> isGameTied {
+        return .gameTie(displayInfo)
+    }
+
+    let otherPlayer = player |> other(player:)
+
+    let freeCells: [CellPosition] = newGameState |> remainingMoves
+
+    return
+        makeMoveResultWithCapabilities(
+            playerMove(player:cellPos:gameState:),
+            otherPlayer,
+            gameState,
+            freeCells
+        )
 }

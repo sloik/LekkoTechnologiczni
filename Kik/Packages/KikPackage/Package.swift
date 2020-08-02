@@ -35,7 +35,13 @@ let package = Package(
         .package(
             name: "Prelude",
             url: "https://github.com/pointfreeco/swift-prelude.git", .branch("main")
-        )
+        ),
+
+        .package(
+            name: "OptionalAPI",
+            url:  "https://github.com/sloik/OptionalAPI.git",
+            .branch("master")
+        ),
 
     ],
     
@@ -58,7 +64,8 @@ let package = Package(
             name: "KikImplementation",
             dependencies: [
                 "KikDomain",
-                "Prelude"
+                "Prelude",
+                "OptionalAPI",
             ]),
 
     ]
