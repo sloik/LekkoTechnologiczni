@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "FunctionalAPI",
+        "repositoryURL": "https://github.com/sloik/FunctionalAPI.git",
+        "state": {
+          "branch": "master",
+          "revision": "19b48d660efea2b0d35695837141a05c3010364d",
+          "version": null
+        }
+      },
+      {
         "package": "OptionalAPI",
         "repositoryURL": "https://github.com/sloik/OptionalAPI.git",
         "state": {

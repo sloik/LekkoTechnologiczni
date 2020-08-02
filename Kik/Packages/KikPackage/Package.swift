@@ -28,6 +28,12 @@ let package = Package(
             name: "KikImplementation",
             type: .dynamic,
             targets: ["KikImplementation"]),
+
+        
+        .library(
+            name: "GridView",
+            type: .dynamic,
+            targets: ["GridView"]),
     ],
 
     dependencies: [
@@ -45,11 +51,25 @@ let package = Package(
         ),
 
         .package(
+            name: "SnapshotTesting",
+            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+            from: "1.8.1"
+        ),
+
+
+
+
+        .package(
             name: "OptionalAPI",
             url:  "https://github.com/sloik/OptionalAPI.git",
             .branch("master")
         ),
 
+        .package(
+            name: "FunctionalAPI",
+            url:  "https://github.com/sloik/FunctionalAPI.git",
+            .branch("master")
+        ),
     ],
     
     targets: [
@@ -75,6 +95,27 @@ let package = Package(
                 "OptionalAPI",
                 "Overture",
             ]),
+
+
+        .target(
+            name: "GridView",
+            dependencies: [
+                .product(name: "Either", package: "Prelude"),
+                "OptionalAPI",
+//                "Runes"
+            ]
+        ),
+        .testTarget(
+            name: "GridViewTests",
+            dependencies: [
+                "GridView",
+                "SnapshotTesting",
+            ],
+            exclude: [
+                "__Snapshots__",
+            ]
+        )
+
 
     ]
 )

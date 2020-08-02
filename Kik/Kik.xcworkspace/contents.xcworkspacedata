@@ -5,9 +5,6 @@
       location = "group:Packages/KikPackage">
    </FileRef>
    <FileRef
-      location = "group:Packages/GridView">
-   </FileRef>
-   <FileRef
       location = "group:Kik.xcodeproj">
    </FileRef>
    <FileRef
