@@ -7,6 +7,7 @@ import KikDomain
 import Prelude
 import OptionalAPI
 import Overture
+import FunctionalAPI
 
 // private implementation of game state
 struct GameState {
@@ -69,46 +70,42 @@ let linesToCheck: [Line] = {
 }()
 
 
-/// get the DisplayInfo from the gameState
-//let getDisplayInfo gameState =
-//    {DisplayInfo.cells = gameState.cells}
-
-// We can write it...
-//let getDisplayInfo: (GameState) -> DisplayInfo = { gameState in
-//    DisplayInfo(cells: gameState.cells)
-//}
-
 // Or we can compose it!
 let getDisplayInfo: (GameState) -> DisplayInfo =
     ^\GameState.cells >>> DisplayInfo.init(cells:)
 
 
-/// get the cell corresponding to the cell position
-//    let getCell gameState posToFind =
-//        gameState.cells
-//        |> List.find (fun cell -> cell.pos = posToFind)
-
 let getCell: (GameState) -> (CellPosition) -> Cell =
     { (gameState: GameState) in
         { (posToFind: CellPosition) -> Cell in
 
-            gameState
+            // We are building a predicate with existing components:
+            // let eqOp: (CellPosition, CellPosition) -> Bool = (==)
+            //
+            // Next step is to "bake" in `posToFind` inside this predicate.
+            // This can be achieved by curring `==` and applying `posToFind`
+            // as the first argument.
+            //
+            // When applied this will "bake in" first argument to the returned function.
+            // let curryEq: (CellPosition) -> (CellPosition) -> Bool = (==) |> Overture.curry
+            //
+            // `<| posToFind` applied this firs argument to a created on the fly function
+            // giving a predicate to be used in `filter`.
+            let isPosToFind: (CellPosition) -> Bool = (==) |> Overture.curry <| posToFind
+
+            return gameState
                 .cells
-                .first { (cell: Cell) -> Bool in
-                    cell.pos == posToFind
-                }!
+                // `isPosToFind` expects `CellPosition` but filter is feeding `Cell`.
+                // Trick here is to create a getter from a KeyPath and compose it
+                // with the predicate.
+                .first(where: ^\Cell.pos >>> isPosToFind)!
         }
     }
 
 
-/// update a particular cell in the GameState
-   /// and return a new GameState
-//   let private updateCell newCell gameState =
-
-
 /// This function given current game state and a cell will return a new game state with
 /// the cell "inserted" in the correct place.
-private let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
+let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
     { (gameState: GameState) in
         gameState
             .cells
@@ -123,9 +120,7 @@ private let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
 
 
 /// Return true if the game was won by the specified player
-//   let private isGameWonBy player gameState =
-
-private let isGameWonBy = { (player: Player) -> (GameState) -> Bool in
+let isGameWonBy = { (player: Player) -> (GameState) -> Bool in
     { (gameState: GameState) in
 
         func cellWasPlayed(by playerToCheck: Player) -> (Cell) -> Bool {
@@ -162,8 +157,6 @@ private let isGameWonBy = { (player: Player) -> (GameState) -> Bool in
 
 
 /// Return true if all cells have been played
-//    let private isGameTied gameState =
-
 let isGameTied = { (gameState: GameState) -> Bool in
 
     let cellWasPlayed = { (cell: Cell) -> Bool in
@@ -178,9 +171,7 @@ let isGameTied = { (gameState: GameState) -> Bool in
 
 
 /// determine the remaining moves
-//    let private remainingMoves gameState =
-
-private let remainingMoves = { (gameState: GameState) -> [CellPosition] in
+let remainingMoves = { (gameState: GameState) -> [CellPosition] in
 
     let playableCell = { (cell: Cell) -> CellPosition? in
         switch cell.state {
@@ -194,8 +185,6 @@ private let remainingMoves = { (gameState: GameState) -> [CellPosition] in
 
 
 // return the other player
-//    let otherPlayer player =
-
 func other(player: Player) -> Player {
     switch player {
     case .x: return .o
@@ -205,8 +194,6 @@ func other(player: Player) -> Player {
 
 
 // return the move result case for a player
-//    let moveResultFor player displayInfo nextMoves =
-
 let moveResultFor = { (player: Player, displayInfo: DisplayInfo) ->  ([NextMoveInfo]) -> MoveResult in
     { (nextMoves: [NextMoveInfo]) in
         switch player {
@@ -219,9 +206,6 @@ let moveResultFor = { (player: Player, displayInfo: DisplayInfo) ->  ([NextMoveI
 
 // given a function, a player & a gameState & a position,
 // create a NextMoveInfo with the capability to call the function
-//let makeNextMoveInfo f player gameState cellPos =
-// val makeNextMoveInfo : f:('a -> CellPosition -> 'b -> MoveCapability) -> player:'a -> gameState:'b -> HorizPosition * VertPosition -> NextMoveInfo
-//                        f:val ke : ('a -> CellPosition -> 'b -> MoveCapability)
 
 // Given a player, cell position and a game state will produce a function that will create a move capability for it.
 typealias PlayerMoveCapabilityProducer = (Player, CellPosition, GameState) -> MoveResult
@@ -243,7 +227,6 @@ let makeNextMoveInfo = { (playerMove: @escaping PlayerMoveCapabilityProducer, pl
 
 // given a function (player move???), a player & a gameState & a list of positions,
 // create a list of NextMoveInfos wrapped in a MoveResult
-// val makeMoveResultWithCapabilities : f:(Player -> CellPosition -> GameState -> MoveResult) -> player:Player -> gameState:GameState -> cellPosList:CellPosition list -> MoveResult
 let makeMoveResultWithCapabilities = { (playerMove: @escaping PlayerMoveCapabilityProducer, player: Player, gameState: GameState, cellPosList: [CellPosition]) -> MoveResult in
 
     cellPosList
@@ -257,10 +240,6 @@ let makeMoveResultWithCapabilities = { (playerMove: @escaping PlayerMoveCapabili
 
 
 // player X or O makes a move
-//    let rec playerMove player cellPos gameState  =
-//val playerMove : player:Player -> HorizPosition * VertPosition -> gameState:GameState -> MoveResult
-
-
 func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> MoveResult {
 
     let newCell      = Cell(pos: cellPos, state: .played(player))
@@ -324,7 +303,7 @@ let newGame: MoveCapability = {
 // Only the newGame function is exported from the implementation
 // all other functions come from the results of the previous move.
 public struct KikAPI {
-    let newGame: MoveCapability
+    public let newGame: MoveCapability
 }
 
 public let kikAPI: KikAPI = KikAPI(newGame: KikImplementation.newGame)

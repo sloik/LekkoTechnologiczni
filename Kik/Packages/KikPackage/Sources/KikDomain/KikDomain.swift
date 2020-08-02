@@ -66,7 +66,7 @@ public struct Cell: Equatable {
 public struct DisplayInfo {
 
     // List of `Cell`s. Each one has the position and state information.
-    let cells: [Cell]
+    public let cells: [Cell]
 
     public init(cells: [Cell]) {
         self.cells = cells

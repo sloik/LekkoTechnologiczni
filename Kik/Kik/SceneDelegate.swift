@@ -1,9 +1,6 @@
 
 import UIKit
-import SwiftUI
-import GridView
-import Prelude
-
+import KikApplication
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,13 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        window?.rootViewController =
-            gridViewController(
-                gridViewModel(
-                    Array(repeating: nop, count: 9),
-                    \.rawValue >>> String.init // //toIntIndex >>> String.init
-                ).right!
-            )
+        window?.rootViewController = KikApplication.startApp
 
         window?.makeKeyAndVisible()
     }

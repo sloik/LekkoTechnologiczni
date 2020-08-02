@@ -30,6 +30,20 @@
         "identifier" : "EF16ACC922F0C4090000A7AD",
         "name" : "KikUITests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/KikPackage",
+        "identifier" : "GridViewTests",
+        "name" : "GridViewTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "KikImplementationTests",
+        "name" : "KikImplementationTests"
+      }
     }
   ],
   "version" : 1

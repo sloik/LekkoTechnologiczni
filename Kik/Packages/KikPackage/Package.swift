@@ -15,11 +15,6 @@ let package = Package(
 
     products: [
         .library(
-            name: "KikPackage",
-            type: .dynamic,
-            targets: ["KikPackage"]),
-
-        .library(
             name: "KikDomain",
             type: .dynamic,
             targets: ["KikDomain"]),
@@ -34,6 +29,12 @@ let package = Package(
             name: "GridView",
             type: .dynamic,
             targets: ["GridView"]),
+
+
+        .library(
+            name: "KikApplication",
+            type: .dynamic,
+            targets: ["KikApplication"]),
     ],
 
     dependencies: [
@@ -57,8 +58,6 @@ let package = Package(
         ),
 
 
-
-
         .package(
             name: "OptionalAPI",
             url:  "https://github.com/sloik/OptionalAPI.git",
@@ -74,18 +73,9 @@ let package = Package(
     
     targets: [
         .target(
-            name: "KikPackage",
-            dependencies: []),
-        .testTarget(
-            name: "KikPackageTests",
-            dependencies: ["KikPackage"]),
-
-        .target(
             name: "KikDomain",
             dependencies: []),
-//        .testTarget(
-//            name: "KikDomainTests",
-//            dependencies: ["KikDomain"]),
+
 
         .target(
             name: "KikImplementation",
@@ -94,7 +84,12 @@ let package = Package(
                 "Prelude",
                 "OptionalAPI",
                 "Overture",
+                "FunctionalAPI",
             ]),
+        .testTarget(
+            name: "KikImplementationTests",
+            dependencies: ["KikImplementation"]),
+        
 
 
         .target(
@@ -102,7 +97,6 @@ let package = Package(
             dependencies: [
                 .product(name: "Either", package: "Prelude"),
                 "OptionalAPI",
-//                "Runes"
             ]
         ),
         .testTarget(
@@ -114,7 +108,17 @@ let package = Package(
             exclude: [
                 "__Snapshots__",
             ]
-        )
+        ),
+
+
+        .target(
+            name: "KikApplication",
+            dependencies: [
+                "GridView",
+                "KikImplementation",
+                "Overture",
+            ]
+        ),
 
 
     ]
