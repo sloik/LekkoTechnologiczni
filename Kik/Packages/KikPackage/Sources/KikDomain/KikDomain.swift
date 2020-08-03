@@ -83,8 +83,8 @@ public typealias MoveCapability = () -> MoveResult
 /// This allows the UI to show information so that the user
 /// can pick a particular capability to exercise.
 public struct NextMoveInfo {
-    let posToPlay: CellPosition
-    let capability: MoveCapability
+    public let posToPlay: CellPosition
+    public let capability: MoveCapability
 
     public init(posToPlay: CellPosition, capability: @escaping MoveCapability) {
         self.posToPlay = posToPlay

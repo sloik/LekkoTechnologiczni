@@ -88,7 +88,10 @@ let package = Package(
             ]),
         .testTarget(
             name: "KikImplementationTests",
-            dependencies: ["KikImplementation"]),
+            dependencies: [
+                "KikImplementation",
+                "SnapshotTesting"
+            ]),
         
 
 

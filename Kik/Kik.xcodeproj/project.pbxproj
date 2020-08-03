@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC8AF31A24CC56B000F29AA5 /* __Snapshots__ in Resources */ = {isa = PBXBuildFile; fileRef = CC8AF31924CC56B000F29AA5 /* __Snapshots__ */; };
 		CCBDFC7624D74A5C00D758CB /* KikApplication in Frameworks */ = {isa = PBXBuildFile; productRef = CCBDFC7524D74A5C00D758CB /* KikApplication */; };
 		CCBDFC7724D74A5C00D758CB /* KikApplication in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CCBDFC7524D74A5C00D758CB /* KikApplication */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */; };
@@ -15,25 +14,7 @@
 		EF16ACB322F0C4090000A7AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB222F0C4080000A7AD /* Assets.xcassets */; };
 		EF16ACB622F0C4090000A7AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */; };
 		EF16ACB922F0C4090000A7AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */; };
-		EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16ACCE22F0C4090000A7AD /* KikUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EF16ACC022F0C4090000A7AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EF16ACA122F0C4060000A7AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF16ACA822F0C4060000A7AD;
-			remoteInfo = Kik;
-		};
-		EF16ACCB22F0C4090000A7AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EF16ACA122F0C4060000A7AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF16ACA822F0C4060000A7AD;
-			remoteInfo = Kik;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CCF080FD24CE0D2A0087C909 /* Embed Frameworks */ = {
@@ -50,7 +31,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CC8AF31924CC56B000F29AA5 /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
 		EF16ACA922F0C4060000A7AD /* Kik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,11 +38,6 @@
 		EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF16ACB822F0C4090000A7AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF16ACBA22F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF16ACBF22F0C4090000A7AD /* KikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF16ACC522F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF16ACCE22F0C4090000A7AD /* KikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikUITests.swift; sourceTree = "<group>"; };
-		EF16ACD022F0C4090000A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,20 +46,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCBDFC7624D74A5C00D758CB /* KikApplication in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF16ACBC22F0C4090000A7AD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF16ACC722F0C4090000A7AD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				EF16ACAB22F0C4060000A7AD /* Kik */,
-				EF16ACC222F0C4090000A7AD /* KikTests */,
-				EF16ACCD22F0C4090000A7AD /* KikUITests */,
 				EF16ACAA22F0C4060000A7AD /* Products */,
 				0D040CC481C81D273D5396D4 /* Frameworks */,
 			);
@@ -113,8 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				EF16ACA922F0C4060000A7AD /* Kik.app */,
-				EF16ACBF22F0C4090000A7AD /* KikTests.xctest */,
-				EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,7 +79,6 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
-				EFABC304234512B300F8673A /* Model */,
 				EF16ACBA22F0C4090000A7AD /* Info.plist */,
 				EF16ACAC22F0C4060000A7AD /* AppDelegate.swift */,
 				EF16ACAE22F0C4060000A7AD /* SceneDelegate.swift */,
@@ -139,31 +95,6 @@
 				EF16ACB522F0C4090000A7AD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		EF16ACC222F0C4090000A7AD /* KikTests */ = {
-			isa = PBXGroup;
-			children = (
-				EF16ACC522F0C4090000A7AD /* Info.plist */,
-			);
-			path = KikTests;
-			sourceTree = "<group>";
-		};
-		EF16ACCD22F0C4090000A7AD /* KikUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CC8AF31924CC56B000F29AA5 /* __Snapshots__ */,
-				EF16ACCE22F0C4090000A7AD /* KikUITests.swift */,
-				EF16ACD022F0C4090000A7AD /* Info.plist */,
-			);
-			path = KikUITests;
-			sourceTree = "<group>";
-		};
-		EFABC304234512B300F8673A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,47 +121,6 @@
 			productReference = EF16ACA922F0C4060000A7AD /* Kik.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EF16ACBE22F0C4090000A7AD /* KikTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF16ACD622F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikTests" */;
-			buildPhases = (
-				EF16ACBB22F0C4090000A7AD /* Sources */,
-				EF16ACBC22F0C4090000A7AD /* Frameworks */,
-				EF16ACBD22F0C4090000A7AD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EF16ACC122F0C4090000A7AD /* PBXTargetDependency */,
-			);
-			name = KikTests;
-			packageProductDependencies = (
-			);
-			productName = KikTests;
-			productReference = EF16ACBF22F0C4090000A7AD /* KikTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EF16ACC922F0C4090000A7AD /* KikUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EF16ACD922F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikUITests" */;
-			buildPhases = (
-				EF16ACC622F0C4090000A7AD /* Sources */,
-				EF16ACC722F0C4090000A7AD /* Frameworks */,
-				EF16ACC822F0C4090000A7AD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC8AF31024CC50AE00F29AA5 /* PBXTargetDependency */,
-				EF16ACCC22F0C4090000A7AD /* PBXTargetDependency */,
-			);
-			name = KikUITests;
-			packageProductDependencies = (
-			);
-			productName = KikUITests;
-			productReference = EF16ACCA22F0C4090000A7AD /* KikUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,14 +133,6 @@
 				TargetAttributes = {
 					EF16ACA822F0C4060000A7AD = {
 						CreatedOnToolsVersion = 11.0;
-					};
-					EF16ACBE22F0C4090000A7AD = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = EF16ACA822F0C4060000A7AD;
-					};
-					EF16ACC922F0C4090000A7AD = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = EF16ACA822F0C4060000A7AD;
 					};
 				};
 			};
@@ -270,8 +152,6 @@
 			projectRoot = "";
 			targets = (
 				EF16ACA822F0C4060000A7AD /* Kik */,
-				EF16ACBE22F0C4090000A7AD /* KikTests */,
-				EF16ACC922F0C4090000A7AD /* KikUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,21 +167,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF16ACBD22F0C4090000A7AD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF16ACC822F0C4090000A7AD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC8AF31A24CC56B000F29AA5 /* __Snapshots__ in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -314,39 +179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF16ACBB22F0C4090000A7AD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EF16ACC622F0C4090000A7AD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EF16ACCF22F0C4090000A7AD /* KikUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CC8AF31024CC50AE00F29AA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = CC8AF30F24CC50AE00F29AA5 /* SnapshotTesting */;
-		};
-		EF16ACC122F0C4090000A7AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF16ACA822F0C4060000A7AD /* Kik */;
-			targetProxy = EF16ACC022F0C4090000A7AD /* PBXContainerItemProxy */;
-		};
-		EF16ACCC22F0C4090000A7AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EF16ACA822F0C4060000A7AD /* Kik */;
-			targetProxy = EF16ACCB22F0C4090000A7AD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EF16ACB722F0C4090000A7AD /* LaunchScreen.storyboard */ = {
@@ -518,88 +351,6 @@
 			};
 			name = Release;
 		};
-		EF16ACD722F0C4090000A7AD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
-				INFOPLIST_FILE = KikTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kik.app/Kik";
-			};
-			name = Debug;
-		};
-		EF16ACD822F0C4090000A7AD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
-				INFOPLIST_FILE = KikTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kik.app/Kik";
-			};
-			name = Release;
-		};
-		EF16ACDA22F0C4090000A7AD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
-				INFOPLIST_FILE = KikUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kik;
-			};
-			name = Debug;
-		};
-		EF16ACDB22F0C4090000A7AD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79FTA4VEX;
-				INFOPLIST_FILE = KikUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.KikUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kik;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -621,43 +372,9 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EF16ACD622F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF16ACD722F0C4090000A7AD /* Debug */,
-				EF16ACD822F0C4090000A7AD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EF16ACD922F0C4090000A7AD /* Build configuration list for PBXNativeTarget "KikUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EF16ACDA22F0C4090000A7AD /* Debug */,
-				EF16ACDB22F0C4090000A7AD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		CC8AF30F24CC50AE00F29AA5 /* SnapshotTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CC8AF30724CC4FB700F29AA5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
-			productName = SnapshotTesting;
-		};
 		CCBDFC7524D74A5C00D758CB /* KikApplication */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KikApplication;

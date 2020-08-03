@@ -77,10 +77,11 @@ final class GridViewSnapshotTests: XCTestCase {
 }
 
 let noActionViewModel: GridViewModel =
-    gridViewModel(
-        Array(repeating: nop, count: 9),
-        { index in "Title for \(index |> toIntIndex)" }
-    )
-    .right!
+    GridViewModel { _ in
+
+    }
+    titleForElement: { index in
+        "Title for \(index |> toIntIndex)"
+    }
 
 let darkMode: UITraitCollection = .init(userInterfaceStyle: .dark)

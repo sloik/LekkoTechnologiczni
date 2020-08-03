@@ -9,7 +9,25 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Packages\/KikPackage",
+          "identifier" : "KikApplication",
+          "name" : "KikApplication"
+        },
+        {
+          "containerPath" : "container:Packages\/KikPackage",
+          "identifier" : "KikImplementation",
+          "name" : "KikImplementation"
+        },
+        {
+          "containerPath" : "container:Packages\/KikPackage",
+          "identifier" : "GridView",
+          "name" : "GridView"
+        }
+      ]
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:Kik.xcodeproj",
       "identifier" : "EF16ACA822F0C4060000A7AD",
@@ -19,20 +37,6 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:Kik.xcodeproj",
-        "identifier" : "EF16ACBE22F0C4090000A7AD",
-        "name" : "KikTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Kik.xcodeproj",
-        "identifier" : "EF16ACC922F0C4090000A7AD",
-        "name" : "KikUITests"
-      }
-    },
-    {
-      "target" : {
         "containerPath" : "container:Packages\/KikPackage",
         "identifier" : "GridViewTests",
         "name" : "GridViewTests"
@@ -40,7 +44,7 @@
     },
     {
       "target" : {
-        "containerPath" : "container:",
+        "containerPath" : "container:Packages\/KikPackage",
         "identifier" : "KikImplementationTests",
         "name" : "KikImplementationTests"
       }

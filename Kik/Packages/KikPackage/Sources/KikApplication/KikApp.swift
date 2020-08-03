@@ -7,43 +7,54 @@ import KikDomain
 import FunctionalAPI
 import Overture
 
-public var startApp: UIViewController {
+struct KikGameState {
+    let gridViewController: GridViewController?
+}
 
-    let moveResult: MoveResult = KikImplementation.kikAPI.newGame()
+var State: KikGameState!
 
 
-    return gridViewController(
-        gridViewModel(
-            Array(repeating: nop, count: 9),
-            \.rawValue >>> String.init // //toIntIndex >>> String.init
-        ).right!
-    )
+func toTitle(_ state: CellState) -> String {
+    switch state {
+    case .played(let player): return player |> toString
+    case .empty:              return "▢"
+    }
+}
+
+func toString(_ player: Player) -> String {
+    switch player {
+    case .x: return "🥒"
+    case .o: return "🍅"
+    }
 }
 
 func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
 
-    let elements: [ButtonAction]
+    let buttonHandler: GridViewButtonHandler
     let titleProducer: (ButtonIndex) -> String
 
     switch moveResult {
     case .playerXMove(let displayInfo, let nextMoveInfo):
-        elements      = nextMoveInfo |> toButtonActions
+        buttonHandler = nextMoveInfo |> makeButtonHandler
         titleProducer = displayInfo |> toTitle
 
     case .playerOMove(let displayInfo, let nextMoveInfo):
-        elements      = nextMoveInfo |> toButtonActions
+        buttonHandler = nextMoveInfo |> makeButtonHandler
         titleProducer = displayInfo |> toTitle
 
     case .gameWon(let displayInfo, let player):
-        elements = Array(repeating: {}, count: 9)
+        buttonHandler = [] |> makeButtonHandler
         titleProducer = displayInfo |> toTitle
 
     case .gameTie(let displayInfo):
-        elements = Array(repeating: {}, count: 9)
+        buttonHandler = [] |> makeButtonHandler
         titleProducer = displayInfo |> toTitle
     }
 
-    return gridViewModel(elements, titleProducer).right!
+    return .init(
+        actionForButton: buttonHandler,
+        titleForElement: titleProducer
+    )
 }
 
 
@@ -89,10 +100,6 @@ let buttonIndexMap: [ButtonIndex: CellPosition] = {
 
 func toCellPosition(_ buttonIndex: ButtonIndex) -> CellPosition {
     buttonIndexMap[buttonIndex]!
-}
-
-func toButtonActions(_ nextMove: [NextMoveInfo]) -> [ButtonAction] {
-    []
 }
 
 func toTitle(_ displayInfo: DisplayInfo) -> (ButtonIndex) -> String {
@@ -178,16 +185,26 @@ func toTitle(_ displayInfo: DisplayInfo) -> (ButtonIndex) -> String {
     }
 }
 
-func toTitle(_ state: CellState) -> String {
-    switch state {
-    case .played(let player): return player |> toString
-    case .empty:              return "▢"
+func makeButtonHandler(_ moveInfo: [NextMoveInfo]) -> (ButtonIndex) -> Void {
+    { (tapedButton: ButtonIndex) in
+        moveInfo
+            .first(where:
+                ^\NextMoveInfo.posToPlay >>> { pos in pos == (tapedButton |> toCellPosition) }
+            )
+            .andThen(
+                ^\NextMoveInfo.capability
+                >>> { (move: MoveCapability) -> MoveResult in move() }
+                >>> updateGridView
+            )
+            ?? ()
     }
 }
 
-func toString(_ player: Player) -> String {
-    switch player {
-    case .x: return "🥒"
-    case .o: return "🍅"
-    }
+func updateGridView(_ moveResult: MoveResult) {
+    State
+        .gridViewController
+        .map(GridViewController.bind)
+        .map{ (bind: (GridViewModel) -> Void) in
+            bind <| moveResult |> toGridViewModel
+        }
 }
