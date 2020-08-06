@@ -71,6 +71,7 @@ let package = Package(
         ),
     ],
     
+    
     targets: [
         .target(
             name: "KikDomain",
@@ -90,8 +91,13 @@ let package = Package(
             name: "KikImplementationTests",
             dependencies: [
                 "KikImplementation",
-                "SnapshotTesting"
-            ]),
+                "SnapshotTesting",
+                "FunctionalAPI",
+            ],
+            exclude: [
+                "__Snapshots__",
+            ]
+        ),
         
 
 

@@ -66,7 +66,7 @@ let linesToCheck: [Line] = {
         .map( CellPosition.init(hp:vp:) )
         |> Line.init(cellsPositions:)
 
-    return horizontalLines + horizontalLines + [diagonalLine2]
+    return horizontalLines + horizontalLines + [diagonalLine1, diagonalLine2]
 }()
 
 

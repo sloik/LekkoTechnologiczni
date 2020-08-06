@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "5D7489EE-346C-4580-B9C2-AB938437FAEF",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "KikImplementationTests",
+        "name" : "KikImplementationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

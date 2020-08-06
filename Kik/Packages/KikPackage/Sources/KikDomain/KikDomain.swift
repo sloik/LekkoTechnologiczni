@@ -6,13 +6,13 @@ import Foundation
 
 
 /// Defines what is a horizontal position.
-public enum HorizPosition: CaseIterable, Equatable {
+public enum HorizPosition: String, CaseIterable, Equatable {
     case left, hCenter, right
 }
 
 
 /// Defines what is a vertical position.
-public enum VertPosition: CaseIterable, Equatable {
+public enum VertPosition: String, CaseIterable, Equatable {
     case top, vCenter, bottom
 }
 
@@ -21,10 +21,10 @@ public enum VertPosition: CaseIterable, Equatable {
 public struct CellPosition: Equatable {
 
     /// Horizontal component of the position.
-    let hp: HorizPosition
+    public let hp: HorizPosition
 
     /// Vertical component of the position
-    let vp: VertPosition
+    public let vp: VertPosition
 
     public init(hp: HorizPosition, vp: VertPosition) {
         self.hp = hp
@@ -32,9 +32,8 @@ public struct CellPosition: Equatable {
     }
 }
 
-
 /// Defines posible players.
-public enum Player: Equatable {
+public enum Player: Equatable, CaseIterable {
     case x, o
 }
 

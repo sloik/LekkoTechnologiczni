@@ -1,0 +1,34 @@
+UPDATE CELL:
+Cell:
+	CellPosition: H:right V:bottom,
+	       State: [x]
+
+RESULT
+GameState>
+Cell:
+	CellPosition: H:left V:top,
+	       State: []
+Cell:
+	CellPosition: H:left V:vCenter,
+	       State: []
+Cell:
+	CellPosition: H:left V:bottom,
+	       State: []
+Cell:
+	CellPosition: H:hCenter V:top,
+	       State: []
+Cell:
+	CellPosition: H:hCenter V:vCenter,
+	       State: []
+Cell:
+	CellPosition: H:hCenter V:bottom,
+	       State: []
+Cell:
+	CellPosition: H:right V:top,
+	       State: []
+Cell:
+	CellPosition: H:right V:vCenter,
+	       State: []
+Cell:
+	CellPosition: H:right V:bottom,
+	       State: [x]

@@ -89,7 +89,7 @@ let buttonIndexMap: [ButtonIndex: CellPosition] = {
             /// go with #2 😎
             let cellPosition: CellPosition =
                 CellPosition.init(hp:vp:)
-                |>  Overture.curry >>> Overture.flip >>> Overture.uncurry
+                |> flipArguments
                 // At this point we have something like this: CellPosition.init(vp:hp)
                 // This is just the thing that we can put cell coordinates in to.
                 <| cellCoordinates
@@ -207,4 +207,8 @@ func updateGridView(_ moveResult: MoveResult) {
         .map{ (bind: (GridViewModel) -> Void) in
             bind <| moveResult |> toGridViewModel
         }
+}
+
+func flipArguments<A,B,C>(_ f: @escaping (A,B) -> C) -> (B,A) -> C {
+    f |> Overture.curry >>> Overture.flip >>> Overture.uncurry
 }
