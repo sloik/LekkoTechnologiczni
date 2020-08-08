@@ -93,6 +93,7 @@ let package = Package(
                 "KikImplementation",
                 "SnapshotTesting",
                 "FunctionalAPI",
+                "Prelude",
             ],
             exclude: [
                 "__Snapshots__",

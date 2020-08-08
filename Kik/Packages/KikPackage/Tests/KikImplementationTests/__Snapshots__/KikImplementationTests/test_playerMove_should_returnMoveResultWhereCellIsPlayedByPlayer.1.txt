@@ -1,0 +1,3 @@
+State: [o] | State: [ ] | State: [ ]
+State: [ ] | State: [ ] | State: [ ]
+State: [ ] | State: [ ] | State: [ ]

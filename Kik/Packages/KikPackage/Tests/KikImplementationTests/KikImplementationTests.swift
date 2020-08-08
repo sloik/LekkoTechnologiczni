@@ -19,11 +19,10 @@ final class KikImplementationTests: XCTestCase {
     }
     
     func test_linesToCheck_should_defineAllLinesInGame() {
-        linesToCheck
-            .map( toString )
-            .forEach { lineAsString in
-                assertSnapshot(matching: lineAsString, as: .lines)
-            }
+        assertSnapshot(
+            matching: linesToCheck.map( toString ).joined(separator: "\n"),
+            as: .lines
+        )
     }
 
     func test_getCell_shouldReturn_cellByItsPosition() {
@@ -105,103 +104,58 @@ final class KikImplementationTests: XCTestCase {
                 )
             }
     }
-
-}
-
-func winningState(in game: GameState, for player: Player) -> (Line) -> GameState {
-    { (line: Line) in
-        line
-            .cellsPositions
-            .reduce(into: game) { ( game: inout GameState, pos: CellPosition) in
-                let cellWithPalyer = Cell(pos: pos, state: .played(player))
-                
-                let updatedGame = updateCell(cellWithPalyer)(game)
-                
-                game = updatedGame
-            }
+    
+    func test_ifGameIsTied_should_returnTrue_whenAllCellsArePalyed() {
+        XCTAssertFalse(
+            isGameTied(
+                GameState(cells: allEmptyCells)
+            )
+        )
+        
+        XCTAssertTrue(
+            isGameTied(
+                GameState(cells: allXCells)
+            )
+        )
     }
-}
-
-let allPositions: [CellPosition] =
-    product(
-        HorizPosition.allCases,
-        VertPosition.allCases
-    )
-    .map(CellPosition.init(hp:vp:))
-
-
-let allEmptyCells: [Cell] = allPositions
-    .map { pos in Cell(pos: pos, state: .empty)  }
-
-let allXCells: [Cell] = allPositions.map { pos in Cell(pos: pos, state: .played(.x)) }
-
-let repeatedCells: [Cell] = allPositions
-    .enumerated()
-    .map{ (index, pos) in
-        switch index % 3 {
-        case 0: return Cell(pos: pos, state: .empty)
-        case 1: return Cell(pos: pos, state: .played(.x))
-        case 2: return Cell(pos: pos, state: .played(.o))
+    
+    func test_remainingMoves_should_reurnAllNonPlayedCells() {
+        XCTAssertEqual(
+            remainingMoves( GameState(cells: allXCells) ).count,
+            0
+        )
+        
+        XCTAssertEqual(
+            remainingMoves( GameState(cells: allEmptyCells) ).count,
+            9
+        )
+    }
+    
+    func test_playerMove_should_returnMoveResultWhereCellIsPlayedByPlayer() {
+        // Arrange
+        let emptyGameState = GameState(cells: allEmptyCells)
+        
+        // Act
+        let result = playerMove(player: .o, cellPos: .leftTop, gameState: emptyGameState)
+        
+        // Assert
+        switch result {
+        case .playerXMove(let displayInfo, let nextMoves):
+            XCTAssertEqual(nextMoves.count, 8)
+            
+            assertSnapshot(
+                matching: toAscii( GameState(cells: displayInfo.cells) ) ,
+                as: .lines
+            )
+            
+        case .playerOMove:
+            XCTFail("On empty board after O player X should move next!")
+            
         default:
-            fatalError()
+            XCTFail("This is imposible after 1st move!")
+        
         }
     }
-
-func toString(_ gameState: GameState) -> String {
-    """
-    GameState>
-    \(gameState.cells.map( toString ).joined(separator: "\n"))
-    """
 }
 
-func toString(_ line: Line) -> String {
-    """
-    Line:
-    \t\( line.cellsPositions.map(toString) )
-    """
-}
 
-func toString(_ cell: Cell) -> String {
-    """
-    Cell:
-    \t\(toString(cell.pos)),
-    \t       \(toString(cell.state))
-    """
-}
-
-func toString(_ pos: CellPosition) -> String {
-    "CellPosition: H:\( toAscii(pos.hp) ) V:\( toAscii(pos.vp) )"
-}
-
-func toString(_ state: CellState) -> String {
-    switch state {
-    case .played(let player): return "State: [\(player)]"
-    case              .empty: return "State: [ ]"
-    }
-}
-
-func toAscii(_ hp: HorizPosition) -> String {
-    switch hp {
-    case    .left: return "←"
-    case .hCenter: return "|"
-    case   .right: return "→"
-    }
-}
-
-func toAscii(_ vp: VertPosition) -> String {
-    switch vp {
-    case     .top: return "↑"
-    case .vCenter: return "-"
-    case  .bottom: return "↓"
-    }
-}
-
-func toAscii(_ game: GameState) -> String {
-    let getPos = getCell(game)
-    
-    return """
-    \( toString(getPos (CellPosition(hp: .left, vp: .top)).state)     ) | \( toString(getPos (CellPosition(hp: .hCenter, vp: .top)).state)     ) | \( toString(getPos (CellPosition(hp: .right, vp: .top)).state)     )
-    \( toString(getPos (CellPosition(hp: .left, vp: .vCenter)).state) ) | \( toString(getPos (CellPosition(hp: .hCenter, vp: .vCenter)).state) ) | \( toString(getPos (CellPosition(hp: .right, vp: .vCenter)).state) )
-    \( toString(getPos (CellPosition(hp: .left, vp: .bottom)).state)  ) | \( toString(getPos (CellPosition(hp: .hCenter, vp: .bottom)).state)  ) | \( toString(getPos (CellPosition(hp: .right, vp: .bottom)).state)  )
-    """
-}

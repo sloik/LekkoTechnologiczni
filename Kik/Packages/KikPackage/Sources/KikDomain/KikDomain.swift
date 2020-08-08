@@ -30,6 +30,18 @@ public struct CellPosition: Equatable {
         self.hp = hp
         self.vp = vp
     }
+    
+    public static var   leftTop: CellPosition { .init(hp: .left,    vp: .top) }
+    public static var centerTop: CellPosition { .init(hp: .hCenter, vp: .top) }
+    public static var  rightTop: CellPosition { .init(hp: .right,   vp: .top) }
+    
+    public static var   leftCenter: CellPosition { .init(hp: .left,     vp: .vCenter) }
+    public static var centerCenter: CellPosition { .init(hp: .hCenter,  vp: .vCenter) }
+    public static var  rightCenter: CellPosition { .init(hp: .right,    vp: .vCenter) }
+    
+    public static var   leftBottom: CellPosition { .init(hp: .left,     vp: .bottom) }
+    public static var centerBottom: CellPosition { .init(hp: .hCenter,  vp: .bottom) }
+    public static var  rightBottom: CellPosition { .init(hp: .right,    vp: .bottom) }
 }
 
 /// Defines posible players.

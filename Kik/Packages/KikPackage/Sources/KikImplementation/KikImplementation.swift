@@ -210,15 +210,20 @@ let moveResultFor = { (player: Player, displayInfo: DisplayInfo) ->  ([NextMoveI
 // Given a player, cell position and a game state will produce a function that will create a move capability for it.
 typealias PlayerMoveCapabilityProducer = (Player, CellPosition, GameState) -> MoveResult
 
-let makeNextMoveInfo = { (playerMove: @escaping PlayerMoveCapabilityProducer, player: Player, gameState: GameState) -> (CellPosition) -> NextMoveInfo in
+let makeNextMoveInfo = {
+    (playerMove: @escaping PlayerMoveCapabilityProducer,
+     player: Player,
+     gameState: GameState)
+    -> (CellPosition)
+    -> NextMoveInfo in
     { (cellPos: CellPosition) in
-
+        
         // This `thunk` just waits to be executed with the the values
         // closed over in a closure.
         let capability: MoveCapability = { () -> MoveResult in
             playerMove(player, cellPos, gameState)
         }
-
+        
         return NextMoveInfo(posToPlay: cellPos, capability: capability)
     }
 }
@@ -262,7 +267,7 @@ func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> 
         makeMoveResultWithCapabilities(
             playerMove(player:cellPos:gameState:),
             otherPlayer,
-            gameState,
+            newGameState,
             freeCells
         )
 }
