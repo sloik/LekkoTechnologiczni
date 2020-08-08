@@ -163,16 +163,31 @@ final class GamePlayTests: XCTestCase {
     
     func test_gameUsingTypes() {
         GamePlay(gameState: kikAPI.newGame())
+            .assertSnapshot("1_initial_game_state")
+            .assertPlayer(.x)
             .assertMovesLeft(9)
-            .move(.leftTop)         // X
-            .assertMovesLeft(88, "After move should have less moves!")
-            .move(.centerTop)       // O
+            
+            .move(.leftTop)
+            .assertSnapshot("2_X_made_a_move_left_top")
+            .assertPlayer(.o)
+            .assertMovesLeft(8)
+            
+            .move(.centerTop)
+            .assertSnapshot("3_O_made_a_move_center_top")
+            .assertPlayer(.x)
             .assertMovesLeft(7)
-            .move(.centerCenter)    // X
+            
+            .move(.centerCenter)
+            .assertSnapshot("4_X_made_a_move_center_center")
             .assertMovesLeft(6)
-            .move(.rightTop)        // O
+            
+            .move(.rightTop)
+            .assertSnapshot("5_O_made_a_move_right_top")
             .assertMovesLeft(5)
-            .move(.rightBottom)     // X wins
+            
+            .move(.rightBottom)
+            .assertSnapshot("6_X_made_a_move_right_bottom_and_won_the_game")
+            .assertWonByPlayer(.x)
     }
 }
 
@@ -197,6 +212,72 @@ struct GamePlay {
         }
     }
     
+    @discardableResult
+    func assertSnapshot(
+        _ name: String,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        testName: String = #function) -> GamePlay {
+        
+        let displayInfo: DisplayInfo!
+        switch gameState {
+        case .playerXMove(let info, _): displayInfo = info
+        case .playerOMove(let info, _): displayInfo = info
+        case .gameWon(let info, _)    : displayInfo = info
+        case .gameTie(let info)       : displayInfo = info
+        }
+        
+        SnapshotTesting.assertSnapshot(
+            matching: displayInfo |> displayBoard,
+            as: .lines,
+            named: name,
+            timeout: 5,
+            file: (file),
+            testName: testName,
+            line: line
+        )
+        
+        return self
+    }
+    
+    @discardableResult
+    func assertPlayer(
+        _ player: Player,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #filePath,
+        line: UInt = #line) -> GamePlay {
+        
+        switch gameState {
+        case .playerXMove:
+            XCTAssertEqual(player, Player.x, message(), file: file, line: line)
+        case .playerOMove:
+            XCTAssertEqual(player, Player.o, message(), file: file, line: line)
+        default:
+            XCTFail("Game is in a state where no player can make any move!", file: file, line: line)
+        }
+        
+        return self
+    }
+    
+    @discardableResult
+    func assertWonByPlayer(
+        _ expected: Player,
+        _ message: @autoclosure () -> String = "",
+        file: StaticString = #filePath,
+        line: UInt = #line) -> GamePlay {
+        
+        switch gameState {
+        case .gameWon(_, let player):
+            XCTAssertEqual(expected, player, message(), file: file, line: line)
+        
+        default:
+            XCTFail("Game is not in a Won state!")
+        }
+        
+        return self
+    }
+    
+    @discardableResult
     func assertMovesLeft(
         _ count: Int,
         _ message: @autoclosure () -> String = "",
@@ -217,8 +298,6 @@ struct GamePlay {
         return self
     }
 }
-
-//public func XCTAssertEqual<T>(_ expression1: @autoclosure () throws -> T, _ expression2: @autoclosure () throws -> T, _ message: @autoclosure () -> String = "", file: StaticString = #filePath, line: UInt = #line)
 
 
 func nextMoveCapability(_ cellPosition: CellPosition) -> ([NextMoveInfo]) -> MoveCapability {
