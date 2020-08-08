@@ -1,1 +1,2 @@
-Line(cellsPositions: [KikDomain.CellPosition(hp: KikDomain.HorizPosition.left, vp: KikDomain.VertPosition.bottom), KikDomain.CellPosition(hp: KikDomain.HorizPosition.hCenter, vp: KikDomain.VertPosition.vCenter), KikDomain.CellPosition(hp: KikDomain.HorizPosition.left, vp: KikDomain.VertPosition.top)])
+Line:
+	["CellPosition: H:← V:↓", "CellPosition: H:| V:-", "CellPosition: H:← V:↑"]
