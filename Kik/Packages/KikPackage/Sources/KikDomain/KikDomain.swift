@@ -18,7 +18,7 @@ public enum VertPosition: String, CaseIterable, Equatable {
 
 
 /// Cell Position consists of a Horizontal and Vertical Position.
-public struct CellPosition: Equatable {
+public struct CellPosition: Equatable, Hashable {
 
     /// Horizontal component of the position.
     public let hp: HorizPosition

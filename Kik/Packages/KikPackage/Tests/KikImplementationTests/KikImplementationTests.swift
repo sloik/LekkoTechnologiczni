@@ -4,6 +4,7 @@ import XCTest
 import SnapshotTesting
 import FunctionalAPI
 import KikDomain
+import Prelude
 
 @testable import KikImplementation
 
@@ -18,11 +19,15 @@ final class KikImplementationTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_linesToCheck_should_defineAllLinesInGame() {
-        assertSnapshot(
-            matching: linesToCheck.map( toString ).joined(separator: "\n"),
-            as: .lines
-        )
+    func test_linesToCheck_should_defineAllLinesInGame() {        
+        linesToCheck
+            .map( playedState(in: emptyGameState, for: .x) )
+            .forEach { (gameState: GameState) in
+                assertSnapshot(
+                    matching: gameState |> toAscii,
+                    as: .lines
+                )
+            }
     }
 
     func test_getCell_shouldReturn_cellByItsPosition() {
@@ -51,8 +56,6 @@ final class KikImplementationTests: XCTestCase {
     
     func test_updateCell_should_returnNewGameState_with_theCellInsertedInPlace() {
         // Arrange
-        let emptyGameState = GameState(cells: allEmptyCells)
-        
         // Act
         allXCells
             .forEach{ (cell: Cell) in
@@ -73,7 +76,7 @@ final class KikImplementationTests: XCTestCase {
     func test_isGameWonByPlayer_shouldReturnTrue_forWinngingState() {
         // arrange
         let xWinningStates: [GameState] = linesToCheck
-            .map(winningState(in: GameState(cells: allEmptyCells), for: .x))
+            .map(playedState(in: GameState(cells: allEmptyCells), for: .x))
         
         let didXWonTheGame = isGameWonBy(.x)
         let didOWonTheGame = isGameWonBy(.o)
@@ -103,6 +106,28 @@ final class KikImplementationTests: XCTestCase {
                     """
                 )
             }
+    }
+    
+    func test_isGameWonByPlayer_shouldReturnTrue_forColumnWins() {
+        // Arrange
+        let leftCollPlayedByX: GameState =
+            playedState(
+                in: emptyGameState,
+                for: .x)( Line(cellsPositions: [.leftTop, .leftCenter, .leftBottom] ) )
+        
+        let finalGameState: GameState =
+            playedState(in: leftCollPlayedByX, for: .o
+            )( Line(cellsPositions: [.centerTop, .centerCenter] ) )
+        
+        assertSnapshot(
+            matching: toAscii(finalGameState),
+            as: .lines)
+        
+        // Act
+        let result: Bool = isGameWonBy(.x)(finalGameState)
+        
+        // Assert
+        XCTAssertTrue(result)
     }
     
     func test_ifGameIsTied_should_returnTrue_whenAllCellsArePalyed() {

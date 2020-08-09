@@ -4,7 +4,7 @@ import FunctionalAPI
 
 @testable import KikImplementation
 
-func winningState(in game: GameState, for player: Player) -> (Line) -> GameState {
+func playedState(in game: GameState, for player: Player) -> (Line) -> GameState {
     { (line: Line) in
         line
             .cellsPositions
@@ -17,6 +17,8 @@ func winningState(in game: GameState, for player: Player) -> (Line) -> GameState
             }
     }
 }
+
+let emptyGameState = GameState(cells: allEmptyCells)
 
 let allPositions: [CellPosition] =
     product(

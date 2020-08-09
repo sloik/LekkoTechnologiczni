@@ -29,6 +29,11 @@ func toString(_ player: Player) -> String {
 }
 
 func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
+    let resetGame: AlertAction = {            
+        State.gridViewController?.bind
+            <*> (kikAPI.newGame() |> toGridViewModel)
+    }
+    
     switch moveResult {
     case .playerXMove(let displayInfo, let nextMoveInfo):
         return .gridVisible(
@@ -47,7 +52,7 @@ func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
             title: "Game won 🥇",
             message: "Game won by \(toString(player))",
             actionTitle: "New Game 🎮",
-            alertAction: { print(#function, #line) },
+            alertAction: resetGame,
             titleProducer: displayInfo |> toTitle
         )
 
@@ -56,7 +61,7 @@ func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
             title: "Game Tie 🤨",
             message: "No one won 👤",
             actionTitle: "New Game 🎮",
-            alertAction: { print(#function, #line) },
+            alertAction: resetGame,
             titleProducer: displayInfo |> toTitle
         )
     }

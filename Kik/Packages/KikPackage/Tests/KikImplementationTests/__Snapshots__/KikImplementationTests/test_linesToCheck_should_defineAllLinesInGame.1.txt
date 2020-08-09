@@ -1,16 +1,3 @@
-Line:
-	["CellPosition: H:← V:↑", "CellPosition: H:| V:↑", "CellPosition: H:→ V:↑"]
-Line:
-	["CellPosition: H:← V:-", "CellPosition: H:| V:-", "CellPosition: H:→ V:-"]
-Line:
-	["CellPosition: H:← V:↓", "CellPosition: H:| V:↓", "CellPosition: H:→ V:↓"]
-Line:
-	["CellPosition: H:← V:↑", "CellPosition: H:| V:↑", "CellPosition: H:→ V:↑"]
-Line:
-	["CellPosition: H:← V:-", "CellPosition: H:| V:-", "CellPosition: H:→ V:-"]
-Line:
-	["CellPosition: H:← V:↓", "CellPosition: H:| V:↓", "CellPosition: H:→ V:↓"]
-Line:
-	["CellPosition: H:← V:↑", "CellPosition: H:| V:-", "CellPosition: H:→ V:↓"]
-Line:
-	["CellPosition: H:← V:↓", "CellPosition: H:| V:-", "CellPosition: H:← V:↑"]
+State: [x] | State: [ ] | State: [ ]
+State: [x] | State: [ ] | State: [ ]
+State: [x] | State: [ ] | State: [ ]

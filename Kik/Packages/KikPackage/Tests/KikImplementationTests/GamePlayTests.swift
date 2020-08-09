@@ -189,6 +189,18 @@ final class GamePlayTests: XCTestCase {
             .assertSnapshot("6_X_made_a_move_right_bottom_and_won_the_game")
             .assertWonByPlayer(.x)
     }
+    
+    
+    func test_gamePlay_combinationLeftCenter() {
+        GamePlay(gameState: kikAPI.newGame())
+            .move(.leftTop)
+            .move(.centerTop)
+            .move(.leftCenter)
+            .move(.centerCenter)
+            .move(.leftBottom)
+            .assertSnapshot()
+            .assertWonByPlayer(.x)
+    }
 }
 
 struct GamePlay {
@@ -214,7 +226,7 @@ struct GamePlay {
     
     @discardableResult
     func assertSnapshot(
-        _ name: String,
+        _ name: String = "",
         file: StaticString = #filePath,
         line: UInt = #line,
         testName: String = #function) -> GamePlay {

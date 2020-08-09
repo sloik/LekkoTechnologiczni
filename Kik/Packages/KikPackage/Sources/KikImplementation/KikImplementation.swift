@@ -58,15 +58,13 @@ let linesToCheck: [Line] = {
 
     let verticalLines: [Line] = HorizPosition.allCases.map(makeVLine)
 
-    let diagonalLine1: Line = [(HorizPosition.left, VertPosition.top), (.hCenter, .vCenter), (.right, .bottom)]
-        .map( CellPosition.init(hp:vp:) )
-        |> Line.init(cellsPositions:)
+    let diagonalLine1: Line =
+        [.leftTop, .centerCenter,.rightBottom ] |> Line.init(cellsPositions:)
 
-    let diagonalLine2: Line = [(.left, .bottom), (.hCenter, .vCenter), (.left, .top)]
-        .map( CellPosition.init(hp:vp:) )
-        |> Line.init(cellsPositions:)
+    let diagonalLine2: Line =
+        [.leftBottom, .centerCenter, .rightTop] |> Line.init(cellsPositions:)
 
-    return horizontalLines + horizontalLines + [diagonalLine1, diagonalLine2]
+    return verticalLines + horizontalLines + [diagonalLine1, diagonalLine2]
 }()
 
 
@@ -119,22 +117,22 @@ let updateCell = {  (newCell: Cell) -> (GameState) -> GameState in
 }
 
 
+func cellWasPlayed(by playerToCheck: Player) -> (Cell) -> Bool {
+    { (cell: Cell) -> Bool in
+
+        switch cell.state {
+        case .played(let player):
+            return playerToCheck == player
+
+        case .empty:
+            return false
+        }
+    }
+}
+
 /// Return true if the game was won by the specified player
 let isGameWonBy = { (player: Player) -> (GameState) -> Bool in
     { (gameState: GameState) in
-
-        func cellWasPlayed(by playerToCheck: Player) -> (Cell) -> Bool {
-            { (cell: Cell) -> Bool in
-
-                switch cell.state {
-                case .played(let player):
-                    return playerToCheck == player
-
-                case .empty:
-                    return false
-                }
-            }
-        }
 
         func lineIsAllSame(_ player: Player) -> (Line) -> Bool {
             { (line: Line) in
@@ -273,35 +271,37 @@ func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> 
 }
 
 let newGame: MoveCapability = {
-    let allPositions: [CellPosition] = {
-        allHorizPositions
-            .flatMap { (h: HorizPosition) in
-                allVertPositions
-                    .map { (v: VertPosition) -> (HorizPosition, VertPosition) in
-                        (h,v)
-                    }
-            }
-            .map(CellPosition.init(hp:vp:))
-    }()
-
-
-    let allEmptyCells: [Cell] =
-        allPositions
-        .map(  Cell.init(pos:state:) |> Overture.curry >>> Overture.flip
-                <| CellState.empty )
-
-
-    let gameState = allEmptyCells |> GameState.init(cells:)
 
     let moveResult: MoveResult = makeMoveResultWithCapabilities(
         playerMove(player:cellPos:gameState:),
         .x,
-        gameState,
+        emptyBoardGameState,
         allPositions
     )
 
     return moveResult
 }
+
+let emptyBoardGameState = allEmptyCells |> GameState.init(cells:)
+
+let allPositions: [CellPosition] = {
+    allHorizPositions
+        .flatMap { (h: HorizPosition) in
+            allVertPositions
+                .map { (v: VertPosition) -> (HorizPosition, VertPosition) in
+                    (h,v)
+                }
+        }
+        .map(CellPosition.init(hp:vp:))
+}()
+
+let allEmptyCells: [Cell] =
+    allPositions
+    .map(
+        Cell.init(pos:state:)
+            |> Overture.curry >>> Overture.flip
+            <| CellState.empty
+    )
 
 // MARK: - PUBLIC
 
