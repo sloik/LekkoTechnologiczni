@@ -17,30 +17,33 @@ final class GridViewModelTests: XCTestCase {
         let action7WasCalled = expectationForAction(7)
         let action8WasCalled = expectationForAction(8)
 
-        let sut = GridViewModel
-        { (buttonIndex) in
-            switch buttonIndex {
-            case .bi0:
-                action0WasCalled.fulfill()
-            case .bi1:
-                action1WasCalled.fulfill()
-            case .bi2:
-                action2WasCalled.fulfill()
-            case .bi3:
-                action3WasCalled.fulfill()
-            case .bi4:
-                action4WasCalled.fulfill()
-            case .bi5:
-                action5WasCalled.fulfill()
-            case .bi6:
-                action6WasCalled.fulfill()
-            case .bi7:
-                action7WasCalled.fulfill()
-            case .bi8:
-                action8WasCalled.fulfill()
-            }
-        }
-        titleForElement: { _ in "No title" }
+        let sut: GridViewModel =
+            .gridVisible(
+                action:
+                    { (buttonIndex) in
+                        switch buttonIndex {
+                        case .bi0:
+                            action0WasCalled.fulfill()
+                        case .bi1:
+                            action1WasCalled.fulfill()
+                        case .bi2:
+                            action2WasCalled.fulfill()
+                        case .bi3:
+                            action3WasCalled.fulfill()
+                        case .bi4:
+                            action4WasCalled.fulfill()
+                        case .bi5:
+                            action5WasCalled.fulfill()
+                        case .bi6:
+                            action6WasCalled.fulfill()
+                        case .bi7:
+                            action7WasCalled.fulfill()
+                        case .bi8:
+                            action8WasCalled.fulfill()
+                        }
+                    },
+                title: { _ in "No title" }
+            )
         
 
         // Act & Assert

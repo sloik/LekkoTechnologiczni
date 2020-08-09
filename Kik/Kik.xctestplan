@@ -41,6 +41,13 @@
         "identifier" : "GridViewTests",
         "name" : "GridViewTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/KikPackage",
+        "identifier" : "KikImplementationTests",
+        "name" : "KikImplementationTests"
+      }
     }
   ],
   "version" : 1

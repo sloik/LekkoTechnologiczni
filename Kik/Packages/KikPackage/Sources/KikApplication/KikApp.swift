@@ -51,9 +51,9 @@ func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
         titleProducer = displayInfo |> toTitle
     }
 
-    return .init(
-        actionForButton: buttonHandler,
-        titleForElement: titleProducer
+    return .gridVisible(
+        action: buttonHandler,
+        title: titleProducer
     )
 }
 
