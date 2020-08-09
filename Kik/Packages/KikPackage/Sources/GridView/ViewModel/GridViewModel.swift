@@ -5,45 +5,39 @@ import Prelude
 import OptionalAPI
 
 // MARK: - PUBLIC
-public typealias GridViewButtonHandler = (ButtonIndex) -> Void
-public typealias GridViewTitleProducer = (ButtonIndex) -> String
+public typealias ButtonHandler = (ButtonIndex) -> Void
+public typealias TitleProducer = (ButtonIndex) -> String
+public typealias AlertAction   = () -> Void
 
 public enum GridViewModel {
-    case gridVisible(action: GridViewButtonHandler, title: GridViewTitleProducer)
+    case gridVisible(action: ButtonHandler, title: TitleProducer)
+    case alertVisible(title: String, alertAction: AlertAction)
 }
 
 
 // MARK: - Internal
 
 extension GridViewModel {
-    var action: GridViewButtonHandler? {
+    var visibleAction: ButtonHandler? {
         switch self {
-        case .gridVisible(action: let action, title: _):
-            return action
-        }
+        case .gridVisible(action: let action, title: _): return action
         
-        return .none
+        default: return .none
+        }
     }
     
-    var title: GridViewTitleProducer? {
+    var visibleTitle: TitleProducer? {
         switch self {
-        case .gridVisible(action: _, title: let title):
-            return title
+        case .gridVisible(action: _, title: let title): return title
+            
+        default: return .none
         }
-        
-        return .none
     }
 }
 
 extension GridViewModel {
     func runAction(_ viewButtonIndex: Int) {
-        
-        switch self {
-        case .gridVisible(action: let action, title: _):
-            ButtonIndex(rawValue: viewButtonIndex)
-                .andThen( action )
-        }
-        
-       
+        visibleAction
+            <*> ButtonIndex(rawValue: viewButtonIndex)
     }
 }

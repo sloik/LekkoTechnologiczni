@@ -52,7 +52,7 @@ extension GridViewController {
         buttons?
             .forEach { (button: UIButton) in
                 let buttonIndex: ButtonIndex? = button.tag |> ButtonIndex.init(rawValue:)
-                let customTitle: String? = viewModel?.title <*> buttonIndex
+                let customTitle: String? = viewModel?.visibleTitle <*> buttonIndex
 
                 button
                     .setTitle(

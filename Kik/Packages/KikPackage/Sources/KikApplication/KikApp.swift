@@ -30,7 +30,7 @@ func toString(_ player: Player) -> String {
 
 func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
 
-    let buttonHandler: GridViewButtonHandler
+    let buttonHandler: ButtonHandler
     let titleProducer: (ButtonIndex) -> String
 
     switch moveResult {
