@@ -29,32 +29,37 @@ func toString(_ player: Player) -> String {
 }
 
 func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
-
-    let buttonHandler: ButtonHandler
-    let titleProducer: (ButtonIndex) -> String
-
     switch moveResult {
     case .playerXMove(let displayInfo, let nextMoveInfo):
-        buttonHandler = nextMoveInfo |> makeButtonHandler
-        titleProducer = displayInfo |> toTitle
+        return .gridVisible(
+            action: nextMoveInfo |> makeButtonHandler,
+            title: displayInfo |> toTitle
+        )
 
     case .playerOMove(let displayInfo, let nextMoveInfo):
-        buttonHandler = nextMoveInfo |> makeButtonHandler
-        titleProducer = displayInfo |> toTitle
+        return .gridVisible(
+            action: nextMoveInfo |> makeButtonHandler,
+            title: displayInfo |> toTitle
+        )
 
     case .gameWon(let displayInfo, let player):
-        buttonHandler = [] |> makeButtonHandler
-        titleProducer = displayInfo |> toTitle
+        return .alertVisible(
+            title: "Game won 🥇",
+            message: "Game won by \(toString(player))",
+            actionTitle: "New Game 🎮",
+            alertAction: { print(#function, #line) },
+            titleProducer: displayInfo |> toTitle
+        )
 
     case .gameTie(let displayInfo):
-        buttonHandler = [] |> makeButtonHandler
-        titleProducer = displayInfo |> toTitle
+        return .alertVisible(
+            title: "Game Tie 🤨",
+            message: "No one won 👤",
+            actionTitle: "New Game 🎮",
+            alertAction: { print(#function, #line) },
+            titleProducer: displayInfo |> toTitle
+        )
     }
-
-    return .gridVisible(
-        action: buttonHandler,
-        title: titleProducer
-    )
 }
 
 

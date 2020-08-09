@@ -11,7 +11,12 @@ public typealias AlertAction   = () -> Void
 
 public enum GridViewModel {
     case gridVisible(action: ButtonHandler, title: TitleProducer)
-    case alertVisible(title: String, alertAction: AlertAction)
+    case alertVisible(
+            title: String,
+            message: String,
+            actionTitle: String,
+            alertAction: AlertAction,
+            titleProducer: TitleProducer)
 }
 
 
@@ -26,11 +31,23 @@ extension GridViewModel {
         }
     }
     
-    var visibleTitle: TitleProducer? {
+    var cellTitle: TitleProducer {
         switch self {
-        case .gridVisible(action: _, title: let title): return title
+        case .gridVisible(action: _, title: let title):
+            return title
             
-        default: return .none
+        case .alertVisible(title: _, message: _, actionTitle: _, alertAction: _, titleProducer: let titleProducer):
+            return titleProducer
+        }
+    }
+    
+    var alertVisible: (String, String, String, AlertAction)? {
+        switch self {
+        case .alertVisible(title: let title, message: let message, actionTitle: let actionTitle, alertAction: let alertAction, titleProducer: _):
+            return (title, message, actionTitle, alertAction)
+            
+        default:
+            return .none
         }
     }
 }
