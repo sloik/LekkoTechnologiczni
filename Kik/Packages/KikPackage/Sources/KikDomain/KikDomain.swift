@@ -111,6 +111,6 @@ public struct NextMoveInfo {
 public enum MoveResult {
     case playerXMove(DisplayInfo, [NextMoveInfo])
     case playerOMove(DisplayInfo, [NextMoveInfo])
-    case gameWon(DisplayInfo, Player)
-    case gameTie(DisplayInfo)
+    case gameWon(DisplayInfo, Player, MoveCapability)
+    case gameTie(DisplayInfo, MoveCapability)
 }

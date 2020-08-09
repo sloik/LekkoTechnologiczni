@@ -248,16 +248,16 @@ func playerMove(player: Player, cellPos: CellPosition, gameState: GameState) -> 
     let newCell      = Cell(pos: cellPos, state: .played(player))
     let newGameState = gameState |> updateCell(newCell)
     let displayInfo  = newGameState |> getDisplayInfo
+    let otherPlayer = player |> other(player:)
 
     if newGameState |> isGameWonBy(player) {
-        return .gameWon(displayInfo, player)
+        return .gameWon(displayInfo, player, resetGame(otherPlayer))
     }
 
     if newGameState |> isGameTied {
-        return .gameTie(displayInfo)
+        return .gameTie(displayInfo, resetGame(otherPlayer))
     }
 
-    let otherPlayer = player |> other(player:)
 
     let freeCells: [CellPosition] = newGameState |> remainingMoves
 
@@ -282,6 +282,17 @@ let newGame: MoveCapability = {
     return moveResult
 }
 
+let resetGame: (Player) -> MoveCapability = { player in
+    return {
+        makeMoveResultWithCapabilities(
+            playerMove(player:cellPos:gameState:),
+            player,
+            emptyBoardGameState,
+            allPositions
+        )
+    }
+}
+
 let emptyBoardGameState = allEmptyCells |> GameState.init(cells:)
 
 let allPositions: [CellPosition] = {
@@ -302,13 +313,3 @@ let allEmptyCells: [Cell] =
             |> Overture.curry >>> Overture.flip
             <| CellState.empty
     )
-
-// MARK: - PUBLIC
-
-// Only the newGame function is exported from the implementation
-// all other functions come from the results of the previous move.
-public struct KikAPI {
-    public let newGame: MoveCapability
-}
-
-public let kikAPI: KikAPI = KikAPI(newGame: KikImplementation.newGame)

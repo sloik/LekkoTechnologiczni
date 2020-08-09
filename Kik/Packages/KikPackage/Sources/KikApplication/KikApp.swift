@@ -7,6 +7,7 @@ import KikDomain
 import FunctionalAPI
 import Overture
 
+
 struct KikGameState {
     let gridViewController: GridViewController?
 }
@@ -21,6 +22,7 @@ func toTitle(_ state: CellState) -> String {
     }
 }
 
+
 func toString(_ player: Player) -> String {
     switch player {
     case .x: return "🥒"
@@ -28,10 +30,13 @@ func toString(_ player: Player) -> String {
     }
 }
 
+
 func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
-    let resetGame: AlertAction = {            
-        State.gridViewController?.bind
-            <*> (kikAPI.newGame() |> toGridViewModel)
+    let toAlertAction: (@escaping MoveCapability) -> AlertAction = { resetGameMove in
+        return {
+            State.gridViewController?.bind
+                <*> (resetGameMove() |> toGridViewModel)
+        }
     }
     
     switch moveResult {
@@ -47,21 +52,21 @@ func toGridViewModel(_ moveResult: MoveResult) -> GridViewModel {
             title: displayInfo |> toTitle
         )
 
-    case .gameWon(let displayInfo, let player):
+    case .gameWon(let displayInfo, let player, let resetMove):
         return .alertVisible(
             title: "Game won 🥇",
             message: "Game won by \(toString(player))",
             actionTitle: "New Game 🎮",
-            alertAction: resetGame,
+            alertAction: resetMove |> toAlertAction,
             titleProducer: displayInfo |> toTitle
         )
 
-    case .gameTie(let displayInfo):
+    case .gameTie(let displayInfo, let resetMove):
         return .alertVisible(
             title: "Game Tie 🤨",
             message: "No one won 👤",
             actionTitle: "New Game 🎮",
-            alertAction: resetGame,
+            alertAction: resetMove |> toAlertAction,
             titleProducer: displayInfo |> toTitle
         )
     }
@@ -108,9 +113,11 @@ let buttonIndexMap: [ButtonIndex: CellPosition] = {
         |> Dictionary.init(uniqueKeysWithValues:)
 }()
 
+
 func toCellPosition(_ buttonIndex: ButtonIndex) -> CellPosition {
     buttonIndexMap[buttonIndex]!
 }
+
 
 func toTitle(_ displayInfo: DisplayInfo) -> (ButtonIndex) -> String {
     { (buttonIndex: ButtonIndex) in
@@ -195,6 +202,7 @@ func toTitle(_ displayInfo: DisplayInfo) -> (ButtonIndex) -> String {
     }
 }
 
+
 func makeButtonHandler(_ moveInfo: [NextMoveInfo]) -> (ButtonIndex) -> Void {
     { (tapedButton: ButtonIndex) in
         moveInfo
@@ -210,6 +218,7 @@ func makeButtonHandler(_ moveInfo: [NextMoveInfo]) -> (ButtonIndex) -> Void {
     }
 }
 
+
 func updateGridView(_ moveResult: MoveResult) {
     State
         .gridViewController
@@ -218,6 +227,7 @@ func updateGridView(_ moveResult: MoveResult) {
             bind <| moveResult |> toGridViewModel
         }
 }
+
 
 func flipArguments<A,B,C>(_ f: @escaping (A,B) -> C) -> (B,A) -> C {
     f |> Overture.curry >>> Overture.flip >>> Overture.uncurry

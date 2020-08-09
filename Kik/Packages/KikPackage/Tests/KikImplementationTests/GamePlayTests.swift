@@ -17,151 +17,8 @@ final class GamePlayTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
-    func test_gamePlay() {
-        // Initial Game State
-        let game = kikAPI.newGame
-        
-        // Make a move
-        var nextMove: MoveCapability!
-        var gameResult: MoveResult = game()
-        
-        switch gameResult {
-
-        case .playerXMove(let displayInfo, let nextMoves):
-            nextMove = nextMoves |> nextMoveCapability(.leftTop)
-
-            XCTAssertEqual(
-                nextMoves.count, 9,
-                "Player X should have all 9 cells avaiable!"
-            )
-            
-            assertSnapshot(
-                matching: displayInfo |> displayBoard ,
-                as: .lines,
-                named: "0_initial_game_state"
-            )
-            
-        case .playerOMove(_, _):
-            XCTFail("Player X should move first!")
-        
-        case .gameWon:
-            XCTFail("Game should not be won after 1st move!")
-            
-        case .gameTie:
-            XCTFail("Game should not be Tied after 1st move!")
-        }
-        
-        // Run the move
-        gameResult = nextMove()
-        
-        switch gameResult {
-        case .playerOMove(let displayInfo, let nextMoves):
-            nextMove = nextMoves |> nextMoveCapability(.centerTop)
-            
-            XCTAssertEqual(
-                nextMoves.count, 8,
-                "Player O should have 8 cells avaiable!"
-            )
-            
-            assertSnapshot(
-                matching: displayInfo |> displayBoard ,
-                as: .lines,
-                named: "1_after_X_left_top_move"
-            )
-        
-        default:
-            XCTFail("Player O turn to move!")
-        }
-        
-        // Run the move
-        gameResult = nextMove()
-        
-        switch gameResult {
-        case .playerXMove(let displayInfo, let nextMoves):
-            nextMove = nextMoves |> nextMoveCapability(.centerCenter)
-            
-            XCTAssertEqual(
-                nextMoves.count, 7
-            )
-            
-            assertSnapshot(
-                matching: displayInfo |> displayBoard ,
-                as: .lines,
-                named: "2_after_O_center_top_move"
-            )
-            
-        default:
-            XCTFail()
-        }
-        
-        // Run the move
-        gameResult = nextMove()
-        
-        switch gameResult {
-        case .playerOMove(let displayInfo, let nextMoves):
-            nextMove = nextMoves |> nextMoveCapability(.rightTop)
-            
-            XCTAssertEqual(
-                nextMoves.count, 6
-            )
-            
-            assertSnapshot(
-                matching: displayInfo |> displayBoard ,
-                as: .lines,
-                named: "3_after_X_center_center_move"
-            )
-            
-        default:
-            XCTFail()
-        }
-        
-        
-        // Run the move
-        gameResult = nextMove()
-        
-        switch gameResult {
-        case .playerXMove(let displayInfo, let nextMoves):
-            nextMove = nextMoves |> nextMoveCapability(.rightBottom)
-            
-            XCTAssertEqual(
-                nextMoves.count, 5
-            )
-            
-            assertSnapshot(
-                matching: displayInfo |> displayBoard ,
-                as: .lines,
-                named: "4_after_O_right_top_move"
-            )
-            
-        default:
-            XCTFail()
-        }
-        
-        // Run the move
-        gameResult = nextMove()
-        
-        switch gameResult {
-        case .gameWon(let displayInfo, let player):
-        XCTAssertEqual(
-            player,
-            Player.x,
-            "Player X should have won the game after this move!"
-        )
-        
-        assertSnapshot(
-            matching: displayInfo |> displayBoard,
-            as: .lines,
-            named: "5_after_X_right_bottom_move"
-        )
-        
-        default:
-            XCTFail()
-        }
-    }
     
-    
-    func test_gameUsingTypes() {
+    func test_gameUsing() {
         GamePlay(gameState: kikAPI.newGame())
             .assertSnapshot("1_initial_game_state")
             .assertPlayer(.x)
@@ -198,8 +55,12 @@ final class GamePlayTests: XCTestCase {
             .move(.leftCenter)
             .move(.centerCenter)
             .move(.leftBottom)
-            .assertSnapshot()
+            .assertSnapshot("1_X_winning_State")
             .assertWonByPlayer(.x)
+            
+            .move()
+            .assertSnapshot("2_new_game")
+            .assertPlayer(.o)
     }
 }
 
@@ -207,7 +68,7 @@ struct GamePlay {
     let gameState: MoveResult
     
     @discardableResult
-    func move(_ pos: CellPosition) -> GamePlay {
+    func move(_ pos: CellPosition = .leftTop) -> GamePlay {
         switch gameState {
         case .playerXMove(_, let nextMoves):
             let move = nextMoves |> nextMoveCapability(pos)
@@ -219,8 +80,11 @@ struct GamePlay {
             
             return GamePlay(gameState: move())
             
-        case .gameWon, .gameTie:
-            return self
+        case .gameWon(_, _, let move):
+            return GamePlay(gameState: move())
+            
+        case .gameTie(_, let move):
+            return GamePlay(gameState: move())
         }
     }
     
@@ -235,8 +99,8 @@ struct GamePlay {
         switch gameState {
         case .playerXMove(let info, _): displayInfo = info
         case .playerOMove(let info, _): displayInfo = info
-        case .gameWon(let info, _)    : displayInfo = info
-        case .gameTie(let info)       : displayInfo = info
+        case .gameWon(let info, _, _) : displayInfo = info
+        case .gameTie(let info, _)    : displayInfo = info
         }
         
         SnapshotTesting.assertSnapshot(
@@ -279,7 +143,7 @@ struct GamePlay {
         line: UInt = #line) -> GamePlay {
         
         switch gameState {
-        case .gameWon(_, let player):
+        case .gameWon(_, let player, _):
             XCTAssertEqual(expected, player, message(), file: file, line: line)
         
         default:
@@ -304,7 +168,7 @@ struct GamePlay {
             XCTAssertEqual(nextMoves.count, count, message(), file: file, line: line)
             
         case .gameWon, .gameTie:
-            break
+            XCTAssertEqual(1, count, message(), file: file, line: line)
         }
         
         return self

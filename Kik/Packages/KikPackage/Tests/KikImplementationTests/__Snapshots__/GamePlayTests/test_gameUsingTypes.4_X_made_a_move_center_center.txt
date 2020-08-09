@@ -1,3 +1,0 @@
-State: [x] | State: [o] | State: [ ]
-State: [ ] | State: [x] | State: [ ]
-State: [ ] | State: [ ] | State: [ ]
