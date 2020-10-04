@@ -2,7 +2,7 @@
 import UIKit
 
 class KikBaseViewController: UIViewController {
-
+    
     @IBOutlet var buttons: [UIButton]!
     var viewModel = KikViewModel()
 
@@ -16,7 +16,6 @@ class KikBaseViewController: UIViewController {
     func setupGame() {
         viewModel.resetGame()
         refreshButtons()
-
         viewModel.delegate = self
     }
 

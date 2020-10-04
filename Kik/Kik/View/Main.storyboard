@@ -1,28 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nED-UN-Umj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Y7-db-e4B">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kik Base View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="Bmd-lP-4f3">
+            <objects>
+                <tabBarController useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Y7-db-e4B" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbB-mS-yJ7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nED-UN-Umj" kind="relationship" relationship="viewControllers" id="zfQ-gT-ZeN"/>
+                        <segue destination="VgB-Hv-3fZ" kind="relationship" relationship="viewControllers" id="QTD-QK-YEk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmU-zh-eea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1601" y="-197"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="5Va-bD-BU7">
+            <objects>
+                <viewController id="VgB-Hv-3fZ" customClass="KikFlutterViewController" customModule="Kik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iOc-RH-ouO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yzb-9r-ErD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gC5-LH-g7W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIu-yz-A2a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="-671"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="vsl-eW-wJR">
             <objects>
                 <viewController id="nED-UN-Umj" customClass="KikBaseViewController" customModule="Kik" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LGP-Xo-qRl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-1w-rMB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h2y-Uv-mjv" userLabel="TopRow">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="272.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa0-Pa-ejt">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
@@ -30,7 +64,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-m1-mjD">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
@@ -38,7 +72,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-Pt-iaM">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
@@ -48,10 +82,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zZP-jM-gMu" userLabel="MidRow">
-                                        <rect key="frame" x="0.0" y="272.5" width="414" height="273"/>
+                                        <rect key="frame" x="0.0" y="206" width="375" height="206"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxn-Kt-eHd">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="273"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
@@ -59,7 +93,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQA-wG-NIY">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="273"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
@@ -67,7 +101,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7s-Ca-B3H">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="273"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
@@ -77,10 +111,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="x3z-gH-YQQ" userLabel="BottomRow">
-                                        <rect key="frame" x="0.0" y="545.5" width="414" height="272.5"/>
+                                        <rect key="frame" x="0.0" y="412" width="375" height="206"/>
                                         <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVW-eg-CfH">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
@@ -88,7 +122,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hle-aI-IGm">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
@@ -96,7 +130,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DME-XD-Q0a">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="272.5"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="206"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
@@ -117,6 +151,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9x-WK-4ig"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="dtt-03-i74"/>
                     <connections>
                         <outletCollection property="buttons" destination="Wa0-Pa-ejt" collectionClass="NSMutableArray" id="eKr-fy-vkt"/>
                         <outletCollection property="buttons" destination="Dbk-m1-mjD" collectionClass="NSMutableArray" id="2I3-kg-Onw"/>
@@ -131,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wwm-vo-grb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="149"/>
+            <point key="canvasLocation" x="-294" y="134"/>
         </scene>
     </scenes>
 </document>

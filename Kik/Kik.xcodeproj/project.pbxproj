@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19385D22231EF0FA00E625A4 /* KikBaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */; };
+		198BDDF12529008A0051E0A2 /* KikFlutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BDDF02529008A0051E0A2 /* KikFlutterViewController.swift */; };
+		198BDDF52529040C0051E0A2 /* KikTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BDDF42529040C0051E0A2 /* KikTabBarController.swift */; };
 		19A696C1230DC5C600F7CDEF /* KikPageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A696C0230DC5C600F7CDEF /* KikPageObject.swift */; };
 		3E73C5F89B9B703C4CFC28D6 /* Pods_KikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */; };
 		A5C9E52A192B75333BDA45CC /* Pods_Kik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 115AAB6494FF74687DEF182E /* Pods_Kik.framework */; };
@@ -48,6 +50,8 @@
 		0C8E939ABA38F860C4527F01 /* Pods_KikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		115AAB6494FF74687DEF182E /* Pods_Kik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19385D21231EF0FA00E625A4 /* KikBaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikBaseViewControllerTests.swift; sourceTree = "<group>"; };
+		198BDDF02529008A0051E0A2 /* KikFlutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikFlutterViewController.swift; sourceTree = "<group>"; };
+		198BDDF42529040C0051E0A2 /* KikTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikTabBarController.swift; sourceTree = "<group>"; };
 		19A696C0230DC5C600F7CDEF /* KikPageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikPageObject.swift; sourceTree = "<group>"; };
 		279C13AAB4EA2EF75344D56E /* Pods-KikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KikTests/Pods-KikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55FDF30F0A7BFBB44E3952E8 /* Pods-KikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KikUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KikUITests/Pods-KikUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +117,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		198BDDEF2528FFCA0051E0A2 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				198BDDF02529008A0051E0A2 /* KikFlutterViewController.swift */,
+			);
+			path = Flutter;
+			sourceTree = "<group>";
+		};
 		9089F990E76DA6B3FAEAF1F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 		EF16ACAB22F0C4060000A7AD /* Kik */ = {
 			isa = PBXGroup;
 			children = (
+				198BDDEF2528FFCA0051E0A2 /* Flutter */,
 				EFEDA5D02362132900E84ECE /* View */,
 				EFEDA5CF2362131B00E84ECE /* ViewModel */,
 				EFEDA5CE2362130D00E84ECE /* Model */,
@@ -214,6 +227,7 @@
 			children = (
 				EF16ACDC22F0C45B0000A7AD /* Main.storyboard */,
 				EF16ACDE22F0C4AF0000A7AD /* KikBaseViewController.swift */,
+				198BDDF42529040C0051E0A2 /* KikTabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,9 +240,11 @@
 			buildConfigurationList = EF16ACD322F0C4090000A7AD /* Build configuration list for PBXNativeTarget "Kik" */;
 			buildPhases = (
 				A5F8E05C8DEBF0FE37AA6C1B /* [CP] Check Pods Manifest.lock */,
+				879E29E48E5FA2FA2025C78E /* [CP-User] Run Flutter Build kik_flutter Script */,
 				EF16ACA522F0C4060000A7AD /* Sources */,
 				EF16ACA622F0C4060000A7AD /* Frameworks */,
 				EF16ACA722F0C4060000A7AD /* Resources */,
+				018C14FFD835C84F9C512881 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,6 +388,39 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		018C14FFD835C84F9C512881 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kik/Pods-Kik-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		879E29E48E5FA2FA2025C78E /* [CP-User] Run Flutter Build kik_flutter Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../kik_flutter/.metadata",
+				"${SRCROOT}/../kik_flutter/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../kik_flutter/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../kik_flutter/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build kik_flutter Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../kik_flutter/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
 		9F98FC3EBAF3DF5D232450CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,9 +490,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF16ACAD22F0C4060000A7AD /* AppDelegate.swift in Sources */,
+				198BDDF12529008A0051E0A2 /* KikFlutterViewController.swift in Sources */,
 				EFEDA5D22362135400E84ECE /* KikModel.swift in Sources */,
 				EF16ACAF22F0C4060000A7AD /* SceneDelegate.swift in Sources */,
 				EF16ACDF22F0C4AF0000A7AD /* KikBaseViewController.swift in Sources */,
+				198BDDF52529040C0051E0A2 /* KikTabBarController.swift in Sources */,
 				EFEDA5D423621F7800E84ECE /* KikViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -643,7 +694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lekko.technologiczni.Kik1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
