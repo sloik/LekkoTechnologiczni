@@ -21,7 +21,7 @@ NSSetUncaughtExceptionHandler{ print("💥 Exception thrown: \($0)") }
  
  Ta definicja odpowiada 1:1 [definicji z Haskella](https://hoogle.haskell.org/?hoogle=zip) czyli:
  
- `zip<A,B>(_ a: [A], _ b: [B]) -> [A, B]`
+ `zip<A,B>(_ a: [A], _ b: [B]) -> [(A, B)]`
  
  Popatrzmy jak ta funkcja działa:
 */
