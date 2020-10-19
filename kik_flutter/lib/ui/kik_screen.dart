@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kik_flutter/kik_method_channel.dart';
+import 'package:kik_flutter/iosApi/kik_method_channel.dart';
 import 'package:kik_flutter/view_model/view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:kik_flutter/extensions/extensions.dart';

@@ -9,17 +9,10 @@ class KikGameService extends KikService {
   List<String> get items => _model.item;
   String _currentSymbol = "X";
 
-  String _oppositeSymbol(String symbol) {
-    if (symbol == "X") {
-      return "O";
-    }
-    return "X";
-  }
-
   @override
   void updateSymbol(int index) {
     _model.updateItem(index, _currentSymbol);
-    _currentSymbol = _oppositeSymbol(_currentSymbol);
+    _currentSymbol = _model.oppositeSymbol(_currentSymbol);
   }
 
   @override

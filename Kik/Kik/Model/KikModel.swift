@@ -2,7 +2,8 @@
 import Foundation
 
 
-enum Symbol: CaseIterable, Equatable {
+enum Symbol: String, CaseIterable, Equatable, Codable {
+    
     case X
     case O
     case none
@@ -28,7 +29,7 @@ extension Symbol {
     }
 }
 
-struct Line {
+struct Line:Codable {
     let x: Int
     let y: Int
     let z: Int
@@ -47,7 +48,7 @@ extension Line {
     static var diagonal2: Line { Line(x: 2, y: 4, z: 6) }
 }
 
-struct KikModel {
+struct KikModel:Codable {
     private(set) var currentSymbol: Symbol = .O
 
     let lines: [Line] = [

@@ -21,6 +21,7 @@ struct KikViewModel {
 
     internal init(model: KikModel = KikModel()) {
         self.model = model
+        
     }
 
     func string(for symbol: Symbol) -> String {

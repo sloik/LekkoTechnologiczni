@@ -16,4 +16,11 @@ class RowsColumnsDiagonals {
     item.removeAt(index);
     item.insert(index, element);
   }
+
+  String oppositeSymbol(String symbol) {
+    if (symbol == "X") {
+      return "O";
+    }
+    return "X";
+  }
 }
