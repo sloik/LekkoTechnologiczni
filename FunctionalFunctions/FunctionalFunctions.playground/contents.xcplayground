@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw'>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='Funkcje'/>
         <page name='Funkcje_101_PS'/>
@@ -10,5 +10,6 @@
         <page name='Prawdziwa Mapa'/>
         <page name='Zip'/>
         <page name='AlgebraicDataTypes'/>
+        <page name='Either'/>
     </pages>
 </playground>
