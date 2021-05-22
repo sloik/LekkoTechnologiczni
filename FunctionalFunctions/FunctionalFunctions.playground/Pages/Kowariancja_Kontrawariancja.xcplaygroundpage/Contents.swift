@@ -468,8 +468,10 @@ func produceMidFromOneElementMid () -> OneElementArray<Mid> { oneElementMid  }
 func m2m(_ m: Mid) -> Mid { m }
 
 // (Mid) -> Mid     =>  M -> M
-type(of: m2m)
-
+run("🦋 function variation") {
+    print( type(of: m2m) )
+}
+    
 /*:
  Typ funkcji `f` to : `(Mid) -> Mid`. Aby nieco zagęścić zapis dalej będę używać notacji `M -> M`.
  
@@ -477,7 +479,6 @@ type(of: m2m)
  */
 
 var mid2mid: (Mid)   -> Mid = m2m
-//                   ↓
 let fin2mid: (Final) -> Mid = mid2mid
 
 //
@@ -486,15 +487,15 @@ let fin2mid: (Final) -> Mid = mid2mid
 //let bas2mid: (Base) -> Mid = mid2mid
 
 /*:
- Widać, że typ `M->M` możemy przypisać do `F->M`. Możemy nawet _narysować_ hierarchie "dziedziczenia" dla takich typów funkcji.
+ Widać, że typ `M->M` ( (Mid) -> Mid ) możemy przypisać do `F->M` ( (Final) -> Mid ).  Możemy nawet _narysować_ hierarchie "dziedziczenia" dla takich typów funkcji.
  ```
- ┌──────────────────────┐
- │   (Final) -> Mid     │
- └──────────────────────┘
-             ↑
- ┌──────────────────────┐
- │     (Mid) -> Mid     │
- └──────────────────────┘
+ ┌──────────────────────┐  ┌──────────────────────┐
+ │   (Final) -> Mid     │  │         Mid          │
+ └──────────────────────┘  └──────────────────────┘
+             ↑                        ↑
+ ┌──────────────────────┐  ┌──────────────────────┐
+ │     (Mid) -> Mid     │  │        Final         │
+ └──────────────────────┘  └──────────────────────┘
  ```
  
  _Typ `M->M jest podtypem F->M`_. W tym diagramie `Final` jest nad `Mid`. W przeciwną stronę niż dziedziczenie a więc **kontrawariancja**.
@@ -504,20 +505,25 @@ let fin2mid: (Final) -> Mid = mid2mid
  Co z pozycją wyjściową?
  */
 
-let mid2fin: (Mid) -> Final = { _ in final }
-var mid2bas: (Mid) -> Base
+var _: (Mid) -> Base = { (_: Mid) -> Mid in Mid() }
+var _:          Base =                      Mid()
 
-mid2bas = mid2mid // M->M dziedziczy po M->B
-mid2bas = mid2fin // M->F dziedziczy po M->B
-mid2mid = mid2fin // M->F dziedziczy po M->M
+
+
+var _: (Mid) -> Base = { (_: Mid) -> Final in Final() }
+var _:          Base =                        Final()
+
+
+var _: (Mid) -> Mid = { (_: Mid) -> Final in Final() }
+var _:          Mid =                        Final()
 
 //
 // Cannot convert value of type '(Mid) -> Mid' to specified type '(Mid) -> Final'
 //
-//let mid2final: (Mid) -> Final = mid2mid
+//let _: (Mid) -> Final = { (_: Mid) -> Mid in Mid() }
 
 /*:
- Wygląda na to, że możemy przypisać funkcje `mid2mid` do funkcji, która zwraca _bardziej ogólny_ typ. Czyli mamy tu do czynienia z **kowariancją**.
+ Wygląda na to, że możemy przypisać funkcje `(Mid) -> Mid` do funkcji, która zwraca _bardziej ogólny_ typ. Czyli mamy tu do czynienia z **kowariancją**.
  
  Zbierając wszystko do 💩 mamy taki krajobraz:
  ```
@@ -539,7 +545,7 @@ mid2mid = mid2fin // M->F dziedziczy po M->M
  
  ### Jeszcze inaczej
  
- ** Jeżeli `M` jest podtypem `B` to funkcję `B->F` są podtypem `M->F` oraz funkcję F->M są podtypem F->B**
+ ** Jeżeli `M` (Mid) jest podtypem `B` (Base) to funkcję `B->F` są podtypem `M->F` oraz funkcję F->M są podtypem F->B**
  
  Narysuje to jeszcze raz:
  ```
@@ -579,57 +585,68 @@ mid2mid = mid2fin // M->F dziedziczy po M->M
  _F->M są podtypem F->B_.  Relacja typów tych funkcji jest **zgodna** z hierarchią dziedziczenia! **KOwariancja**
 
  Zobaczmy to w kodzie:
+ 
+ > Zauważ, że typ Final zawsze jest na wyjściu! Zmienia się typ wejściowy do funkcji.
  */
 
 let fF2F: (Final) -> Final = { _ in final }
-//                ↓
+//           ↓    ↑
 let fM2F: (Mid)   -> Final = { _ in final }
-//                ↓
+//           ↓    ↑
 let fB2F: (Base)  -> Final = { _ in final }
 
+/*:
+ Strzałka pod typem wejściowym pokazuje kierunek dziedziczenia. Strzałka pod _strzałką funkcji ->_ pokazuje kierunek dziedziczenia typu funkcyjnego!
+ */
+
 run {
-    var baseFunctionType: (Mid) -> Final = fM2F
-    
-    // Przypisuje ten sam typ, działa.
-    baseFunctionType = fM2F
-    
-    // Przypisuję typ dziedziczący (będący niżej w hierarchii)
-    baseFunctionType = fB2F
+    // Najbardziej szczegółowy/wyspecjalizowany.
+    var _: (Mid) -> Final = fB2F // (Base) -> Final
     
     // Na tej samej zasadzie jak do zmiennej mogę przypisać typ bardziej szczegółowy.
     var _: Mid = Final()
     
+    // Przypisuje ten sam typ, działa.
+    var _: (Mid) -> Final = fM2F // (Mid) -> Final
+    
+    
     //
     // Cannot assign value of type '(Final) -> Final' to type '(Mid) -> Final'
     //
-//    baseFunctionType = fF2F
+//    var _: (Mid) -> Final = fF2F // (Final) -> Final
     
     // Tak samo nie mogę
 //     var _: Mid = Base()
 }
 
+/*:
+ Teraz typ `Final` będzie zawsze na wejściu. Natomiast typ wyjściowy będzie się zmieniać.
+ */
+
 let fF2B: (Final) -> Base  = { _ in base  }
-//                ↑
+//                ↑   ↑
 let fF2M: (Final) -> Mid   = { _ in mid   }
-//                ↑
+//                ↑   ↑
 let   _ : (Final) -> Final = { _ in final }
 
 run {
-    var baseFunctionType: (Final) -> Base
-    
     // Przypisuje ten sam typ, działa.
-    baseFunctionType = fF2B
+    var _:(Final) -> Base = fF2B // (Final) -> Base
     
     // Przypisuję typ dziedziczący (będący niżej w hierarchii)
-    baseFunctionType = fF2M
-    baseFunctionType = fF2F
+    var _:(Final) -> Base  = fF2M // (Final) -> Mid
+    var _:(Final) -> Base  = fF2F // (Final) -> Final
     
     // Na tej samej zasadzie jak do zmiennej mogę przypisać typ bardziej szczegółowy.
-    var _: Base = final
-    var _: Mid = final
+    var _: Base = Final()
+    var _: Mid = Final()
 }
 
 /*:
+ Tym razem i _strzałki funkcji_ oraz typów na wyjściu idą w tym samym kierunku.
+ 
+ ---
+ 
  Określanie czy jakiś typ jest na pozycji kowariatnej czy kontrawariatnej jest nieco kłopotliwe gołym okiem. Natomiast można zastosować pewien trick.
  
  Wszystkie parametry będące po lewej stronie `->` będziemy traktować jako posiadające znak `-` minus (można o nich pomyśleć jak o _zjadających_ wartości).
@@ -670,6 +687,8 @@ func someFunction<A,B>(_ a: A) -> B { fatalError("I'm here for the type!") }
  C => + * + = +
  
  A więc wiemy, że typ `A` jest kontrawariantny (-), typ `B` również (-) a typ `C` jest kowariantny. Przypominam, jeżeli coś jest na pozycji `+` to pewnie można do tego typu dopisać funkcje `map` (taka funkcje map, która jest funktorem i o której już wspominaliśmy trochę wcześniej to nie będziemy się powtarzać). Jeżeli na `-` to można dopisać funkcje `contra map`.
+ 
+ O samej funkcji jeszcze nie mówiliśmy ale w uproszczeniu można powiedzieć że jest to funkcja `map` ale działająca na argumencie wejściowym.
 
 # Podsumowanie
  
