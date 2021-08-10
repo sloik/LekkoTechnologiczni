@@ -13,5 +13,7 @@
         <page name='Either'/>
         <page name='Phantom_Types'/>
         <page name='Functor_Const'/>
+        <page name='Kowariancja_Kontrawariancja'/>
+        <page name='Capabilities'/>
     </pages>
 </playground>
