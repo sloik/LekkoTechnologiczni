@@ -6,10 +6,6 @@ NSSetUncaughtExceptionHandler{print("💥 Exception thrown: \($0)")}
 
 /*:
  
- # Capabilities
- 
- ---
-
 To jest luźna interpretacja. Nie definiuję pojęcia obiektu ale nim się bawię.
 
  Tak więc _obiekt_ to wewnętrzny stan z połączonym zachowaniem. Klasa posiada metody i wewnętrzne property do których udostępnia set-ery i get-ery. Gdyby wywinąć ten model na drugą stronę to można powiedzieć, że chcemy mieć zachowanie z ukrytym stanem.
@@ -196,7 +192,7 @@ func logWithMessage<A>(_ message: String) -> (A) -> A {
  */
 
 run("📝 Could be used for logging...") {
-    let someStuffToBeDone = logWithMessage("Inout is: ")
+    let someStuffToBeDone = logWithMessage("Input is: ")
                                 >>> increment
                                 >>> logWithMessage("Output is: ")
     
@@ -239,7 +235,7 @@ func getUser(_ id: Int) -> String? {
 }
 
 /*:
- Ładne? Oto moja prywatna, szerzona baza danych. Kontrakt się zgadza w 100% z opisem! Nawet można sprawdzić czy działa:
+ Ładne? Oto moja prywatna baza danych. Kontrakt się zgadza w 100% z opisem! Nawet można sprawdzić czy działa:
  */
 
 run("👧🏼👦🏻👮‍♀️ Getting user directly with a method") {
@@ -289,7 +285,7 @@ func limit<A,B>(
     var localLimit = times
     
     func decorator(_ a: A) -> B? {
-        guard localLimit > 0  else { return nil }
+        guard localLimit > 0  else { return .none }
         localLimit -= 1
         
         return capability(a)
@@ -633,7 +629,7 @@ func debounced(
 /*:
  Wewnętrzny stan składa się z opcjonalnej instancji `DispatchWorkItem`. Służy ona do przechowania bloku jaki ma być wykonany. Instancje tej klasy mają metodę `cancel`, która pozwala anulować wywołanie bloku.
  
- Gdy ktoś wywoła to capability na samym początku jest anulowane _stare_ zadanie. Za pierwszym razem jest tam `.none` więc nic się nie wykona. Następnie tworzona jest instancja ``DispatchWorkItem` z blokiem do wykonania. Kolejka ma specjalną metodę, która pozwala na określenie kiedy ma zostać uruchomiony dany kawałek kodu.
+ Gdy ktoś wywoła to capability na samym początku jest anulowane _stare_ zadanie. Za pierwszym razem jest tam `.none` więc nic się nie wykona. Następnie tworzona jest instancja `DispatchWorkItem` z blokiem do wykonania. Kolejka ma specjalną metodę, która pozwala na określenie kiedy ma zostać uruchomiony dany kawałek kodu.
  */
 
 
@@ -673,5 +669,3 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
 }
 
 //: [Next](@next)
-
-print("🏁")
