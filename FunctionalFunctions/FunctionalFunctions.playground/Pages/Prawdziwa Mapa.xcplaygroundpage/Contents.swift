@@ -227,6 +227,9 @@ assertEqual(
 
  * [George Wilson - The Extended Functor Family](https://youtu.be/JZPXzJ5tp9w)
  * [Bow Swift GithHub](https://github.com/bow-swift/bow)
+ * [Haskell Adventures: Functors](https://dmitrytsepelev.dev/haskell-adventures-functors)
+
+
 */
 print("🍌")
 //: [Next](@next)
