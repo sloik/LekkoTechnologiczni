@@ -12,6 +12,11 @@ public func assertTrue(_ predicate: Bool) -> String {
 }
 
 @discardableResult
+public func assertFalse(_ predicate: Bool) -> String {
+    return predicate == false ? "✅" : "❌"
+}
+
+@discardableResult
 public func assertEqual<A: Equatable>(_ lhs: A, _ rhs: A) -> String {
     return lhs == rhs ? "✅" : "❌"
 }
