@@ -283,6 +283,7 @@ Takie API jest bardziej ergonomiczne. Ukrywa detal przechodzenia przez owijkę n
  * [Objc.io - Functional Snippet #13: Phantom Types](https://www.objc.io/blog/2014/12/29/functional-snippet-13-phantom-types/)
  * [Swift by Sundell - Phantom types in Swift](https://www.swiftbysundell.com/articles/phantom-types-in-swift/)
  * [Supercharge your handles using phantom types](https://luctielen.com/posts/supercharge_your_handles_with_phantom_types/)
+ * [objc.io - Swift Talk # 153 Making Impossible States Impossible](https://talk.objc.io/episodes/S01E153-making-impossible-states-impossible)
 */
 
 //: [Next](@next)
